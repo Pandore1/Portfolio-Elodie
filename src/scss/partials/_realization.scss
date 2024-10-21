@@ -1,0 +1,333 @@
+
+.realizationNav {
+
+  h1{
+    font-size: 2.3em;
+    flex-basis: 100%;
+    text-align: center;
+    position: relative;
+    color: var(--lightColor);
+    &::after{
+      content: "";
+      background-color: var(--secColor); 
+      height: 10px;
+      width: 50px;
+      border-radius: 50px 0 50px 0;
+      position: absolute;
+      top: 50%;
+    }
+  }
+  position: relative;
+
+  background: var(--primColor);
+  display: flex;
+  text-transform: capitalize;
+  flex-flow: row wrap;
+
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+ 
+}
+
+.specialityBox{
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 2em;
+  .specialityChoice {
+    border-bottom: 5px solid var(--secColor);
+  
+    display: flex;
+    align-items: center;
+    flex-basis: 45%;
+
+    color: var(--lightColor);
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      transform: scaleX(1.05) translateX(-50px);
+      transition: all 0.5s ease-in-out;
+      text-shadow: 1px 4px 1px var(--secColorHover);
+      cursor: grab;
+    }
+    a {
+      min-width: 100%;
+      height: 100%;
+   
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+}
+
+.realizationSection {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  gap:0 1.5em;
+  
+  .realization {
+   // animation: floatingRealization 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s infinite alternate;
+    height: 100%;
+    border-radius: 0 0 25px 25px;
+    .realizationTab {
+      background-color: var(--secColor);
+      width: 100%;
+      overflow: hidden;
+      min-height: 20px;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 25px 25px 0 0;
+      padding: 0.3em 1em;
+    
+      h3 {
+        color: var(--primColor);
+        font-size: 1.5em;
+        padding: 0;
+      }
+    }
+  
+    .imgBox {
+      position: relative;
+      border-radius: inherit;
+      background-color: var(--secColor);
+      img {
+        border-radius: inherit;
+      }
+      .resumeRealization {
+        position: absolute;
+        top: 0;
+       align-items: center;
+       text-align: center;
+        border-radius: inherit;
+        display: flex;
+        flex-flow: column nowrap;
+        z-index: 0;
+        width: 100%;
+        opacity: 0;
+        background-color: var(--primOpacity);
+        color: var(--lightColor);
+        height: 0;
+        transition: opacity 0.5s ease-in-out;
+        p {
+          margin: 1em;
+        }
+        button{
+          margin: 1em;
+          border-bottom: 0.3em solid var(--secColorHover);
+
+          min-width:40%;
+          background-color: var(--secColor);
+
+          color: var(--darkColor);
+          font-size: 1em;
+          &:hover{
+            background-color: var(--secColorHover);
+          }
+        }
+      }
+      &:hover {
+        .resumeRealization {
+          height: 100%;
+  
+          opacity: 100%;
+        }
+        img {
+          filter: blur(10px);
+        }
+      }
+    }
+  }
+}
+
+
+.realizationModal {
+  background-color: var(--lightColor);
+  border: 5px solid red;
+  border-radius: 25px;
+  font-size: 1.1em;
+  height: 100vh;
+  min-width: 100%;
+
+  display: none;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%,0);
+  z-index: 100;
+  
+  transition: transform 0.5s ease-in-out;
+  animation: openRealization 0.6s ease-in-out 0s 1 reverse forwards;
+
+
+  filter: drop-shadow(1em 0px 10px var(--primOpacity)),drop-shadow(1em 20px 10px var(--primOpacity));
+
+  &.open {
+    opacity: 1;
+    animation: openRealization 0.6s ease-in-out 0s 1 normal forwards;
+    display: flex;
+    
+    
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, display 1s ease-in-out;
+  }
+
+  .imgBox {
+    flex-basis: 45%;
+    video{
+      min-height: 100%;
+      height: 100%;
+    }
+  }
+  .realizationInfo {
+
+    display: flex;
+    min-height: 100%;
+    flex-basis: 50%;
+    flex-flow: column nowrap;
+   
+  }
+ 
+}
+
+.galleryContainer{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(100px,150px));
+  gap: 10px;
+  align-content: center;
+  h4{
+    flex-basis: 100%;
+  }
+  .imgBox{
+    border: 0.2em solid var(--darkColor);
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+
+  }
+
+}
+.moreBtn{
+    border: none;
+    max-width: 2.5em;
+    min-height: 2.5em;
+    background-color: var(--primColor);
+    color: var(--lightColor);
+    padding: 0.2em 0.2em;
+    .moreIcon{
+      max-width: 85%;
+      transform: rotate(0deg);
+
+  }
+  &:hover,&:active{
+    background-color: var(--primColorHover);
+  }
+  &.open:active,&:hover{
+    .moreIcon{
+        transform: rotateZ(45deg);
+    }
+  }
+  &.close{
+    transform: rotateZ(45deg);
+    align-self: flex-end;
+    &:active,&:hover{
+        .moreIcon{
+            transform: rotateZ(-45deg);
+        }
+       
+
+    }
+  }
+}
+
+//Skill Style
+.filterSkill{
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  min-width: 100%;
+  gap: 0.5em;
+  .skill{
+    mask-clip:content-box;
+    font-size: 1em;
+    position: relative;
+ 
+  }
+}
+
+
+
+.skillFilter,.skillList{
+display: flex;
+flex-flow: row wrap;
+padding: 0.5em 0;
+width: 100%;
+min-width: 100%;
+
+h3,p{
+  flex-basis: 100%;
+  color: var(--primColor);
+}
+.skill{
+    padding: 0.4em 0.8em;
+  
+    color: inherit;
+  transition: all 0.5s ease-in-out;
+
+
+
+}
+}
+.skillList{
+gap: 0.5em;
+.skill{
+  min-width: 5em;
+  font-size: 0.9em;
+} 
+
+}
+.figma{
+  border-color: var(--primColor);
+  background-color: var(--primOpacity);
+}
+.illustrator{
+  border-color: var(--secColor);
+  background-color: var(--secOpacity);
+}
+.scss,.css{
+  border-color: #00A5CF;
+  background-color: rgba( #00A5CF,0.4);
+}
+.alpine{
+  border-color: #FC7A1E;
+  background-color: rgba(#FC7A1E,0.4);
+}
+.afterEffect{
+  border-color: #FB8F67;
+  background-color: rgba(#FB8F67,0.4);
+}
+@keyframes floatingRealization {
+  0%{
+    transform: translateY(-20px);
+  }
+  100%{
+    transform: translateY(20px);
+
+  }
+  
+}
+@keyframes openRealization {
+  0%{
+    top:100vh;
+    opacity: 0;
+    transform:translate(-50%,0)
+  }
+  100%{
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%,-50%);
+  }
+  
+}

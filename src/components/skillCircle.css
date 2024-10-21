@@ -1,0 +1,16 @@
+.skillBox{
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: 60%;
+    gap: 1em;
+    justify-content: center;
+}
+.skillItem{
+    background-color: var(--sec-color);
+    padding: 1em;
+    max-width: 150px;
+    border-radius: 25px;
+}
+.skillItem>img{
+    filter: drop-shadow(2px 2px 2px var(--dark-color));
+}
