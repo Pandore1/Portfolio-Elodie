@@ -7,11 +7,12 @@ export default function RealizationTemplate({
     desc,
     type,
     skills,
-    previewImage,
-    fullImage,
     year,
     gallery,
-    iframeSrc,
+    previewImage,
+    fullImage,
+    webSite,
+    videoYt
 }) {
     const [isRealizationOpen, setIsRealizationOpen] = useState(false);
 
@@ -21,31 +22,52 @@ export default function RealizationTemplate({
     const realizationModalClose = () => {
         setIsRealizationOpen(false);
     }
-    function checkExtension(realizationFile){
-        return realizationFile.split('.').pop().toLowerCase();
-    }
-    const renderMedia = (file, iframeSource) => {
-        const extension = checkExtension(file);
-        if (iframeSource) {
+    function checkExtension(realizationFile) {
+        return realizationFile.split(".").pop().toLowerCase();
+      }
+    const renderMedia = (fullImage, webSite, videoYt) => {
+        // const extension = checkExtension(file);
+        
+        // Check for iframe source (website)
+        if (webSite) {
           return (
             <iframe
-              src={iframeSource}
-              title={title}
+              src={webSite}
+              title="Embedded Content"
               frameBorder="0"
-              style={{ width: "100%", height: "100%" }} // Adjust height as needed
+              style={{ width: "100%", height: "400px" }} // Adjust dimensions as needed
+              allowFullScreen
             />
           );
-        } else if (["jpg", "jpeg", "png", "gif", "bmp", "webp"].includes(extension)) {
-          return <img src={file} alt={title} style={{ width: "100%" }} />;
-        } else if (["mp4", "webm", "ogg"].includes(extension)) {
-          return <video src={file} controls style={{ width: "100%", minHeight:"100%" }} />;
+        
+        // Check for YouTube video or other video source
+        } else if (videoYt) {
+          return (
+            <video 
+            src={videoYt.replace("watch?v=", "embed/")}
+              controls 
+              style={{ width: "100%", minHeight: "400px" }} 
+            />
+          );
+        
+        // Check for image types (e.g., jpg, png, etc.)
+        } else if (fullImage) {
+          return (
+            <img 
+              src={fullImage} 
+              alt="Realization Media" 
+              style={{ width: "100%", height: "auto" }} 
+            />
+          );
+        
+        // If the file type is unsupported
         } else {
           return <p>Unsupported file type</p>;
         }
       };
     return (
         <>
-            <div id={id} className="realization col-3">
+            <div id={id} className="realization">
                 <div className="realizationTab">
                     <h3>{title}</h3>
                     <OpenMoreBtn isOpen={true} clicked={realizationModalOpen} />
@@ -62,7 +84,7 @@ export default function RealizationTemplate({
             <div className={`realizationModal ${isRealizationOpen ? 'open' : ''}`}>
              
                 <div className="imgBox">
-                    {renderMedia(fullImage,iframeSrc)}
+                {renderMedia(fullImage|| webSite||videoYt)}
                 </div>
                 <div className="realizationInfo">
                     <OpenMoreBtn isOpen={false} clicked={realizationModalClose} />

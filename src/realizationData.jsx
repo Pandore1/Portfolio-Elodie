@@ -14,9 +14,10 @@ const realizationData = [
         }
       ],
       previewImage: "./EFC-Graphique.mp4",
-      fullImage: "./EFC-Graphique.mp4",
-      year: "2020",
-      iframeSrc:"https://dev.timmatane.ca/etudiants/2022/picarde/dw-tp1/",
+      fullImage: "",
+      year: "2023",
+      webSite:null,
+      videoYt:"https://youtu.be/h5Tka_dxWw8",
       gallery:[
         "../redPandaHead.png",
         "../dog.jpg"
@@ -38,9 +39,10 @@ const realizationData = [
           }
         ],
         previewImage: "./chaton.jpeg",
-        fullImage: "./EFC-Graphique.mp4",
-        year: "2020",
-        iframeSrc:null,
+        fullImage: "https://youtu.be/J0yam9FtWs8",
+        year: "2023",
+        webSite:null,
+        videoYt:"https://youtu.be/J0yam9FtWs8",
         gallery:[
          
           "./dog.jpg"
@@ -48,6 +50,7 @@ const realizationData = [
         ]
 
       },
+    
       {
         title: "Chroniques de Foster",
         desc: "Pour projet multimédia 1, nous devions",
@@ -69,7 +72,8 @@ const realizationData = [
         previewImage: "./chaton.jpeg",
         fullImage: "./EFC-Graphique.mp4",
         year: "2023",
-        iframeSrc:null,
+        webSite:null,
+        videoYt:null,
         gallery:[
           "../redPandaHead.png",
           

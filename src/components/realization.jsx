@@ -63,12 +63,14 @@ return (
           id={idx}
           title={realizationItem.title}
           desc={realizationItem.desc}
-          previewImage={realizationItem.previewImage}
           skills={realizationItem.skills}  
-          fullImage={realizationItem.fullImage}
           type={realizationItem.type}
           year={realizationItem.year}
-          iframeSrc={realizationItem.iframeSrc}
+          previewImage={realizationItem.previewImage}
+
+          fullImage={realizationItem.fullImage}
+          videoYt={realizationItem.videoYt}
+          webSite={realizationItem.webSite}
           gallery={realizationItem.gallery}
   
         />

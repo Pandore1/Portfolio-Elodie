@@ -64,11 +64,14 @@
   position: relative;
   display: flex;
   flex-flow: row wrap;
+  align-content: stretch;
   gap:0 1.5em;
   
   .realization {
+    border: 4px solid red;
    // animation: floatingRealization 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s infinite alternate;
-    height: 100%;
+    min-height: 100%;
+    flex-basis: 20%;
     border-radius: 0 0 25px 25px;
     .realizationTab {
       background-color: var(--secColor);
@@ -83,6 +86,7 @@
       h3 {
         color: var(--primColor);
         font-size: 1.5em;
+        white-space:nowrap;
         padding: 0;
       }
     }
@@ -143,7 +147,7 @@
 
 .realizationModal {
   background-color: var(--lightColor);
-  border: 5px solid red;
+  border: 5px solid var(--darkColor);
   border-radius: 25px;
   font-size: 1.1em;
   height: 100vh;
@@ -300,11 +304,12 @@ gap: 0.5em;
   border-color: #00A5CF;
   background-color: rgba( #00A5CF,0.4);
 }
+/*
 .alpine{
   border-color: #FC7A1E;
   background-color: rgba(#FC7A1E,0.4);
-}
-.afterEffect{
+}*/
+.afterEffect,.alpine{
   border-color: #FB8F67;
   background-color: rgba(#FB8F67,0.4);
 }
