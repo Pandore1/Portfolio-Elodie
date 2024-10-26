@@ -112,26 +112,38 @@ main>section{
     background-color: var(--primColor);
     min-height: 10vh;
     position: relative;
-    padding: 2em 5em;
+    padding: 2em;
+
     color: var(--lightColor);
-    h3{
-        color: var(--secColor);
-        font-size: 2em;
-    }
+ 
+ }
+ .contactSection{
+    display: flex;
+    justify-content:flex-end;
+    flex-flow: row wrap;
+
+    
     .contactForm{
         display: flex;
         flex-flow: row wrap;
-        gap: 0.5em;
+        h2{
+            color: var(--primColor);
+            font-size: 2em;
+        }
+    
      
         .contactInput{
+            width: 100%;
            label{
-           font-size: 1.1em;
+           font-size: 1.2em;
+           font-weight: 500;
            }
             input {
+                font-family: var(--textFont);
                 font-size: 1em;
                 padding: 5px 13px;
                 width: 100%;
-                margin-top: 1em;
+                margin-top: 0.2em;
                 outline: none;
                 background: var(--lightColor);
                 color: var(--darkColor);
@@ -146,13 +158,21 @@ main>section{
                 }
                 &::placeholder{
                     color: var(--darkColor);
+                    font-family: var(--textFont);
+    
                 }
             }
             
         }
-   
+    .contactBtn{
+    margin-top: 2em;
+    font-size: 1.2em;
+    background-color: var(--secColor);
+    border-color:var(--secColorHover);
+    }
       
         
         
     }
  }
+ 

@@ -146,26 +146,36 @@ footer {
   background-color: var(--primColor);
   min-height: 10vh;
   position: relative;
-  padding: 2em 5em;
+  padding: 2em;
   color: var(--lightColor);
 }
-footer h3 {
-  color: var(--secColor);
-  font-size: 2em;
+
+.contactSection {
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: row wrap;
 }
-footer .contactForm {
+.contactSection .contactForm {
   display: flex;
   flex-flow: row wrap;
-  gap: 0.5em;
 }
-footer .contactForm .contactInput label {
-  font-size: 1.1em;
+.contactSection .contactForm h2 {
+  color: var(--primColor);
+  font-size: 2em;
 }
-footer .contactForm .contactInput input {
+.contactSection .contactForm .contactInput {
+  width: 100%;
+}
+.contactSection .contactForm .contactInput label {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.contactSection .contactForm .contactInput input {
+  font-family: var(--textFont);
   font-size: 1em;
   padding: 5px 13px;
   width: 100%;
-  margin-top: 1em;
+  margin-top: 0.2em;
   outline: none;
   background: var(--lightColor);
   color: var(--darkColor);
@@ -174,16 +184,24 @@ footer .contactForm .contactInput input {
   box-shadow: 3px 3px 2px 0px #E2E2E2;
   transition: 0.3s ease;
 }
-footer .contactForm .contactInput input:focus {
+.contactSection .contactForm .contactInput input:focus {
   background: #F2F2F2;
   border: 1px solid var(--secColor);
   border-radius: 10px;
 }
-footer .contactForm .contactInput input::-moz-placeholder {
+.contactSection .contactForm .contactInput input::-moz-placeholder {
   color: var(--darkColor);
+  font-family: var(--textFont);
 }
-footer .contactForm .contactInput input::placeholder {
+.contactSection .contactForm .contactInput input::placeholder {
   color: var(--darkColor);
+  font-family: var(--textFont);
+}
+.contactSection .contactForm .contactBtn {
+  margin-top: 2em;
+  font-size: 1.2em;
+  background-color: var(--secColor);
+  border-color: var(--secColorHover);
 }
 
 .menuBox {
@@ -572,9 +590,6 @@ footer .contactForm .contactInput input::placeholder {
   display: flex;
   flex-flow: row wrap;
   min-width: 100%;
-}
-.skillFilter h3, .skillFilter p, .skillList h3, .skillList p {
-  color: var(--primColor);
 }
 .skillFilter .skill, .skillList .skill {
   padding: 0.4em 0.8em;

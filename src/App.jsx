@@ -25,6 +25,34 @@ function App() {
           </p>
         </section>
       <Realization></Realization>
+      <section id='contact' className="contactSection col-4">
+            <form  className="contactForm col-5" action="">
+            <h2 className="col-12">Contact</h2>
+            <input type="file" name="" id="" />
+            <div className="contactInput " > 
+                    <label htmlFor="name">Nom et prénom</label>
+                <input type="name" placeholder="Nom et Prénom" name="nameInput" required id="name" />
+
+                </div>
+                <div className="contactInput " > 
+                    <label htmlFor="email">Adresse Courriel</label>
+                <input type="email" placeholder="Adresse courriel" name="emailInput" required id="email" />
+
+                </div>
+                <div className="contactInput" > 
+                    <label htmlFor="phone">Téléphone</label>
+                <input type="tel" placeholder="Téléphone" name="phoneInput" required id="phone" />
+
+                </div>
+                <div className="contactInput" > 
+                    <label htmlFor="message">Téléphone</label>
+                <input type="tel" placeholder="Votre Message" name="phoneInput" required id="phone" />
+
+                </div>
+             
+              <button className="col-8 contactBtn" type="submit">Envoyer</button>
+            </form>
+           </section>
       </main>
       <Footer></Footer>
   
