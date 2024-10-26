@@ -1,20 +1,44 @@
+*::-webkit-scrollbar {
+    height: 10px;
+    width: 12px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #DFE9EB;
+  }
+  
+  *::-webkit-scrollbar-track:hover, *::-webkit-scrollbar-track:active  {
+    background-color: #B8C0C2;
+  }
+  
+ 
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color:var(--secColorHover);
+  }
+  
+  *::-webkit-scrollbar-thumb:hover,*::-webkit-scrollbar-thumb:active{
+    background-color: var(--secColor);
+  }
+  
+ 
+
 .App{
+  
+    background-color: var(--lightColor);
+    font-family: var(--textFont);
+    color:var(--darkColor);
     width: 100%;
-    height: 100%; 
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
     box-sizing: border-box;
-    font-size: 1.1em;
-}
-.separationCurve{
-    min-width: min-content;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-
-
-    min-height: min-content;
-    top:-10%;
 }
 
+main{
+    flex-grow: 1;
+}
 main>section{
     max-width: 90%;
     min-width: 80%;
@@ -25,43 +49,44 @@ main>section{
     display: flex;
     justify-content: center;
     align-items: center;
+    img{
+        max-width: 100%;
+        height: auto;
+    }
     
     
  }
- .imgBox>img{
-     max-width: 100%;
-     height: auto;
- }
+ 
 
  .backgroundHeader{
     background:no-repeat  url('src/assets/ordi.jpeg') center/cover  fixed;
     text-align: center;
     padding: 3% auto;
-    position: relative;
+  
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 1em;
+    justify-content: space-around;
+
     color: var(--lightColor);
     font-size: 2em;
     min-width:100%;
-    min-height: 100vh;
+    min-height: 90vh;
+    z-index: 0;
     h1{
         text-shadow: 0.1em  0.01em var(--primColor);
+        backdrop-filter: blur(5px);
+
+        border-radius: 50px;
     }
-    z-index: 0;
+ 
     .arrowScrollBtn{
-        
-        width: 6em;
-        height: 6em;
        
-        background-color: transparent;
-        justify-self: end;
-        text-align: center;
+        justify-self: last baseline;
+        
         filter: drop-shadow(0.2em 0.2em 0.5em var(--secColor))drop-shadow(0.2em 0.2em 0.2em var(--secColor));
         animation: ArrowScroll 2s ease-in-out 0.5s infinite both;
-        border: none;
+
     }
  }
 
@@ -75,27 +100,59 @@ main>section{
 
    margin:0 auto;
 
-   clip-path: polygon(0 -20%, 100% 35%, 100% 100%, 0% 100%);
    position: relative;
 
 	
     p{
         max-width: 500px;
-        //transform: skew(5deg, 5deg);
     }
     
  }
- @keyframes ArrowScroll {
-    0%{
-        transform: translateY(0);
+ footer{
+    background-color: var(--primColor);
+    min-height: 10vh;
+    position: relative;
+    padding: 2em 5em;
+    color: var(--lightColor);
+    h3{
+        color: var(--secColor);
+        font-size: 2em;
     }
-
-  
-    50%{
-        transform: translateY(50px);
+    .contactForm{
+        display: flex;
+        flex-flow: row wrap;
+        gap: 0.5em;
+     
+        .contactInput{
+           label{
+           font-size: 1.1em;
+           }
+            input {
+                font-size: 1em;
+                padding: 5px 13px;
+                width: 100%;
+                margin-top: 1em;
+                outline: none;
+                background: var(--lightColor);
+                color: var(--darkColor);
+                border: 0.2em solid #C4D1EB;
+                border-radius: 10px;
+                box-shadow: 3px 3px 2px 0px #E2E2E2;
+                transition: .3s ease;
+                &:focus{
+                    background: #F2F2F2;
+                    border: 1px solid var(--secColor);
+                    border-radius: 10px;
+                }
+                &::placeholder{
+                    color: var(--darkColor);
+                }
+            }
+            
+        }
+   
+      
+        
+        
     }
-    100%{
-        transform: translateY(0px);
-    }
-    
  }

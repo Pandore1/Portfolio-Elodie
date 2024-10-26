@@ -36,25 +36,26 @@ return (
  
       {/* <img  className="separationCurve" src={Curve} alt="" /> */}
     
-      <h1>Choisir la spécialiation</h1>
+      <h1 className="col-12">Choisir la spécialiation</h1>
       <div className="imgBox col-5">
-        <img className="" src={meHeader} alt="" />
+        <img src={meHeader} alt="" />
       </div>
       <div className="col-6 specialityBox">
-        <div id="design" className="specialityChoice">
-          <a href="">
+       
+          <a id="design" className="specialityChoice col-12" href="">
             <h2>Design</h2>
           </a>
-        </div>
-        <div id="developpement" className="specialityChoice">
-          <h2>Développement</h2>
-        </div>
+        
+        
+          <a id="developpement" className="col-12 specialityChoice" href=""> <h2>Développement</h2></a>
+         
+        
       </div>
     </nav>
     <section id="realization" className="realizationSection">
       <h2>Mes Réalisations:</h2>
-      <div className="skillFilter col-12">
-        <p>Rechercher par compétence</p>
+      <div className="skillFilter">
+        <p className="col-12">Rechercher par compétence</p>
         <SkillBtn filterSkill={filterSkill} menuSkill={menuSkill} />
       </div>
       {realization.map((realizationItem, idx) => ( // Render filtered realizations

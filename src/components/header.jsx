@@ -15,7 +15,7 @@ export default function Header() {
                 <h5>Développeuse Front-end, Designeuse</h5>
                     
              
-                <button className="arrowScrollBtn"><a href="#about"><img src={ArrowScroll} alt="" /></a></button>
+               <a href="#about" className="arrowScrollBtn"><img src={ArrowScroll} alt="" /></a>
             </div>
          
           

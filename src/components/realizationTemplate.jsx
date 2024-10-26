@@ -22,52 +22,69 @@ export default function RealizationTemplate({
     const realizationModalClose = () => {
         setIsRealizationOpen(false);
     }
+  
+    
     function checkExtension(realizationFile) {
-        return realizationFile.split(".").pop().toLowerCase();
-      }
+      return realizationFile.split(".").pop().toLowerCase();
+    }
+    
     const renderMedia = (fullImage, webSite, videoYt) => {
-        // const extension = checkExtension(file);
-        
-        // Check for iframe source (website)
-        if (webSite) {
-          return (
-            <iframe
-              src={webSite}
-              title="Embedded Content"
-              frameBorder="0"
-              style={{ width: "100%", height: "400px" }} // Adjust dimensions as needed
-              allowFullScreen
-            />
-          );
-        
-        // Check for YouTube video or other video source
-        } else if (videoYt) {
-          return (
-            <video 
-            src={videoYt.replace("watch?v=", "embed/")}
-              controls 
-              style={{ width: "100%", minHeight: "400px" }} 
-            />
-          );
-        
-        // Check for image types (e.g., jpg, png, etc.)
-        } else if (fullImage) {
-          return (
-            <img 
-              src={fullImage} 
-              alt="Realization Media" 
-              style={{ width: "100%", height: "auto" }} 
-            />
-          );
-        
-        // If the file type is unsupported
-        } else {
-          return <p>Unsupported file type</p>;
-        }
-      };
+      if (webSite) {
+        return (
+          <iframe
+            src={webSite}
+            title="Embedded Content"
+            frameBorder="0"
+            style={{ width: "100%", height: "400px" }}
+            allowFullScreen
+          />
+        );
+      }
+    
+      const youtubeUrl = fullImage || videoYt;
+      if (youtubeUrl && (youtubeUrl.includes("youtube.com") || youtubeUrl.includes("youtu.be"))) {
+        const embedUrl = youtubeUrl.includes("watch?v=") 
+          ? youtubeUrl.replace("watch?v=", "embed/")
+          : youtubeUrl.replace("youtu.be/", "youtube.com/embed/");
+    
+        return (
+          <iframe
+            className="ytVideo"
+            src={embedUrl}
+            title="YouTube video player"
+            frameBorder="0"
+            style={{ width: "100%", height: "400px" }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        );
+      }
+    
+      if (videoYt && ["mp4", "webm", "ogg"].includes(checkExtension(videoYt))) {
+        return (
+          <video
+            src={videoYt}
+            controls
+            style={{ width: "100%", minHeight: "400px" }}
+          />
+        );
+      }
+    
+      if (fullImage && ["jpg", "jpeg", "png", "gif", "bmp", "webp"].includes(checkExtension(fullImage))) {
+        return (
+          <img
+            src={fullImage}
+            alt="Realization Media"
+            style={{ width: "100%", height: "auto" }}
+          />
+        );
+      }
+    
+      return <p>Unsupported file type</p>;
+    };
     return (
         <>
-            <div id={id} className="realization">
+            <div id={id} className="realization col-3">
                 <div className="realizationTab">
                     <h3>{title}</h3>
                     <OpenMoreBtn isOpen={true} clicked={realizationModalOpen} />
@@ -84,15 +101,15 @@ export default function RealizationTemplate({
             <div className={`realizationModal ${isRealizationOpen ? 'open' : ''}`}>
              
                 <div className="imgBox">
-                {renderMedia(fullImage|| webSite||videoYt)}
+                {renderMedia(webSite||videoYt||fullImage)}
                 </div>
-                <div className="realizationInfo">
+                <div className="realizationInfo col-6 container">
                     <OpenMoreBtn isOpen={false} clicked={realizationModalClose} />
                     <h2>{title}</h2>
                     <p>{desc}</p>
                     <p>{year}</p>
                     <div className="skillList">
-                        <h3>Compétences nécessaires</h3>
+                        <h3 className="col-12">Compétences nécessaires</h3>
                         {skills.map((skill, index) => (
                             <button disabled key={index} className={`skill ${skill.skillClass}`}>
                                 {skill.skillName}
@@ -100,10 +117,10 @@ export default function RealizationTemplate({
                         ))}
                     </div>
                     <div className="galleryContainer">
-                        <h4>Galerie d'image</h4>
+                        <h3 className="col-12">Galerie d'image</h3>
                     {gallery.map((image, index) => (
-          <div className="imgBox galleryImage" key={index}>
-            <img src={image} alt={`Gallery image ${index + 1}`} />
+          <div className="imgGallery imgBox col-6" key={index}>
+            <img  src={image} alt={`Gallery image ${index + 1}`} />
           </div>
         ))}
                     </div>

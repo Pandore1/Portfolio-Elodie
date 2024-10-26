@@ -14,10 +14,10 @@ const realizationData = [
         }
       ],
       previewImage: "./EFC-Graphique.mp4",
-      fullImage: "",
+      fullImage: null,
       year: "2023",
       webSite:null,
-      videoYt:"https://youtu.be/h5Tka_dxWw8",
+      videoYt:"https://www.youtube.com/watch?v=h5Tka_dxWw8",
       gallery:[
         "../redPandaHead.png",
         "../dog.jpg"
@@ -39,10 +39,10 @@ const realizationData = [
           }
         ],
         previewImage: "./chaton.jpeg",
-        fullImage: "https://youtu.be/J0yam9FtWs8",
+        fullImage: null,
         year: "2023",
         webSite:null,
-        videoYt:"https://youtu.be/J0yam9FtWs8",
+        videoYt:"https://www.youtube.com/watch?v=J0yam9FtWs8",
         gallery:[
          
           "./dog.jpg"
@@ -70,7 +70,7 @@ const realizationData = [
           }
         ],
         previewImage: "./chaton.jpeg",
-        fullImage: "./EFC-Graphique.mp4",
+        fullImage: "./chaton.jpeg",
         year: "2023",
         webSite:null,
         videoYt:null,

@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react"
-import './shapes.css';
+
 export default function Blob(){
     return (
         <>

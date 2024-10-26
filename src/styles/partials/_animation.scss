@@ -1,0 +1,39 @@
+@keyframes floatingRealization {
+    0%{
+      transform: translateY(-20px);
+    }
+    100%{
+      transform: translateY(20px);
+  
+    }
+    
+  }
+  @keyframes openRealization {
+    0%{
+      top:100vh;
+      opacity: 0;
+      transform:translate(-50%,0);
+      transition: all 0.5s cubic-bezier(0.72, 0.28, 0.37, 0.89);
+    }
+    100%{
+      top: 0;
+      opacity: 1;
+      transform: translate(-50%,0vh);
+      transition: all 0.5s cubic-bezier(0.72, 0.28, 0.37, 0.89);
+    }
+    
+  }
+  @keyframes ArrowScroll {
+    0%{
+        transform: translateY(0);
+    }
+
+  
+    50%{
+        transform: translateY(50px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+    
+ }

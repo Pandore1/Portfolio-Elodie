@@ -1,17 +1,10 @@
 html{
     scroll-behavior: smooth;
 }
-body{
-    background-color: var(--lightColor);
-    font-family: var(--textFont);
-    width: 100%;
-    min-height: 100vh;
-    color:var(--darkColor);
-}
+
 
 a{
     text-decoration: none;
-    font-weight: 500;
     color: inherit;
 }
 
@@ -20,26 +13,29 @@ h1,h2,h3,h4,h5,h6,a,button{
 
 }
 a,button{
+    font-weight: 600;
     cursor: pointer;
 }
 button{
-    border: none;
+   
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: var(--titleFont);
     padding:0.3em 0.4em;
     text-align: center;
-    font-weight: 600;
+    
+    border: none;
     border-bottom-style:solid;
     border-bottom-width:0.3em;
-
     border-radius: 50px;
+
     transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     transform: scale(1);
 
 }
 button:hover{
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
     transform: scale(1.09);
 }

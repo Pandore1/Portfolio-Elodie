@@ -1,9 +1,10 @@
-import './style.css';
+import './styles/style.css';
 
 
 //import imageUrl from "util/types"
 import Blob from "./components/blob";
 import Header from './components/header';
+import Footer from './components/footer';
 import Realization from './components/realization';
 import Curve from "./assets/curve.png";
 function App() {
@@ -25,10 +26,7 @@ function App() {
         </section>
       <Realization></Realization>
       </main>
-      <footer>
-        <h2>Contact</h2>
-          
-      </footer>
+      <Footer></Footer>
   
       
       
