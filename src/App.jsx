@@ -7,7 +7,9 @@ import Realization from './components/realization';
 import meHeader from "./assets/personne.png";
 import Star from "./assets/star.svg";
 import Splash from "./assets/splash.svg";
-import Curve from "./assets/curve.png";
+import CurveWhitePurple from "./assets/curveWhitePurple.png";
+import CurvePurpleWhite from "./assets/curvePurpleWhite.png";
+import CurveWhiteDark from "./assets/curveWhiteDark.png";
 function App() {
  
 
@@ -18,7 +20,7 @@ function App() {
       <Header/>
       <main>
 
-        <section id='about' className='aboutSection'>
+        <section id='about' className='aboutSection col-5'>
           
           <h2>À propos</h2>
           <p>
@@ -63,8 +65,8 @@ function App() {
 
                 </div>
                 <div className="contactInput" > 
-                    <label htmlFor="message">Téléphone</label>
-                    <textarea placeholder="Votre Message" name="phoneInput" required id="phone"  ></textarea>
+                    <label htmlFor="message">Votre Message</label>
+                    <textarea placeholder="Votre Message" name="phoneInput" required id="message"  ></textarea>
 
                 </div>
              
@@ -73,6 +75,7 @@ function App() {
            </section>
       </main>
       <footer>
+        <img src={CurveWhiteDark} className='curve whitePurple' alt="" />
  
         
  <p>Élodie Picard 2024</p>

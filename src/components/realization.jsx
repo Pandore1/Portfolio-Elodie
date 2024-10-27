@@ -4,7 +4,8 @@ import realizationData from "../realizationData";
 import SkillBtn from "./skillBtn";
 import meHeader from "../assets/personne.png";
 import Curve from "../assets/curve.png";
-
+import CurveWhitePurple from "../assets/curveWhitePurple.png";
+import CurvePurpleWhite from "../assets/curvePurpleWhite.png";
 
 export default function Realization() {
   const [realization, setRealization] = useState(realizationData);
@@ -34,7 +35,10 @@ return (
   <>
     <nav className="realizationNav">
  
-      {/* <img  className="separationCurve" src={Curve} alt="" /> */}
+    <div className="curveBox curveTop">
+      <img  className="curve whitePurple" src={CurveWhitePurple} alt="" />
+
+      </div>
     
       <h1 className="col-12">Choisir la spécialisation</h1>
       <div className="imgBox col-5">
@@ -51,6 +55,11 @@ return (
          
         
       </div>
+      <div className="curveBox curveBottom">
+      <img  className="curve purpleWhite" src={CurvePurpleWhite} alt="" />
+
+      </div>
+
     </nav>
     <section id="realization" className="realizationSection">
       <h2>Mes Réalisations:</h2>
