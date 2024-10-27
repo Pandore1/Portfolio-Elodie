@@ -26,6 +26,21 @@ export default function Navbar(){
 }
     return(
         <nav  className={`menuBox${burgerOpen?' open':''}`}>
+        <div className="burgerIcon" onClick={toggleBurgerNav}>
+            <div className="burgerLine">
+
+            </div>
+
+        </div>
+        <ul className="menu col-5">
+            <li className="tab"><a className="tabLink" link-name='Accueil' href="">Accueil</a></li>
+            <li className="tab"><a className="tabLink" link-name='Réalisation' href="#realization">Réalisation</a></li>
+            <li className="tab"><a className="tabLink" link-name='Contact' href="#contact">Contact</a></li>
+
+        </ul>
+    </nav>
+        /*
+        <nav  className={`menuBox${burgerOpen?' open':''}`}>
             <div className="burgerIcon" onClick={toggleBurgerNav}>
                 <div className="burgerLine">
 
@@ -38,6 +53,6 @@ export default function Navbar(){
                 <li className="tab"><a className="tabLink" link-name='Contact' href="#contact">Contact</a></li>
 
             </ul>
-        </nav>
+        </nav>*/
     )
 }

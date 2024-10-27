@@ -7,8 +7,9 @@ $darkColor:#332C23;
 $secColor: #8ECD91;
 $secOpacity:rgba($secColor,0.4);
 $secColorHover:darken($secColor,20);
-$primColorHover:lighten($primColor,10);
-$primDark:darken($primColor,12);
+$primColorHover:lighten($primColor,2);
+$primDark:darken($primColor,10);
+$darkOpacity:rgba($darkColor,0.3);
 
 
 :root{
@@ -19,6 +20,7 @@ $primDark:darken($primColor,12);
     --primOpacity:#{$primOpacity};
     --lightColor:#{$lightColor};
     --darkColor: #{$darkColor};
+    --darkOpacity:#{$darkOpacity};
     --secColor:#{$secColor};
     --secOpacity:#{$secOpacity};
     --colorOpactiy:$colorOpacity;
@@ -27,3 +29,8 @@ $primDark:darken($primColor,12);
     --textFont:'Open Sans','Arial','Helvetica',sans-serif;
 }
 
+@mixin responsive($breakpoint) {
+    @media screen and (max-width: $breakpoint) {
+      @content;
+    }
+  }

@@ -42,6 +42,9 @@ main > section {
   max-width: 90%;
   min-width: 80%;
   margin: 3em auto;
+  @include responsive(768px){
+    max-width: 95%;
+  }
 }
 .imgBox {
   overflow: hidden;
@@ -58,7 +61,6 @@ main > section {
   background: no-repeat url("src/assets/ordi.jpeg") center/cover fixed;
   text-align: center;
   padding: 3% auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,20 +88,24 @@ main > section {
 }
 
 .aboutSection {
+    margin-top: 0;
   display: flex;
   color: var(--lightColor);
-  
   background-color: var(--primDark);
   flex-direction: column;
-
-  gap: 3em;
   padding: 2em 4em;
-
-
-  position: relative;
-
+  @include responsive(768px){
+    padding: 2em;
+    p{
+      
+        min-width: 90%;
+    }
+   
+  }
   p {
-    max-width: 500px;
+    text-align: justify;
+    max-width: 60%;
+  
   }
 }
 footer {
@@ -112,7 +118,6 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-flow: row wrap;
-  max-width: 80%;
 
   .contactForm {
     display: flex;
@@ -199,33 +204,25 @@ footer {
 }
 }
 
-.iconSvg{
-    position: absolute;
-    z-index: 0;
-}
+
 .curveBox{
     position: relative;
-    width: 100%;
-    min-height: 4em;
-    &.curveTop{
-        margin-bottom: 6em;
-    }
-    &.curveBottom{
-        margin-top: 5em;
-    }
+    max-width: 100vw;
+    min-width: 100%;
+    min-height: 2.5em;
     .curve{
         position: absolute;
-        filter: drop-shadow(0px -20px 10px var(--lightColor));
-     
-    
         &.whitePurple,&.whiteDark{
            
-            top: -3.4em;
-            
+            top: -3.3em;
+            filter: drop-shadow(0px -1.1em 0.4em var(--lightColor));
+
             
         }
         &.purpleWhite,&.darkWhite{
-            bottom: -3em;
+            bottom: -3.5em;
+            filter: drop-shadow(0px 1em 0.1em var(--lightColor));
+
         }
     }
 }

@@ -35,7 +35,7 @@ return (
   <>
     <nav className="realizationNav">
  
-    <div className="curveBox curveTop">
+    <div className="curveBox">
       <img  className="curve whitePurple" src={CurveWhitePurple} alt="" />
 
       </div>
@@ -55,7 +55,7 @@ return (
          
         
       </div>
-      <div className="curveBox curveBottom">
+      <div className="curveBox">
       <img  className="curve purpleWhite" src={CurvePurpleWhite} alt="" />
 
       </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import OpenMoreBtn from "./moreBtn";
+import CurveWhitePurple from "../assets/curveWhitePurple.png";
 
 export default function RealizationTemplate({
   title,
@@ -93,7 +94,7 @@ export default function RealizationTemplate({
     <>
       <article id={id} className="realization col-3">
         <div className="realizationTab">
-          <h3>{title}</h3>
+          <h3 className="realizationTitle">{title}</h3>
           <OpenMoreBtn isOpen={true} clicked={realizationModalOpen} />
         </div>
         <div className="imgBox">
@@ -108,10 +109,11 @@ export default function RealizationTemplate({
         className={`realizationModal ${isRealizationOpen ? "open" : ""}`}
       >
         <div className="realizationTab">
-          {" "}
-          <h2 className="col-12">{title}</h2>
+          
+          <h2 className="realizationTitle col-12">{title}</h2>
           <OpenMoreBtn isOpen={false} clicked={realizationModalClose} />
         </div>
+        <div className="col-12 realizationContent">
         <div className="imgBox">
           {renderMedia(webSite || videoYt || fullImage)}
         </div>
@@ -143,6 +145,12 @@ export default function RealizationTemplate({
             ))}
           </div>
         </div>
+        </div>
+        
+        <div className="curveBox">
+      <img  className="curve whitePurple" src={CurveWhitePurple} alt="" />
+
+      </div>
       </article>
     </>
   );
