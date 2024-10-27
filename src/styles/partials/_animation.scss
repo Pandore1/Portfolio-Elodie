@@ -16,10 +16,12 @@
       transition: all 0.5s cubic-bezier(0.72, 0.28, 0.37, 0.89);
     }
     100%{
-      top: 0;
+      top: 2vh;
       opacity: 1;
       transform: translate(-50%,0vh);
       transition: all 0.5s cubic-bezier(0.72, 0.28, 0.37, 0.89);
+   
+
     }
     
   }
@@ -36,4 +38,21 @@
         transform: translateY(0px);
     }
     
+ }
+ @keyframes openBurger {
+  0%{
+    align-items: center;
+    min-width: 10em;
+    min-height: 9em;
+    filter: drop-shadow(5px 5px 10px var(--darkColor));
+    transition: all 0.5 ease;
+  }
+  100%{
+    align-items: end;
+    min-height: 25em;
+    min-width: 25em;
+    filter: drop-shadow(20px 20px 10px var(--darkColor)) drop-shadow(-20px 0px 10px var(--darkColor));
+
+  }
+  
  }

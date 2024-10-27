@@ -1,178 +1,203 @@
 *::-webkit-scrollbar {
-    height: 10px;
-    width: 12px;
-  }
-  *::-webkit-scrollbar-track {
-    border-radius: 5px;
-    background-color: #DFE9EB;
-  }
-  
-  *::-webkit-scrollbar-track:hover, *::-webkit-scrollbar-track:active  {
-    background-color: #B8C0C2;
-  }
-  
- 
-  
-  *::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background-color:var(--secColorHover);
-  }
-  
-  *::-webkit-scrollbar-thumb:hover,*::-webkit-scrollbar-thumb:active{
-    background-color: var(--secColor);
-  }
-  
- 
-
-.App{
-  
-    background-color: var(--lightColor);
-    font-family: var(--textFont);
-    color:var(--darkColor);
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-flow: column nowrap;
-    box-sizing: border-box;
+  height: 10px;
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #dfe9eb;
 }
 
-main{
-    flex-grow: 1;
+*::-webkit-scrollbar-track:hover,
+*::-webkit-scrollbar-track:active {
+  background-color: #b8c0c2;
 }
-main>section{
-    max-width: 90%;
-    min-width: 80%;
-    margin:3%  auto;
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--secColorHover);
 }
-.imgBox{
-    overflow: hidden;
+
+*::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--secColor);
+}
+
+.App {
+  background-color: var(--lightColor);
+  font-family: var(--textFont);
+  color: var(--darkColor);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  box-sizing: border-box;
+}
+
+main {
+  flex-grow: 1;
+}
+main > section {
+  max-width: 90%;
+  min-width: 80%;
+  margin: 3% auto;
+}
+.imgBox {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.backgroundHeader {
+  background: no-repeat url("src/assets/ordi.jpeg") center/cover fixed;
+  text-align: center;
+  padding: 3% auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  color: var(--lightColor);
+  font-size: 2em;
+  min-width: 100%;
+  min-height: 90vh;
+  z-index: 0;
+  h1 {
+    text-shadow: 0.1em 0.01em var(--primColor);
+    backdrop-filter: blur(5px);
+
+    border-radius: 50px;
+  }
+
+  .arrowScrollBtn {
+    justify-self: last baseline;
+
+    filter: drop-shadow(0.2em 0.2em 0.5em var(--secColor))
+      drop-shadow(0.2em 0.2em 0.2em var(--secColor));
+    animation: ArrowScroll 2s ease-in-out 0.5s infinite both;
+  }
+}
+
+.aboutSection {
+  display: flex;
+  background-color: var(--secColor);
+  flex-flow: column nowrap;
+  gap: 3em;
+  padding: 2em 4em;
+
+  margin: 0 auto;
+
+  position: relative;
+
+  p {
+    max-width: 500px;
+  }
+}
+footer {
+  background-color: var(--primColor);
+  min-height: 10vh;
+  position: relative;
+  padding: 2em;
+
+  color: var(--lightColor);
+}
+.contactSection {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  max-width: 80%;
+
+  .contactForm {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    img{
-        max-width: 100%;
-        height: auto;
+    flex-flow: row wrap;
+    h2 {
+      color: var(--primColor);
+      font-size: 2em;
     }
-    
-    
- }
- 
 
- .backgroundHeader{
-    background:no-repeat  url('src/assets/ordi.jpeg') center/cover  fixed;
-    text-align: center;
-    padding: 3% auto;
+    .contactInput {
+      width: 100%;
+      label {
+        font-size: 1.2em;
+        font-weight: 500;
+      }
+      input,textarea {
+        font-family: var(--textFont);
+        font-size: 1em;
+        padding: 5px 13px;
+        width: 100%;
+        margin-top: 0.2em;
+        outline: none;
+        background: var(--lightColor);
+        color: var(--darkColor);
+        border: 0.2em solid var(--secOpacity);
+        border-radius: 10px;
+        box-shadow: 3px 3px 2px 0px #e2e2e2;
+        transition: 0.3s ease;
+        &:focus {
+          background: var(--lightColor);
+          border: 1px solid var(--secColor);
+          border-radius: 10px;
+        }
+        &::placeholder {
+          color: var(--darkColor);
+          font-family: var(--textFont);
+        }
+      }
+      textarea{
+        min-height: 100px;
+      }
+    }
+    .contactBtn {
+      margin-top: 2em;
+      font-size: 1.2em;
+      background-color: var(--secColor);
+      border-color: var(--secColorHover);
+    }
+  }
   
+.contactMessage{
+    align-self: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2em;
+    h3{
+        font-size: 1.9em;
+    }
+    .imgBox{
+        overflow:visible;
+        position: relative;
+        max-width: 70%;
+        #star{
+            top: -5em;
+            max-width: 50%;
+            left: 0;
+            backdrop-filter: dropshadow(20px 20px 20px red);
 
-    color: var(--lightColor);
-    font-size: 2em;
-    min-width:100%;
-    min-height: 90vh;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    }
+    .downloadCv{
+       background-color: var(--primOpacity);
+    
+       font-size: 1.2em;
+       border-color: var(--primColorHover);
+       a{
+        color: var(--darkColor);
+        padding: 0.3em 1em;
+       }
+    }
+}
+}
+
+.iconSvg{
+    position: absolute;
     z-index: 0;
-    h1{
-        text-shadow: 0.1em  0.01em var(--primColor);
-        backdrop-filter: blur(5px);
-
-        border-radius: 50px;
-    }
- 
-    .arrowScrollBtn{
-       
-        justify-self: last baseline;
-        
-        filter: drop-shadow(0.2em 0.2em 0.5em var(--secColor))drop-shadow(0.2em 0.2em 0.2em var(--secColor));
-        animation: ArrowScroll 2s ease-in-out 0.5s infinite both;
-
-    }
- }
-
- .aboutSection{
- 
-    display: flex;
-    background-color: var(--secColor);
-    flex-flow: column nowrap;
-    gap: 3em;
-    padding: 2em 4em;
-
-   margin:0 auto;
-
-   position: relative;
-
-	
-    p{
-        max-width: 500px;
-    }
-    
- }
- footer{
-    background-color: var(--primColor);
-    min-height: 10vh;
-    position: relative;
-    padding: 2em;
-
-    color: var(--lightColor);
- 
- }
- .contactSection{
-    display: flex;
-    justify-content:flex-end;
-    flex-flow: row wrap;
-
-    
-    .contactForm{
-        display: flex;
-        flex-flow: row wrap;
-        h2{
-            color: var(--primColor);
-            font-size: 2em;
-        }
-    
-     
-        .contactInput{
-            width: 100%;
-           label{
-           font-size: 1.2em;
-           font-weight: 500;
-           }
-            input {
-                font-family: var(--textFont);
-                font-size: 1em;
-                padding: 5px 13px;
-                width: 100%;
-                margin-top: 0.2em;
-                outline: none;
-                background: var(--lightColor);
-                color: var(--darkColor);
-                border: 0.2em solid #C4D1EB;
-                border-radius: 10px;
-                box-shadow: 3px 3px 2px 0px #E2E2E2;
-                transition: .3s ease;
-                &:focus{
-                    background: #F2F2F2;
-                    border: 1px solid var(--secColor);
-                    border-radius: 10px;
-                }
-                &::placeholder{
-                    color: var(--darkColor);
-                    font-family: var(--textFont);
-    
-                }
-            }
-            
-        }
-    .contactBtn{
-    margin-top: 2em;
-    font-size: 1.2em;
-    background-color: var(--secColor);
-    border-color:var(--secColorHover);
-    }
-      
-        
-        
-    }
- }
- 
+}

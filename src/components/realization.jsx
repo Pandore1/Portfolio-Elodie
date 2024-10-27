@@ -36,7 +36,7 @@ return (
  
       {/* <img  className="separationCurve" src={Curve} alt="" /> */}
     
-      <h1 className="col-12">Choisir la spécialiation</h1>
+      <h1 className="col-12">Choisir la spécialisation</h1>
       <div className="imgBox col-5">
         <img src={meHeader} alt="" />
       </div>
