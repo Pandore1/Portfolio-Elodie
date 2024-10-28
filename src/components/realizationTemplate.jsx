@@ -1,6 +1,7 @@
 import { useState } from "react";
 import OpenMoreBtn from "./moreBtn";
 import CurveWhitePurple from "../assets/curveWhitePurple.png";
+import CurveDarkWhite from "../assets/curveDarkWhite.png";
 
 export default function RealizationTemplate({
   title,
@@ -54,9 +55,9 @@ export default function RealizationTemplate({
         <iframe
           className="ytVideo"
           src={embedUrl}
-          title="YouTube video player"
+          title={title}
           frameBorder="0"
-          style={{ minWidth: "80%", height:"90%"}}
+          style={{ minWidth: "95%", height:"auto"}}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
@@ -96,6 +97,7 @@ export default function RealizationTemplate({
         <div className="realizationTab">
           <h3 className="realizationTitle">{title}</h3>
           <OpenMoreBtn isOpen={true} clicked={realizationModalOpen} />
+         
         </div>
         <div className="imgBox">
           <img src={previewImage} alt="" />
@@ -112,6 +114,7 @@ export default function RealizationTemplate({
           
           <h2 className="realizationTitle col-12">{title}</h2>
           <OpenMoreBtn isOpen={false} clicked={realizationModalClose} />
+        
         </div>
         <div className="col-12 realizationContent">
         <div className="imgBox">

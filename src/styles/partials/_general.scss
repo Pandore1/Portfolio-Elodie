@@ -24,7 +24,6 @@
 
 .App {
   background-color: var(--lightColor);
-  font-family: var(--textFont);
   color: var(--darkColor);
   width: 100%;
   min-height: 100vh;
@@ -33,18 +32,17 @@
   box-sizing: border-box;
 }
 
+
 main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 main > section {
-  max-width: 90%;
+  max-width: 85%;
   min-width: 80%;
   margin: 3em auto;
-  @include responsive(768px){
-    max-width: 95%;
-  }
+ 
 }
 .imgBox {
   overflow: hidden;
@@ -73,9 +71,7 @@ main > section {
   z-index: 0;
   h1 {
     text-shadow: 0.1em 0.01em var(--primColor);
-    backdrop-filter: blur(5px);
 
-    border-radius: 50px;
   }
 
   .arrowScrollBtn {
@@ -88,19 +84,17 @@ main > section {
 }
 
 .aboutSection {
-    margin-top: 0;
-  display: flex;
+    margin:2em auto;
   color: var(--lightColor);
-  background-color: var(--primDark);
-  flex-direction: column;
+  background-color: var(--darkColor);
+  min-width: 40%;
+  max-width: 60%;
+  height: 900px;
   padding: 2em 4em;
-  @include responsive(768px){
-    padding: 2em;
-    p{
-      
-        min-width: 90%;
-    }
-   
+  h2{
+    @include afterLine( var(--lightColor),0.2em,30%)
+    
+
   }
   p {
     text-align: justify;
@@ -118,6 +112,8 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-flow: row wrap;
+  align-items: center;
+  margin-bottom: 4em;
 
   .contactForm {
     display: flex;
@@ -128,27 +124,25 @@ footer {
     }
 
     .contactInput {
-      width: 100%;
       label {
         font-size: 1.2em;
         font-weight: 500;
+        margin-bottom: 1em;
       }
       input,textarea {
         font-family: var(--textFont);
         font-size: 1em;
-        padding: 5px 13px;
+        padding: 0.6em;
         width: 100%;
-        margin-top: 0.2em;
-        outline: none;
         background: var(--lightColor);
         color: var(--darkColor);
-        border: 0.2em solid var(--primOpacity);
+        border: 0.2em solid var(--darkOpacity);
         border-radius: 10px;
-        box-shadow: 3px 3px 2px 0px #e2e2e2;
+        box-shadow: 0.1em 0.1em 0.1em 0 var(--darkOpacity);
         transition: 0.3s ease;
         &:focus {
           background: var(--lightColor);
-          border: 1px solid var(--secColor);
+          border: 0.2em solid var(--primColor);
           border-radius: 10px;
         }
         &::placeholder {
@@ -163,47 +157,47 @@ footer {
     .contactBtn {
       margin-top: 2em;
       font-size: 1.2em;
-      background-color: var(--secColor);
-      border-color: var(--secColorHover);
+      padding: 0.2em auto;
+      background-color: var(--primOpacity);
+      border-color: var(--primColor);
     }
   }
   
+
+}
 .contactMessage{
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2em;
-    h3{
-        font-size: 1.9em;
-    }
-    .imgBox{
-        overflow:visible;
-        position: relative;
-        max-width: 70%;
-        #star{
-            top: -5em;
-            max-width: 50%;
-            left: 0;
-            backdrop-filter: dropshadow(20px 20px 20px red);
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2em;
+ 
+  .imgBox{
+      overflow:visible;
+      position: relative;
+      max-width: 60%;
+      #star{
+          top: -5em;
+          max-width: 50%;
+          left: 0;
+          backdrop-filter: dropshadow(20px 20px 20px red);
 
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-    }
-    .downloadCv{
-       background-color: var(--primOpacity);
+          stroke-linecap: round;
+          stroke-linejoin: round;
+      }
+  }
+  .downloadCv{
     
-       font-size: 1.2em;
-       border-color: var(--primColorHover);
-       a{
-        color: var(--darkColor);
-        padding: 0.3em 1em;
-       }
-    }
+     background-color: var(--primOpacity);
+  
+     font-size: 1.2em;
+     border-color: var(--primColorHover);
+     a{
+      color: var(--darkColor);
+      padding: 0.3em 1em;
+     }
+  }
 }
-}
-
 
 .curveBox{
     position: relative;

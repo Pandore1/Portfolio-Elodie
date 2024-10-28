@@ -2,12 +2,12 @@
 $primColor:#623271; // #672579;
 $primOpacity:rgba($primColor,0.4);
 $colorOpacity:0.4;
-$lightColor:#EFF6E0 ; //F6FAF0  #EBE4F1#F6FAF0
-$darkColor:#332C23;
+$lightColor:#F6FAF0 ; //F6FAF0  #EBE4F1#F6FAF0
+$darkColor:#363636;
 $secColor: #8ECD91;
 $secOpacity:rgba($secColor,0.4);
 $secColorHover:darken($secColor,20);
-$primColorHover:lighten($primColor,2);
+$primColorHover:lighten($primColor,5);
 $primDark:darken($primColor,10);
 $darkOpacity:rgba($darkColor,0.3);
 
@@ -34,3 +34,20 @@ $darkOpacity:rgba($darkColor,0.3);
       @content;
     }
   }
+  @mixin afterLine($lineColor,$heightLine,$widthLine){
+    position: relative;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.2em;
+    &::after{
+        content: " ";
+        position: absolute;
+        bottom: 0;
+        border-radius: 25px;
+        left: 0;
+        width: $widthLine;
+        height: $heightLine;
+        transition: width 0.5s ease-in-out;
+        background-color:$lineColor;
+
+    }
+}

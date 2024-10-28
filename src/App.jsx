@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <section id="about" className="aboutSection">
+        <section id="about" className="aboutSection col-4">
           <h2>À propos</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac

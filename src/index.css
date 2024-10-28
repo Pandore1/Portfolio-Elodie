@@ -17,6 +17,10 @@ a,
 button {
   font-family: var(--titleFont);
 }
+
+p,input,textarea,body{
+  font-family: var(--textFont);
+}
 a,
 button {
   font-weight: 600;

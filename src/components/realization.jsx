@@ -6,6 +6,8 @@ import meHeader from "../assets/personne.png";
 import Curve from "../assets/curve.png";
 import CurveWhitePurple from "../assets/curveWhitePurple.png";
 import CurvePurpleWhite from "../assets/curvePurpleWhite.png";
+import CurveWhiteDark from "../assets/curveWhiteDark.png";
+import CurveDarkWhite from "../assets/curveDarkWhite.png";
 
 export default function Realization() {
   const [realization, setRealization] = useState(realizationData);
@@ -36,11 +38,13 @@ return (
     <nav className="realizationNav">
  
     <div className="curveBox">
-      <img  className="curve whitePurple" src={CurveWhitePurple} alt="" />
+      <img  className="curve whiteDark" src={CurveWhiteDark} alt="" />
 
       </div>
-    
-      <h1 className="col-12">Choisir la spécialisation</h1>
+      <div className="col-12">
+      <h1 >Choisir la spécialisation</h1>
+
+      </div>
       <div className="imgBox col-5">
         <img src={meHeader} alt="" />
       </div>
@@ -56,7 +60,7 @@ return (
         
       </div>
       <div className="curveBox">
-      <img  className="curve purpleWhite" src={CurvePurpleWhite} alt="" />
+      <img  className="curve darkWhite" src={CurveDarkWhite} alt="" />
 
       </div>
 

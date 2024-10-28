@@ -9,7 +9,7 @@ export default function Contact(){
               <img id="star" className="iconSvg" src={Star} alt="" />
               <img className="col-2" src={meHeader} alt="" />
             </div>
-            <h3>N'hésitez pas à me contacter!</h3>
+            <h2>N'hésitez pas à me contacter!</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac
               efficitur mauris. Mauris sit amet elementum metus. Fusce iaculis
@@ -26,7 +26,7 @@ export default function Contact(){
           <form className="contactForm col-5" action="">
             <h2 className="col-12">Contact</h2>
 
-            <div className="contactInput ">
+            <div className="contactInput col-6 ">
               <label htmlFor="name">Nom et prénom</label>
               <input
                 type="name"
@@ -36,7 +36,7 @@ export default function Contact(){
                 id="name"
               />
             </div>
-            <div className="contactInput ">
+            <div className="contactInput col-12">
               <label htmlFor="email">Adresse Courriel</label>
               <input
                 type="email"
@@ -46,7 +46,7 @@ export default function Contact(){
                 id="email"
               />
             </div>
-            <div className="contactInput">
+            <div className="contactInput col-12">
               <label htmlFor="phone">Téléphone</label>
               <input
                 type="tel"
@@ -56,7 +56,7 @@ export default function Contact(){
                 id="phone"
               />
             </div>
-            <div className="contactInput">
+            <div className="contactInput col-12">
               <label htmlFor="message">Votre Message</label>
               <textarea
                 placeholder="Votre Message"
@@ -65,7 +65,7 @@ export default function Contact(){
                 id="message"
               ></textarea>
             </div>
-            <button className="col-8 contactBtn" type="submit">
+            <button className="col-6 contactBtn" type="submit">
               Envoyer
             </button>
           </form>

@@ -12,7 +12,7 @@ export default function Header() {
                 <h1>
                     Élodie Picard
                 </h1>
-                <h5>Développeuse Front-end, Designeuse</h5>
+                <h2>Développeuse Front-end, Designeuse</h2>
                     
              
                <a href="#about" className="arrowScrollBtn"><img src={ArrowScroll} alt="" /></a>
