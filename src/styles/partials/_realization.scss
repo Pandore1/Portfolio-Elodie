@@ -145,7 +145,7 @@ color: var(--lightColor);
   border-radius: 25px;
   font-size: 1.1em;
   min-height: 100vh;
-  min-width: 90vw;
+  min-width: 90%;
   overflow:hidden scroll;
   box-shadow: 20em 5px 20em var(--darkColor),-20em 5px 20em var(--darkColor);
   display: none;
@@ -171,13 +171,8 @@ color: var(--lightColor);
       margin: 0;
       max-height: 7vh;
     }
-  .fullImageContainer{
-    border: 5px solid red;
-    flex-basis: 45%;
-
-  }
+ 
   .realizationInfo {
-    flex-basis: 50%;
     padding-top: 1em;
 padding-left: 0.6em;
     h3{
@@ -190,7 +185,36 @@ padding-left: 0.6em;
  .moreBtn{
   width: 3em;
   height: 3em;
+
  }
+@include responsive(768px){
+  box-shadow: none;
+  min-width: 0px;
+  min-width: 650px;
+  max-width:750px;
+  overflow: hidden scroll;
+  height: 500px;
+  min-height:min-content;
+  left:unset;
+  transform: translateX(none);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+  .realizationTab,.fullImageContainer,.realizationInfo{
+    flex-basis: 100%;
+    
+  }
+  .realizationTab{
+    padding: 0;
+    margin: 0;
+  }
+  .galleryContainer{
+    max-width: 40%;
+  }
+
+
+}
 }
 .galleryContainer{
   display: grid;
@@ -225,11 +249,13 @@ padding-left: 0.6em;
   margin-top: 3em;
 }
 .moreBtn{
-    border: 0.24em solid var(--primColorHover);
+    border: 0.25em solid var(--primColorHover);
     width: 2.5em;
     height: 2.5em;
+    border-radius: 50%;
+
     background-color: var(--primColor);
-    padding: 0;
+    padding: 0.2em;
     .moreIcon{
       max-width: 90%;
   }

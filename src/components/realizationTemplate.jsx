@@ -1,165 +1,22 @@
-import { useState } from "react";
+import React from "react";
 import OpenMoreBtn from "./moreBtn";
-import CurveWhitePurple from "../assets/curveWhitePurple.png";
-import CurveDarkWhite from "../assets/curveDarkWhite.png";
 
-export default function RealizationTemplate({
-  title,
-  id,
-  desc,
-  type,
-  skills,
-  year,
-  gallery,
-  previewImage,
-  fullImage,
-  webLink,
-  videoYt,
-}) {
-  const [isRealizationOpen, setIsRealizationOpen] = useState(false);
+export default function RealizationTemplate({ realization, onOpenModal }) {
+  const { title, desc, previewImage } = realization;
 
-  const realizationModalOpen = () => {
-    setIsRealizationOpen(true);
-  };
-  const realizationModalClose = () => {
-    setIsRealizationOpen(false);
-  };
-
-  function checkExtension(realizationFile) {
-    return realizationFile.split(".").pop().toLowerCase();
-  }
-
-  const renderMedia = (fullImage, videoYt) => {
-    /*if (webSite) {
-      return (
-        <iframe
-          src={webSite}
-          title="Embedded Content"
-          frameBorder="0"
-          style={{ width: "100%", height: "auto" }}
-          allowFullScreen
-          className="fullImageModal"
-        />
-      );
-    }*/
-
-    const youtubeUrl = fullImage || videoYt;
-    if (
-      youtubeUrl &&
-      (youtubeUrl.includes("youtube.com") || youtubeUrl.includes("youtu.be"))
-    ) {
-      const embedUrl = youtubeUrl.includes("watch?v=")
-        ? youtubeUrl.replace("watch?v=", "embed/")
-        : youtubeUrl.replace("youtu.be/", "youtube.com/embed/");
-
-      return (
-        <iframe
-          className="ytVideo fullImageModal"
-          src={embedUrl}
-          title={title}
-          frameBorder="0"
-          style={{ width: "100%", height: "auto" }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      );
-    }
-
-    if (videoYt && ["mp4", "webm", "ogg"].includes(checkExtension(videoYt))) {
-      return (
-        <video
-          src={videoYt}
-          controls
-          style={{ width: "100%", minHeight: "400px" }}
-        />
-      );
-    }
-
-    if (
-      fullImage &&
-      ["jpg", "jpeg", "png", "gif", "bmp", "webp"].includes(
-        checkExtension(fullImage)
-      )
-    ) {
-      return (
-        <img
-          src={fullImage}
-          className="fullImageModal"
-          alt="Realization Media"
-          style={{ minWidth: "10%", height: "auto" }}
-        />
-      );
-    }
-
-    return <p>Unsupported file type</p>;
-  };
   return (
-    <>
-      <article id={id} className="realization col-3">
-        <div className="realizationTab">
-          <h3 className="realizationTitle">{title}</h3>
-          <OpenMoreBtn isOpen={true} clicked={realizationModalOpen} />
+    <article className="realization col-3">
+      <div className="realizationTab">
+        <h3 className="realizationTitle">{title}</h3>
+        <OpenMoreBtn isOpen={true} clicked={onOpenModal} />
+      </div>
+      <div className="imgBox">
+        <img src={previewImage} alt={title} />
+        <div className="resumeRealization">
+          <p>{desc}</p>
+          <button onClick={onOpenModal}>Voir</button>
         </div>
-        <div className="imgBox">
-          <img src={previewImage} alt="" />
-          <div className="resumeRealization">
-            <p>{desc}</p>
-            <button onClick={realizationModalOpen}>Voir</button>
-          </div>
-        </div>
-      </article>
-      {/* Fenêtre modal */}
-      <article
-        className={`realizationModal ${isRealizationOpen ? "open" : ""}`}
-      >
-        <div className="realizationTab">
-          <h2 className="realizationTitle col-12">{title}</h2>
-          <OpenMoreBtn isOpen={false} clicked={realizationModalClose} />
-        </div>
-
-        <div className="imgBox fullImageContainer">
-          {renderMedia(videoYt || fullImage)}
-        </div>
-        <div className="realizationInfo">
-          <div className="descriptionBox">
-            <h3 className="col-12">Description</h3>
-            <p>{desc}</p>
-            <p>{year}</p>
-          </div>
-
-          <div className="skillList">
-            <h3 className="col-12">Compétences nécessaires</h3>
-            {skills.map((skill, index) => (
-              <button
-                disabled
-                key={index}
-                className={`skill ${skill.skillClass}`}
-              >
-                {skill.skillName}
-              </button>
-            ))}
-          </div>
-          {gallery && (
-            <div className="galleryContainer">
-              <h3 className="col-12">Galerie d'image</h3>
-
-              {gallery.map((image, index) => (
-                <div className="imgGallery imgBox col-6" key={index}>
-                  <img src={image} alt={`Gallery image ${index + 1}`} />
-                </div>
-              ))}
-            </div>
-          )}
-
-          {webLink && (
-            <button className="visitSiteBtn">
-              <a target="_blank" href={webLink}>
-                Visiter le site
-              </a>
-            </button>
-          )}
-        </div>
-      </article>
-    </>
+      </div>
+    </article>
   );
 }

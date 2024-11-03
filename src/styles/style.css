@@ -96,6 +96,7 @@
   width: 100%;
   min-height: 100vh;
   display: flex;
+  scroll-behavior: smooth;
   flex-direction: column;
   box-sizing: border-box;
 }
@@ -130,16 +131,28 @@ main > section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 1.5em;
   color: var(--lightColor);
   font-size: 2em;
   min-width: 100%;
   min-height: 90vh;
-  z-index: 0;
+}
+.backgroundHeader .logoBox {
+  position: fixed;
+  top: 1em;
+  box-shadow: 0.2em 0.2em 0.8em var(--darkOpacity);
+  padding: 1em;
+  background-color: var(--lightOpacity);
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  left: 2em;
+  z-index: 150;
 }
 .backgroundHeader h1 {
-  font-size: 6em;
-  z-index: 999;
+  font-size: 5.5em;
+  z-index: 200;
   position: relative;
   text-transform: uppercase;
 }
@@ -148,27 +161,37 @@ main > section {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scaleY(1.2);
   z-index: 1;
   mix-blend-mode: overlay;
   color: transparent;
-  font-size: 1.3em;
+  letter-spacing: 0.2em;
   -webkit-text-stroke: 0.02em var(--secColor);
 }
 @media screen and (max-width: 768px) {
   .backgroundHeader {
-    min-height: 60vh;
+    min-height: 70vh;
+    justify-content: start;
+    align-items: center;
   }
   .backgroundHeader h1 {
-    font-size: 2.8em;
+    font-size: 2.5em;
   }
   .backgroundHeader h1::after {
     top: 90%;
-    font-size: 1.1em;
+    font-size: 1.05em;
+  }
+  .backgroundHeader .logoBox {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    width: 5em;
+    top: 0;
+    left: 0;
+    height: 5em;
   }
 }
 .backgroundHeader .arrowScrollBtn {
-  justify-self: last baseline;
   filter: drop-shadow(0em 0.3em 0.2em var(--primDark));
   animation: ArrowScroll 2s ease-in-out 1s infinite both;
 }
@@ -352,6 +375,7 @@ footer p {
 .menuBox {
   position: fixed;
   top: 20px;
+  font-size: 0.6em;
   right: 20px;
   z-index: 100;
   transform-origin: 100% 0;
@@ -361,8 +385,8 @@ footer p {
   flex-direction: column;
   align-items: center;
   border-radius: 50%;
-  min-width: 6em;
-  min-height: 6em;
+  min-width: 4em;
+  min-height: 4em;
   color: var(--lightColor);
   transition: all 0.5s ease-in-out;
   animation: openBurger 0.6s ease 0s 1 backwards forwards;
@@ -807,7 +831,7 @@ footer p {
   border-radius: 25px;
   font-size: 1.1em;
   min-height: 100vh;
-  min-width: 90vw;
+  min-width: 90%;
   overflow: hidden scroll;
   box-shadow: 20em 5px 20em var(--darkColor), -20em 5px 20em var(--darkColor);
   display: none;
@@ -830,12 +854,7 @@ footer p {
   margin: 0;
   max-height: 7vh;
 }
-.realizationModal .fullImageContainer {
-  border: 5px solid red;
-  flex-basis: 45%;
-}
 .realizationModal .realizationInfo {
-  flex-basis: 50%;
   padding-top: 1em;
   padding-left: 0.6em;
 }
@@ -859,6 +878,34 @@ footer p {
 .realizationModal .moreBtn {
   width: 3em;
   height: 3em;
+}
+@media screen and (max-width: 768px) {
+  .realizationModal {
+    box-shadow: none;
+    min-width: 0px;
+    min-width: 650px;
+    max-width: 750px;
+    overflow: hidden scroll;
+    height: 500px;
+    min-height: -moz-min-content;
+    min-height: min-content;
+    left: unset;
+    transform: translateX(none);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .realizationModal .realizationTab, .realizationModal .fullImageContainer, .realizationModal .realizationInfo {
+    flex-basis: 100%;
+  }
+  .realizationModal .realizationTab {
+    padding: 0;
+    margin: 0;
+  }
+  .realizationModal .galleryContainer {
+    max-width: 40%;
+  }
 }
 
 .galleryContainer {
@@ -891,11 +938,12 @@ footer p {
 }
 
 .moreBtn {
-  border: 0.24em solid var(--primColorHover);
+  border: 0.25em solid var(--primColorHover);
   width: 2.5em;
   height: 2.5em;
+  border-radius: 50%;
   background-color: var(--primColor);
-  padding: 0;
+  padding: 0.2em;
 }
 .moreBtn .moreIcon {
   max-width: 90%;

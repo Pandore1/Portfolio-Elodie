@@ -54,6 +54,7 @@ const realizationData = [
       {
         title: "Chroniques de Foster",
         desc: "Pour projet multimédia 1, nous devions",
+        
         type: "Design",
        skills: [
           {
@@ -168,5 +169,52 @@ const realizationData = [
         gallery:null,
 
       },
+      {
+        title: "Tp2 développement web",
+        desc: "Création d'un design pour une borne interractive. J'ai choisis de le faire sur une borne à bubble tea où tu peux faire un bubble tea personnalisé",
+        type: "Développement",
+       skills: [
+        
+          {
+            skillName:"Vue",
+            skillClass:"vue",
+          },
+          {
+            skillName:"Css",
+            skillClass:"css"
+          }
+        ],
+        previewImage: "../collectionCover.png",
+        fullImage: "../collectionCover.png",
+        year: "2023",
+        webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/dw-tp2/",
+        videoYt:null,
+        gallery:null,
+
+      },
+      {
+        title: "Les Cowboys Fringuants",
+        desc: "Création d'un design pour une borne interractive. J'ai choisis de le faire sur une borne à bubble tea où tu peux faire un bubble tea personnalisé",
+        type: "Développement",
+       skills: [
+        
+          {
+            skillName:"Bootstrap",
+            skillClass:"vue",
+          },
+          {
+            skillName:"Css",
+            skillClass:"css"
+          }
+        ],
+        previewImage: "../cowboyCover.png",
+        fullImage: "../cowboyCover.png",
+        year: "2023",
+        webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/dw-tp1/",
+        videoYt:null,
+        gallery:null,
+
+      },
+      
   ];
   export default realizationData;

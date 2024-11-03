@@ -2,6 +2,7 @@
 
   position: fixed;
   top: 20px;
+  font-size: 0.6em;
   right: 20px;
   z-index: 100;
   transform-origin: 100% 0;
@@ -14,8 +15,8 @@
   align-items: center;
 
   border-radius:50%;
-  min-width: 6em;
-  min-height: 6em;
+  min-width: 4em;
+  min-height: 4em;
   color: var(--lightColor);
   transition: all 0.5s ease-in-out;
   animation: openBurger 0.6s ease 0s 1 backwards forwards;

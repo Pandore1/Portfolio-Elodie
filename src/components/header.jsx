@@ -1,22 +1,27 @@
 import { useCallback, useState } from "react"
 import ArrowScroll from "../assets/arrow.png"
+import Logo from "../assets/logo.webp"
 
 import Navbar from "./navbar";
 export default function Header() {
     return (
-        <header>
-            <Navbar></Navbar>
+        <header className="backgroundHeader" >
+      
+           
+            <div className="imgBox logoBox">
+            <img className="logo" src={Logo} alt="" />
 
-            <div className="backgroundHeader">
+            </div>
+            <Navbar></Navbar>
 
                 <h1>
                     Élodie
                 </h1>
-                <h2>Développeuse Front-end, Designeuse</h2>
+                <h3>Développeuse Front-end, Designeuse</h3>
                     
              
                <a href="#about" className="arrowScrollBtn"><img src={ArrowScroll} alt="" /></a>
-            </div>
+       
          
           
         </header>
