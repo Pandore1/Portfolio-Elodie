@@ -13,7 +13,7 @@ export default function RealizationTemplate({
   gallery,
   previewImage,
   fullImage,
-  webSite,
+  webLink,
   videoYt,
 }) {
   const [isRealizationOpen, setIsRealizationOpen] = useState(false);
@@ -29,18 +29,19 @@ export default function RealizationTemplate({
     return realizationFile.split(".").pop().toLowerCase();
   }
 
-  const renderMedia = (fullImage, webSite, videoYt) => {
-    if (webSite) {
+  const renderMedia = (fullImage, videoYt) => {
+    /*if (webSite) {
       return (
         <iframe
           src={webSite}
           title="Embedded Content"
           frameBorder="0"
-          style={{ width: "100%", height: "400px" }}
+          style={{ width: "100%", height: "auto" }}
           allowFullScreen
+          className="fullImageModal"
         />
       );
-    }
+    }*/
 
     const youtubeUrl = fullImage || videoYt;
     if (
@@ -53,11 +54,11 @@ export default function RealizationTemplate({
 
       return (
         <iframe
-          className="ytVideo"
+          className="ytVideo fullImageModal"
           src={embedUrl}
           title={title}
           frameBorder="0"
-          style={{ minWidth: "95%", height:"auto"}}
+          style={{ width: "100%", height: "auto" }}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
@@ -83,8 +84,9 @@ export default function RealizationTemplate({
       return (
         <img
           src={fullImage}
+          className="fullImageModal"
           alt="Realization Media"
-          style={{ width: "100%", height: "auto" }}
+          style={{ minWidth: "10%", height: "auto" }}
         />
       );
     }
@@ -97,7 +99,6 @@ export default function RealizationTemplate({
         <div className="realizationTab">
           <h3 className="realizationTitle">{title}</h3>
           <OpenMoreBtn isOpen={true} clicked={realizationModalOpen} />
-         
         </div>
         <div className="imgBox">
           <img src={previewImage} alt="" />
@@ -107,26 +108,25 @@ export default function RealizationTemplate({
           </div>
         </div>
       </article>
+      {/* Fenêtre modal */}
       <article
         className={`realizationModal ${isRealizationOpen ? "open" : ""}`}
       >
         <div className="realizationTab">
-          
           <h2 className="realizationTitle col-12">{title}</h2>
           <OpenMoreBtn isOpen={false} clicked={realizationModalClose} />
-        
         </div>
-        <div className="col-12 realizationContent">
-        <div className="imgBox">
-          {renderMedia(webSite || videoYt || fullImage)}
+
+        <div className="imgBox fullImageContainer">
+          {renderMedia(videoYt || fullImage)}
         </div>
-        <div className="realizationInfo col-6 container">
+        <div className="realizationInfo">
           <div className="descriptionBox">
-          <h3 className="col-12">Description</h3>
-          <p>{desc}</p>
-          <p>{year}</p>
+            <h3 className="col-12">Description</h3>
+            <p>{desc}</p>
+            <p>{year}</p>
           </div>
-    
+
           <div className="skillList">
             <h3 className="col-12">Compétences nécessaires</h3>
             {skills.map((skill, index) => (
@@ -139,21 +139,26 @@ export default function RealizationTemplate({
               </button>
             ))}
           </div>
-          <div className="galleryContainer">
-            <h3 className="col-12">Galerie d'image</h3>
-            {gallery.map((image, index) => (
-              <div className="imgGallery imgBox col-6" key={index}>
-                <img src={image} alt={`Gallery image ${index + 1}`} />
-              </div>
-            ))}
-          </div>
-        </div>
-        </div>
-        
-        <div className="curveBox">
-      <img  className="curve whitePurple" src={CurveWhitePurple} alt="" />
+          {gallery && (
+            <div className="galleryContainer">
+              <h3 className="col-12">Galerie d'image</h3>
 
-      </div>
+              {gallery.map((image, index) => (
+                <div className="imgGallery imgBox col-6" key={index}>
+                  <img src={image} alt={`Gallery image ${index + 1}`} />
+                </div>
+              ))}
+            </div>
+          )}
+
+          {webLink && (
+            <button className="visitSiteBtn">
+              <a target="_blank" href={webLink}>
+                Visiter le site
+              </a>
+            </button>
+          )}
+        </div>
       </article>
     </>
   );

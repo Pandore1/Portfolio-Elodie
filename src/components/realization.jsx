@@ -84,7 +84,7 @@ return (
 
           fullImage={realizationItem.fullImage}
           videoYt={realizationItem.videoYt}
-          webSite={realizationItem.webSite}
+          webLink={realizationItem.webLink}
           gallery={realizationItem.gallery}
   
         />

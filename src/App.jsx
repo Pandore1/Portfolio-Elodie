@@ -34,7 +34,7 @@ function App() {
       </main>
       <footer>
         <div className="curveBox">
-          <img className="curve whiteDark" src={CurveWhiteDark} alt="" />
+          <img className="curve whitePurple" src={CurveWhitePurple} alt="" />
         </div>
 
         <p>Élodie Picard 2024</p>

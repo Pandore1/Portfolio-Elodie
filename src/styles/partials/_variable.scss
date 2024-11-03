@@ -3,11 +3,13 @@ $primColor:#623271; // #672579;
 $primOpacity:rgba($primColor,0.4);
 $colorOpacity:0.4;
 $lightColor:#F6FAF0 ; //F6FAF0  #EBE4F1#F6FAF0
+$lightOpacity:rgba($lightColor,0.4);
 $darkColor:#363636;
+$darkerColor:darken($darkColor,0.2);
 $secColor: #8ECD91;
 $secOpacity:rgba($secColor,0.4);
-$secColorHover:darken($secColor,20);
-$primColorHover:lighten($primColor,5);
+$secHover:darken($secColor,20);
+$primHover:lighten($primColor,5);
 $primDark:darken($primColor,10);
 $darkOpacity:rgba($darkColor,0.3);
 
@@ -15,16 +17,20 @@ $darkOpacity:rgba($darkColor,0.3);
 :root{
     /*Couleur*/
     --primColor:#{$primColor};
-    --primColorHover:#{$primColorHover};
+    --primColorHover:#{$primHover};
     --primDark:#{$primDark};
     --primOpacity:#{$primOpacity};
     --lightColor:#{$lightColor};
+    --lightOpacity:#{$lightOpacity};
+
     --darkColor: #{$darkColor};
     --darkOpacity:#{$darkOpacity};
+
+
     --secColor:#{$secColor};
     --secOpacity:#{$secOpacity};
-    --colorOpactiy:$colorOpacity;
-    --secColorHover:#{$secColorHover};
+    --secColorHover:#{$secHover};
+
     --titleFont:'Kodchasan';
     --textFont:'Open Sans','Arial','Helvetica',sans-serif;
 }

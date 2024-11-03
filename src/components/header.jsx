@@ -10,7 +10,7 @@ export default function Header() {
             <div className="backgroundHeader">
 
                 <h1>
-                    Élodie Picard
+                    Élodie
                 </h1>
                 <h2>Développeuse Front-end, Designeuse</h2>
                     

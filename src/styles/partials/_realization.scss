@@ -1,5 +1,7 @@
 
 .realizationNav {
+  padding-top: 20em  ;
+  margin-top: 20em;
 color: var(--lightColor);
   h1{
     font-size: 2.3em;
@@ -57,7 +59,7 @@ color: var(--lightColor);
   position: relative;
   display: flex;
   flex-flow: row wrap;
-  gap:0 1.5em;
+  gap:1em 1.5em;
   @include responsive(768px){
     gap: 1em 0;
   }
@@ -66,24 +68,26 @@ color: var(--lightColor);
     color: var(--primColor);
   }
   .realization {
-    
-
-
    // animation: floatingRealization 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s infinite alternate;
-    min-height: 100%;
     overflow: hidden;
+    max-height: 300px;
     border-radius: 0 0 25px 25px;
     .imgBox {
+      background-color: var(--darkOpacity);
+     
       position: relative;
+      min-height: 100%;
+      align-items: start;
       border-radius: inherit;
       .resumeRealization {
         position: absolute;
-        top: -20em;
+        top: -30em;
+        transform-origin: 0% 50%;
         text-align: center;
         border-radius: inherit;
       
         z-index: 0;
-        width: 100%;
+       
         backdrop-filter: blur(5px);
         background-color: var(--primOpacity);
         color: var(--lightColor);
@@ -102,6 +106,7 @@ color: var(--lightColor);
             background-color: var(--secColorHover);
           }
         }
+      
       }
       &:hover {
         .realizationTab{
@@ -139,13 +144,14 @@ color: var(--lightColor);
   background-color: var(--lightColor);
   border-radius: 25px;
   font-size: 1.1em;
-  height: 90vh;
-  min-width: 90%;
+  min-height: 100vh;
+  min-width: 90vw;
+  overflow:hidden scroll;
   box-shadow: 20em 5px 20em var(--darkColor),-20em 5px 20em var(--darkColor);
   display: none;
-  flex-direction: column;
-  overflow: hidden hidden;
+  flex-flow: row wrap;
   justify-content: space-between;
+  align-items: stretch;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -161,73 +167,65 @@ color: var(--lightColor);
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, display 1s ease-in-out;
   }
 
-  
- 
-  .realizationContent{
-    display: flex;
-    padding-bottom: 2em;
-
-    
-    .imgBox {
-      flex-basis: 45%;
-      img{
-        aspect-ratio: 1/1;
-        object-fit: cover;
-      }
-     
-      video{
-      
-        object-fit: cover;
-        aspect-ratio: 1/1;
-      }
-      iframe{
-        margin: 0;
-        padding: 0;
-        aspect-ratio: 1/1;
-      }
-  
+    .realizationTab{
+      margin: 0;
+      max-height: 7vh;
     }
-    .realizationInfo {
-      display: flex;
-      margin-top: 2em;
-      h3{
-        color: var(--darkColor);
-        @include afterLine( var(--primColor),0.2em,50%)
-    
-      }
-      flex-direction: column;
+  .fullImageContainer{
+    border: 5px solid red;
+    flex-basis: 45%;
+
+  }
+  .realizationInfo {
+    flex-basis: 50%;
+    padding-top: 1em;
+padding-left: 0.6em;
+    h3{
+      color: var(--darkColor);
+      @include afterLine( var(--primColor),0.2em,50%)
+  
     }
   }
-
- .curveBox{
-  align-self: flex-end;
-  position: absolute;
-  bottom: -2.5em;
+ 
+ .moreBtn{
+  width: 3em;
+  height: 3em;
  }
 }
-
 .galleryContainer{
   display: grid;
+  overflow:hidden scroll;
   grid-template-columns: repeat(auto-fill,minmax(75px,150px));
-  gap: 1em;
+  gap: 0.7em;
+  padding-bottom: 2em;
   h3{
     grid-column: 1/-1;
   }
-  .imgBox{
-    border: 0.4em solid var(--darkColor);
+  .imgGallery{
+    border: 0.3em solid var(--primColor);
     background-color: var(--darkOpacity);
+    
 
-    aspect-ratio: 1/1;
     border-radius: 25px;
     img{
-      filter: drop-shadow(0.2em 0.5em 0.2em var(--darkColor));
+      aspect-ratio: 1/1;
+      object-fit: contain;
+    
+      //filter: drop-shadow(0.2em 0.5em 0.2em var(--darkColor));
     }
 
   }
 
 }
+.visitSiteBtn{
+  background-color: var(--primOpacity);
+  border-color: var(--primColor);
+  padding: 0.5em 1em;
+  font-size: 1.1em;
+  margin-top: 3em;
+}
 .moreBtn{
-    border: 0.24em solid var(--lightColor);
+    border: 0.24em solid var(--primColorHover);
     width: 2.5em;
     height: 2.5em;
     background-color: var(--primColor);
@@ -272,7 +270,7 @@ gap: 0.5em;
   border-color: var(--secColor);
   background-color: var(--secOpacity);
 }
-.illustrator,.afterEffect,.figma{
+.illustrator,.afterEffect{
   border-color: var(--primColor);
   background-color: var(--primOpacity);
 
@@ -281,7 +279,8 @@ gap: 0.5em;
   border-color: var(--secColor);
   background-color: var(--secOpacity);
 }
-.vue,.alpine{
+.vue,.alpine,.unity{
   border-color: var(--darkcolor);
+  color: var(--lightColor);
   background-color: var(--darkOpacity);
 }

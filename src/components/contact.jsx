@@ -5,10 +5,10 @@ export default function Contact(){
 
         <section id="contact" className="contactSection col-5">
           <div className="col-5 contactMessage">
-            <div className="imgBox">
+            {/* <div className="imgBox">
               <img id="star" className="iconSvg" src={Star} alt="" />
               <img className="col-2" src={meHeader} alt="" />
-            </div>
+            </div> */}
             <h2>N'hésitez pas à me contacter!</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac

@@ -16,7 +16,7 @@
     transition: all 0.5s cubic-bezier(0.72, 0.28, 0.37, 0.89);
   }
   100% {
-    top: 2vh;
+    top: 0vh;
     opacity: 1;
     transform: translate(-50%, 0vh);
     transition: all 0.5s cubic-bezier(0.72, 0.28, 0.37, 0.89);
@@ -55,11 +55,11 @@
   --primDark:#43224e;
   --primOpacity:rgba(98, 50, 113, 0.4);
   --lightColor:#F6FAF0;
+  --lightOpacity:rgba(246, 250, 240, 0.4);
   --darkColor: #363636;
   --darkOpacity:rgba(54, 54, 54, 0.3);
   --secColor:#8ECD91;
   --secOpacity:rgba(142, 205, 145, 0.4);
-  --colorOpactiy:$colorOpacity;
   --secColorHover:#4baa50;
   --titleFont:"Kodchasan";
   --textFont:"Open Sans","Arial","Helvetica",sans-serif;
@@ -124,7 +124,7 @@ main > section {
 }
 
 .backgroundHeader {
-  background: no-repeat url("src/assets/ordi.jpeg") center/cover fixed;
+  background: linear-gradient(0deg, var(--lightColor) 10%, #43224e 80%);
   text-align: center;
   padding: 3% auto;
   display: flex;
@@ -138,18 +138,45 @@ main > section {
   z-index: 0;
 }
 .backgroundHeader h1 {
-  text-shadow: 0.1em 0.01em var(--primColor);
+  font-size: 6em;
+  z-index: 999;
+  position: relative;
+  text-transform: uppercase;
+}
+.backgroundHeader h1::after {
+  content: "Picard";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  mix-blend-mode: overlay;
+  color: transparent;
+  font-size: 1.3em;
+  -webkit-text-stroke: 0.02em var(--secColor);
+}
+@media screen and (max-width: 768px) {
+  .backgroundHeader {
+    min-height: 60vh;
+  }
+  .backgroundHeader h1 {
+    font-size: 2.8em;
+  }
+  .backgroundHeader h1::after {
+    top: 90%;
+    font-size: 1.1em;
+  }
 }
 .backgroundHeader .arrowScrollBtn {
   justify-self: last baseline;
-  filter: drop-shadow(0.2em 0.2em 0.5em var(--secColor)) drop-shadow(0.2em 0.2em 0.2em var(--secColor));
-  animation: ArrowScroll 2s ease-in-out 0.5s infinite both;
+  filter: drop-shadow(0em 0.3em 0.2em var(--primDark));
+  animation: ArrowScroll 2s ease-in-out 1s infinite both;
 }
 
 .aboutSection {
   margin: 2em auto;
   color: var(--lightColor);
-  background-color: var(--darkColor);
+  background-color: var(--primColor);
   min-width: 40%;
   max-width: 60%;
   height: 900px;
@@ -173,14 +200,25 @@ main > section {
 }
 .aboutSection p {
   text-align: justify;
-  max-width: 60%;
+}
+@media screen and (max-width: 768px) {
+  .aboutSection {
+    max-width: 90%;
+    padding: 2em;
+  }
 }
 
 footer {
-  background-color: var(--darkColor);
+  background-color: var(--primColor);
   min-height: 10vh;
   position: relative;
+  z-index: 5;
   color: var(--lightColor);
+}
+footer p {
+  margin: 1em 2em;
+  text-align: center;
+  font-size: 1.3em;
 }
 
 .contactSection {
@@ -203,7 +241,8 @@ footer {
   font-weight: 500;
   margin-bottom: 1em;
 }
-.contactSection .contactForm .contactInput input, .contactSection .contactForm .contactInput textarea {
+.contactSection .contactForm .contactInput input,
+.contactSection .contactForm .contactInput textarea {
   font-family: var(--textFont);
   font-size: 1em;
   padding: 0.6em;
@@ -215,7 +254,8 @@ footer {
   box-shadow: 0.1em 0.1em 0.1em 0 var(--darkOpacity);
   transition: 0.3s ease;
 }
-.contactSection .contactForm .contactInput input:focus, .contactSection .contactForm .contactInput textarea:focus {
+.contactSection .contactForm .contactInput input:focus,
+.contactSection .contactForm .contactInput textarea:focus {
   background: var(--lightColor);
   border: 0.2em solid var(--primColor);
   border-radius: 10px;
@@ -224,7 +264,8 @@ footer {
   color: var(--darkColor);
   font-family: var(--textFont);
 }
-.contactSection .contactForm .contactInput input::placeholder, .contactSection .contactForm .contactInput textarea::placeholder {
+.contactSection .contactForm .contactInput input::placeholder,
+.contactSection .contactForm .contactInput textarea::placeholder {
   color: var(--darkColor);
   font-family: var(--textFont);
 }
@@ -240,25 +281,26 @@ footer {
 }
 
 .contactMessage {
-  align-self: center;
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 2em;
-}
-.contactMessage .imgBox {
-  overflow: visible;
-  position: relative;
-  max-width: 60%;
-}
-.contactMessage .imgBox #star {
-  top: -5em;
-  max-width: 50%;
-  left: 0;
-  -webkit-backdrop-filter: dropshadow(20px 20px 20px red);
+  /*
+  .imgBox{
+      overflow:visible;
+      position: relative;
+      max-width: 60%;
+      #star{
+          top: -5em;
+          max-width: 50%;
+          left: 0;
           backdrop-filter: dropshadow(20px 20px 20px red);
-  stroke-linecap: round;
-  stroke-linejoin: round;
+
+          stroke-linecap: round;
+          stroke-linejoin: round;
+      }
+  }*/
 }
 .contactMessage .downloadCv {
   background-color: var(--primOpacity);
@@ -275,6 +317,16 @@ footer {
   max-width: 100vw;
   min-width: 100%;
   min-height: 2.5em;
+  max-height: 3em;
+}
+@media screen and (max-width: 768px) {
+  .curveBox {
+    min-height: 0.1em;
+    max-height: 1em;
+  }
+  .curveBox .curve.whitePurple, .curveBox .curve.whiteDark, .curveBox .curve.purpleWhite, .curveBox .curve.darkWhite {
+    filter: drop-shadow(0em 0em 0em rgba(255, 255, 255, 0)) !important;
+  }
 }
 .curveBox .curve {
   position: absolute;
@@ -283,9 +335,18 @@ footer {
   top: -3.3em;
   filter: drop-shadow(0px -1.1em 0.4em var(--lightColor));
 }
+.curveBox .curve.whiteDark {
+  filter: drop-shadow(0px -1.1em 0.4em var(--lightOpacity));
+}
 .curveBox .curve.purpleWhite, .curveBox .curve.darkWhite {
   bottom: -3.5em;
   filter: drop-shadow(0px 1em 0.1em var(--lightColor));
+}
+.curveBox .curve.purpleWhite {
+  filter: drop-shadow(0px 1em 0.1em var(--primOpacity));
+}
+.curveBox .curve.darkWhite {
+  filter: drop-shadow(0px 1em 0.1em var(--lightOpacity));
 }
 
 .menuBox {
@@ -613,6 +674,8 @@ footer {
 }
 */
 .realizationNav {
+  padding-top: 20em;
+  margin-top: 20em;
   color: var(--lightColor);
   position: relative;
   background: var(--darkColor);
@@ -665,7 +728,7 @@ footer {
   position: relative;
   display: flex;
   flex-flow: row wrap;
-  gap: 0 1.5em;
+  gap: 1em 1.5em;
 }
 @media screen and (max-width: 768px) {
   .realizationSection {
@@ -677,21 +740,24 @@ footer {
   color: var(--primColor);
 }
 .realizationSection .realization {
-  min-height: 100%;
   overflow: hidden;
+  max-height: 300px;
   border-radius: 0 0 25px 25px;
 }
 .realizationSection .realization .imgBox {
+  background-color: var(--darkOpacity);
   position: relative;
+  min-height: 100%;
+  align-items: start;
   border-radius: inherit;
 }
 .realizationSection .realization .imgBox .resumeRealization {
   position: absolute;
-  top: -20em;
+  top: -30em;
+  transform-origin: 0% 50%;
   text-align: center;
   border-radius: inherit;
   z-index: 0;
-  width: 100%;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   background-color: var(--primOpacity);
@@ -740,13 +806,14 @@ footer {
   background-color: var(--lightColor);
   border-radius: 25px;
   font-size: 1.1em;
-  height: 90vh;
-  min-width: 90%;
+  min-height: 100vh;
+  min-width: 90vw;
+  overflow: hidden scroll;
   box-shadow: 20em 5px 20em var(--darkColor), -20em 5px 20em var(--darkColor);
   display: none;
-  flex-direction: column;
-  overflow: hidden hidden;
+  flex-flow: row wrap;
   justify-content: space-between;
+  align-items: stretch;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -759,40 +826,26 @@ footer {
   display: flex;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, display 1s ease-in-out;
 }
-.realizationModal .realizationContent {
-  display: flex;
-  padding-bottom: 2em;
+.realizationModal .realizationTab {
+  margin: 0;
+  max-height: 7vh;
 }
-.realizationModal .realizationContent .imgBox {
+.realizationModal .fullImageContainer {
+  border: 5px solid red;
   flex-basis: 45%;
 }
-.realizationModal .realizationContent .imgBox img {
-  aspect-ratio: 1/1;
-  -o-object-fit: cover;
-     object-fit: cover;
+.realizationModal .realizationInfo {
+  flex-basis: 50%;
+  padding-top: 1em;
+  padding-left: 0.6em;
 }
-.realizationModal .realizationContent .imgBox video {
-  -o-object-fit: cover;
-     object-fit: cover;
-  aspect-ratio: 1/1;
-}
-.realizationModal .realizationContent .imgBox iframe {
-  margin: 0;
-  padding: 0;
-  aspect-ratio: 1/1;
-}
-.realizationModal .realizationContent .realizationInfo {
-  display: flex;
-  margin-top: 2em;
-  flex-direction: column;
-}
-.realizationModal .realizationContent .realizationInfo h3 {
+.realizationModal .realizationInfo h3 {
   color: var(--darkColor);
   position: relative;
   padding-bottom: 0.3em;
   margin-bottom: 0.2em;
 }
-.realizationModal .realizationContent .realizationInfo h3::after {
+.realizationModal .realizationInfo h3::after {
   content: " ";
   position: absolute;
   bottom: 0;
@@ -803,32 +856,42 @@ footer {
   transition: width 0.5s ease-in-out;
   background-color: var(--primColor);
 }
-.realizationModal .curveBox {
-  align-self: flex-end;
-  position: absolute;
-  bottom: -2.5em;
+.realizationModal .moreBtn {
+  width: 3em;
+  height: 3em;
 }
 
 .galleryContainer {
   display: grid;
+  overflow: hidden scroll;
   grid-template-columns: repeat(auto-fill, minmax(75px, 150px));
-  gap: 1em;
+  gap: 0.7em;
+  padding-bottom: 2em;
 }
 .galleryContainer h3 {
   grid-column: 1/-1;
 }
-.galleryContainer .imgBox {
-  border: 0.4em solid var(--darkColor);
+.galleryContainer .imgGallery {
+  border: 0.3em solid var(--primColor);
   background-color: var(--darkOpacity);
-  aspect-ratio: 1/1;
   border-radius: 25px;
 }
-.galleryContainer .imgBox img {
-  filter: drop-shadow(0.2em 0.5em 0.2em var(--darkColor));
+.galleryContainer .imgGallery img {
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.visitSiteBtn {
+  background-color: var(--primOpacity);
+  border-color: var(--primColor);
+  padding: 0.5em 1em;
+  font-size: 1.1em;
+  margin-top: 3em;
 }
 
 .moreBtn {
-  border: 0.24em solid var(--lightColor);
+  border: 0.24em solid var(--primColorHover);
   width: 2.5em;
   height: 2.5em;
   background-color: var(--primColor);
@@ -875,7 +938,7 @@ footer {
   background-color: var(--secOpacity);
 }
 
-.illustrator, .afterEffect, .figma {
+.illustrator, .afterEffect {
   border-color: var(--primColor);
   background-color: var(--primOpacity);
 }
@@ -885,7 +948,8 @@ footer {
   background-color: var(--secOpacity);
 }
 
-.vue, .alpine {
+.vue, .alpine, .unity {
   border-color: var(--darkcolor);
+  color: var(--lightColor);
   background-color: var(--darkOpacity);
 }
