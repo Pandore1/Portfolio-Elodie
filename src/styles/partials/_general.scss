@@ -70,18 +70,16 @@ main > section {
   .logoBox {
     position: fixed;
     top: 1em;
-    box-shadow: 0.2em 0.2em 0.8em var(--darkOpacity);
-    padding: 1em;
-    background-color: var(--lightOpacity);
-    width: 5em;
-    height: 5em;
+    padding: 0.5em;
+    width: 3em;
+    height: 3em;
     border-radius: 50%;
     left: 2em;
     z-index: 150;
   }
   h1 {
     font-size: 5.5em;
-    z-index:200;
+    z-index:10;
     position: relative;
     text-transform: uppercase;
     &::after {

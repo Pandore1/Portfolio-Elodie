@@ -24,29 +24,7 @@ export default function Navbar(){
     const toggleBurgerNav=()=>{
     setBurgerOpen(!burgerOpen);
 }
-    return(/*
-    <>
-        
-        <nav  className={`menuBox${burgerOpen?' open':''}`}>
-            <div className="burgerHolder">
-            <button className="burgerBtn"  onClick={toggleBurgerNav}>
-            
-            <span className="burgerLine"></span>
-            
-        </button>
-            </div>
-           
-            
-
-        
-        <ul className="menu col-5">
-            <li className="tab"><a className="tabLink" link-name='Accueil' href="">Accueil</a></li>
-            <li className="tab"><a className="tabLink" link-name='Réalisation' href="#realization">Réalisation</a></li>
-            <li className="tab"><a className="tabLink" link-name='Contact' href="#contact">Contact</a></li>
-
-        </ul>
-    </nav>
-    </>*/
+    return(
         
         <nav  className={`menuBox${burgerOpen?' open':''}`}>
             <div className="burgerIcon" onClick={toggleBurgerNav}>

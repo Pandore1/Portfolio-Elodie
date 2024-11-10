@@ -13,7 +13,6 @@ $primHover:lighten($primColor,5);
 $primDark:darken($primColor,10);
 $darkOpacity:rgba($darkColor,0.3);
 
-
 :root{
     /*Couleur*/
     --primColor:#{$primColor};

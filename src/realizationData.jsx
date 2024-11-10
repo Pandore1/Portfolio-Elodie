@@ -38,7 +38,7 @@ const realizationData = [
             skillClass:"illustrator",
           }
         ],
-        previewImage: "../Wellerman/wellermanCover.png",
+        previewImage: "../Wellerman/wellermanPreview.png",
         fullImage: null,
         year: "2023",
         webLink:null,
@@ -70,8 +70,8 @@ const realizationData = [
             skillClass:"alpine"
           }
         ],
-        previewImage: "./chaton.jpeg",
-        fullImage: "./chaton.jpeg",
+        previewImage: "../ChroniqueFoster/chroniquePreview.png",
+        fullImage: "../ChroniqueFoster/chroniqueCover.png",
         year: "2023",
         webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/ChroniqueFoster/",
         videoYt:null,
@@ -106,8 +106,8 @@ const realizationData = [
             skillClass:"figma"
           }
         ],
-        previewImage: "../TeaPop/TeaPopLogo.png",
-        fullImage: "../TeaPop/Accueil.png",
+        previewImage: "../TeaPop/teapopCover.png",
+        fullImage: "../TeaPop/teapopAccueil.png",
         year: "2024",
         webLink:"https://www.figma.com/design/5la12S3nuJc8qHZsqIYByy/Borne-Interractive?node-id=0-1&t=ZTJz84oIFNXgmbz3-1",
         videoYt:null,
@@ -184,7 +184,7 @@ const realizationData = [
             skillClass:"css"
           }
         ],
-        previewImage: "../collectionCover.png",
+        previewImage: "../collectionPreview.png",
         fullImage: "../collectionCover.png",
         year: "2023",
         webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/dw-tp2/",

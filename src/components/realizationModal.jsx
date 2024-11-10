@@ -30,13 +30,13 @@ export default function RealizationModal({ isOpen, onClose, realization }) {
   };
 
   return (
-    <div className="realizationModal col-11 open">
+    <div className="realizationModal open col-12">
       <div className="realizationTab">
         <h2 className="realizationTitle col-12">{title}</h2>
         <OpenMoreBtn isOpen={false} clicked={onClose} />
       </div>
 
-      <div className="imgBox fullImageContainer col-5">
+      <div className="imgBox fullImageContainer col-6">
         {renderMedia()}
       </div>
 

@@ -1,9 +1,8 @@
-
 .realizationNav {
-  padding-top: 20em  ;
+  padding-top: 20em;
   margin-top: 20em;
-color: var(--lightColor);
-  h1{
+  color: var(--lightColor);
+  h1 {
     font-size: 2.3em;
     margin: 0 auto;
     text-align: center;
@@ -12,7 +11,7 @@ color: var(--lightColor);
     display: block;
     position: relative;
 
-    &::after{
+    &::after {
       content: "";
       position: absolute;
       bottom: 0;
@@ -31,10 +30,9 @@ color: var(--lightColor);
   justify-content: space-between;
   padding: 0;
   margin: 0;
- 
 }
 
-.specialityBox{
+.specialityBox {
   display: flex;
   flex-direction: column;
   font-size: 2em;
@@ -50,17 +48,15 @@ color: var(--lightColor);
       transform: scaleX(1.05) translateX(-1.4em);
       text-shadow: 0.1em 0.1em 0 var(--secColor);
     }
-   
   }
-  
 }
 
 .realizationSection {
   position: relative;
   display: flex;
   flex-flow: row wrap;
-  gap:1em 1.5em;
-  @include responsive(768px){
+  gap: 1em 1.5em;
+  @include responsive(768px) {
     gap: 1em 0;
   }
   h3 {
@@ -68,15 +64,14 @@ color: var(--lightColor);
     color: var(--primColor);
   }
   .realization {
-   // animation: floatingRealization 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s infinite alternate;
-    overflow: hidden;
+    // animation: floatingRealization 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s infinite alternate;
     max-height: 300px;
+    overflow: hidden;
     border-radius: 0 0 25px 25px;
     .imgBox {
       background-color: var(--darkOpacity);
-     
+      max-height: 100%;
       position: relative;
-      min-height: 100%;
       align-items: start;
       border-radius: inherit;
       .resumeRealization {
@@ -85,227 +80,247 @@ color: var(--lightColor);
         transform-origin: 0% 50%;
         text-align: center;
         border-radius: inherit;
-      
+
         z-index: 0;
-       
+
         backdrop-filter: blur(5px);
         background-color: var(--primOpacity);
         color: var(--lightColor);
         height: 100%;
         padding: 1em;
         transition: top 0.5s ease-in-out;
-       
-        button{
+
+        button {
           margin: 1em auto;
           border-color: var(--secColorHover);
 
-          min-width:40%;
+          min-width: 40%;
           font-size: 1em;
           background-color: var(--secColor);
-          &:hover{
+          &:hover {
             background-color: var(--secColorHover);
           }
         }
-      
       }
       &:hover {
-        .realizationTab{
+        .realizationTab {
           filter: drop-shadow(0px 5px 5px var(--darkColor));
         }
         .resumeRealization {
           top: 0;
         }
       }
+      img{
+        width: auto;
+        min-height: 100%;
+      }
     }
   }
 }
 .realizationTab {
   background-color: var(--darkColor);
-  color: var(--lightColor);
   width: 100%;
-  min-height: 2em;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 25px 25px 0 0;
-  padding: 0.3em 1em;
+  padding: 0.4em 1em;
 
-  .realizationTitle{
+  .realizationTitle {
     color: var(--lightColor);
-    padding: 0;
   }
- 
-  h2{
+
+  h2 {
     font-size: 1.8em;
-   
   }
 }
 .realizationModal {
   background-color: var(--lightColor);
   border-radius: 25px;
   font-size: 1.1em;
-  min-height: 100vh;
-  min-width: 90%;
-  overflow:hidden scroll;
-  box-shadow: 20em 5px 20em var(--darkColor),-20em 5px 20em var(--darkColor);
+  min-height: 50vh;
+  max-height: 90vh;
+ min-width: 90%;
+
+  overflow: hidden;
+  box-shadow: 20em 5px 20em var(--darkColor), -20em 5px 20em var(--darkColor);
   display: none;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: stretch;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 500;
-  
+  z-index: 250;
+
   transition: transform 0.5s ease-in-out;
   animation: openRealization 0.6s ease-in-out 0s 1 reverse forwards;
-
+  
   &.open {
     animation: openRealization 0.6s ease-in-out 0s 1 normal forwards;
-
     display: flex;
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, display 1s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out,
+      display 1s ease-in-out;
+  }
+.fullImageContainer{
+  height: 100%;
+  max-width: fit-content;
+}
+  .realizationTab {
+    max-height: 7vh;
   }
 
-    .realizationTab{
-      margin: 0;
-      max-height: 7vh;
-    }
- 
   .realizationInfo {
-    padding-top: 1em;
-padding-left: 0.6em;
-    h3{
+    max-height: 100%;
+    max-width: 100%;
+    overflow:hidden scroll;
+    margin-top: 2em;
+    h3 {
       color: var(--darkColor);
-      @include afterLine( var(--primColor),0.2em,50%)
-  
+      @include afterLine(var(--primColor), 0.2em, 50%);
     }
   }
+
+  .moreBtn {
+    width: 3em;
+    height: 3em;
+  }
+  .visitSiteBtn {
+    background-color: var(--primOpacity);
+    border-color: var(--primColor);
+    padding: 0.5em 1em;
+    font-size: 1.1em;
+    margin-top: 3em;
+  }
+  @include responsive(768px) {
+
+
+    text-align: center;
  
- .moreBtn{
-  width: 3em;
-  height: 3em;
 
- }
-@include responsive(768px){
-  box-shadow: none;
-  min-width: 0px;
-  min-width: 650px;
-  max-width:750px;
-  overflow: hidden scroll;
-  height: 500px;
-  min-height:min-content;
-  left:unset;
-  transform: translateX(none);
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: flex-start;
-  .realizationTab,.fullImageContainer,.realizationInfo{
-    flex-basis: 100%;
+  
+    right: 0;
     
+  
+   transform: translate(0);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+ 
+    width: min-content;
+ min-width: 90%;
+ max-width: 100%;
+    .realizationInfo{
+      padding: 0;
+      margin: 0;
+    }
+    .realizationTab {
+     text-align: center;
+     max-width: 100%;
+    }
+    .galleryContainer {
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      .imgGallery{
+        min-width: 70%;
+        min-height: fit-content;
+        img{
+          object-fit: cover;
+        }
+      }
+    }
   }
-  .realizationTab{
-    padding: 0;
-    margin: 0;
-  }
-  .galleryContainer{
-    max-width: 40%;
-  }
-
-
+  
+ 
 }
-}
-.galleryContainer{
-  display: grid;
-  overflow:hidden scroll;
-  grid-template-columns: repeat(auto-fill,minmax(75px,150px));
-  gap: 0.7em;
+.galleryContainer {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1em;
+  
   padding-bottom: 2em;
-  h3{
+  h3 {
     grid-column: 1/-1;
   }
-  .imgGallery{
-    border: 0.3em solid var(--primColor);
-    background-color: var(--darkOpacity);
-    
-
+  .imgGallery {
+    flex-basis:27%;
+    border: 0.4em solid var(--primColor);
     border-radius: 25px;
-    img{
-      aspect-ratio: 1/1;
+    min-height: 150px;
+    max-height: 300px;
+    img {
       object-fit: contain;
-    
-      //filter: drop-shadow(0.2em 0.5em 0.2em var(--darkColor));
+
     }
-
   }
 
 }
-.visitSiteBtn{
-  background-color: var(--primOpacity);
-  border-color: var(--primColor);
-  padding: 0.5em 1em;
-  font-size: 1.1em;
-  margin-top: 3em;
-}
-.moreBtn{
-    border: 0.25em solid var(--primColorHover);
-    width: 2.5em;
-    height: 2.5em;
-    border-radius: 50%;
 
-    background-color: var(--primColor);
-    padding: 0.2em;
-    .moreIcon{
-      max-width: 90%;
+.moreBtn {
+  border: 0.25em solid var(--primColorHover);
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+
+  background-color: var(--primColor);
+  padding: 0.2em;
+  .moreIcon {
+    max-width: 90%;
   }
-  &:hover,&:active{
+  &:hover,
+  &:active {
     background-color: var(--primColorHover);
-  }  
-  &.close{
+  }
+  &.close {
     transform: rotateZ(45deg);
   }
-    
 }
 
 //Skill Style
-.skillFilter{
+.skillFilter {
   gap: 0.5em;
   margin-bottom: 2em;
-  .skill{
+  .skill {
     font-size: 1em;
   }
 }
-.skillFilter,.skillList{
-display: flex;
-flex-flow: row wrap;
-min-width: 100%;
-.skill{
+.skillFilter,
+.skillList {
+  display: flex;
+  flex-flow: row wrap;
+  min-width: 100%;
+  .skill {
     padding: 0.4em 0.8em;
     color: inherit;
     min-width: 5em;
+  }
 }
+.skillList {
+  gap: 0.5em;
+  .skill {
+    font-size: 0.9em;
+  }
 }
-.skillList{
-gap: 0.5em;
-.skill{
-  font-size: 0.9em;
-} 
-}
-.figma{
+.figma {
   border-color: var(--secColor);
   background-color: var(--secOpacity);
 }
-.illustrator,.afterEffect{
+.illustrator,
+.afterEffect {
   border-color: var(--primColor);
   background-color: var(--primOpacity);
-
 }
-.scss,.css,.bootStrap{
+.scss,
+.css,
+.bootStrap {
   border-color: var(--secColor);
   background-color: var(--secOpacity);
 }
-.vue,.alpine,.unity{
+.vue,
+.alpine,
+.unity {
   border-color: var(--darkcolor);
   color: var(--lightColor);
   background-color: var(--darkOpacity);

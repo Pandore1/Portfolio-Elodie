@@ -141,18 +141,16 @@ main > section {
 .backgroundHeader .logoBox {
   position: fixed;
   top: 1em;
-  box-shadow: 0.2em 0.2em 0.8em var(--darkOpacity);
-  padding: 1em;
-  background-color: var(--lightOpacity);
-  width: 5em;
-  height: 5em;
+  padding: 0.5em;
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
   left: 2em;
   z-index: 150;
 }
 .backgroundHeader h1 {
   font-size: 5.5em;
-  z-index: 200;
+  z-index: 10;
   position: relative;
   text-transform: uppercase;
 }
@@ -462,6 +460,9 @@ footer p {
 .menuBox .burgerIcon {
   width: 5em;
   height: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   transition: all 0.5s ease-in-out;
 }
@@ -482,13 +483,16 @@ footer p {
 .menuBox .burgerIcon .burgerLine {
   transition: background-color 0.2s, top 0.2s, left 0.2s, transform 0.2s 0.15s;
   top: 50%;
+  transform: translateY(-90%);
   margin: 0.5em 0;
 }
 .menuBox .burgerIcon .burgerLine::before {
   top: 1em;
+  transform: translateY(0.2em);
 }
 .menuBox .burgerIcon .burgerLine::after {
   top: -1em;
+  transform: translateY(-0.2em);
 }
 .menuBox.open {
   padding: 1em;
@@ -764,14 +768,14 @@ footer p {
   color: var(--primColor);
 }
 .realizationSection .realization {
-  overflow: hidden;
   max-height: 300px;
+  overflow: hidden;
   border-radius: 0 0 25px 25px;
 }
 .realizationSection .realization .imgBox {
   background-color: var(--darkOpacity);
+  max-height: 100%;
   position: relative;
-  min-height: 100%;
   align-items: start;
   border-radius: inherit;
 }
@@ -806,21 +810,22 @@ footer p {
 .realizationSection .realization .imgBox:hover .resumeRealization {
   top: 0;
 }
+.realizationSection .realization .imgBox img {
+  width: auto;
+  min-height: 100%;
+}
 
 .realizationTab {
   background-color: var(--darkColor);
-  color: var(--lightColor);
   width: 100%;
-  min-height: 2em;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 25px 25px 0 0;
-  padding: 0.3em 1em;
+  padding: 0.4em 1em;
 }
 .realizationTab .realizationTitle {
   color: var(--lightColor);
-  padding: 0;
 }
 .realizationTab h2 {
   font-size: 1.8em;
@@ -830,18 +835,18 @@ footer p {
   background-color: var(--lightColor);
   border-radius: 25px;
   font-size: 1.1em;
-  min-height: 100vh;
+  min-height: 50vh;
+  max-height: 90vh;
   min-width: 90%;
-  overflow: hidden scroll;
+  overflow: hidden;
   box-shadow: 20em 5px 20em var(--darkColor), -20em 5px 20em var(--darkColor);
   display: none;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: stretch;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 500;
+  z-index: 250;
   transition: transform 0.5s ease-in-out;
   animation: openRealization 0.6s ease-in-out 0s 1 reverse forwards;
 }
@@ -850,13 +855,19 @@ footer p {
   display: flex;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, display 1s ease-in-out;
 }
+.realizationModal .fullImageContainer {
+  height: 100%;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
 .realizationModal .realizationTab {
-  margin: 0;
   max-height: 7vh;
 }
 .realizationModal .realizationInfo {
-  padding-top: 1em;
-  padding-left: 0.6em;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden scroll;
+  margin-top: 2em;
 }
 .realizationModal .realizationInfo h3 {
   color: var(--darkColor);
@@ -879,62 +890,71 @@ footer p {
   width: 3em;
   height: 3em;
 }
+.realizationModal .visitSiteBtn {
+  background-color: var(--primOpacity);
+  border-color: var(--primColor);
+  padding: 0.5em 1em;
+  font-size: 1.1em;
+  margin-top: 3em;
+}
 @media screen and (max-width: 768px) {
   .realizationModal {
-    box-shadow: none;
-    min-width: 0px;
-    min-width: 650px;
-    max-width: 750px;
-    overflow: hidden scroll;
-    height: 500px;
-    min-height: -moz-min-content;
-    min-height: min-content;
-    left: unset;
-    transform: translateX(none);
+    text-align: center;
+    right: 0;
+    transform: translate(0);
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    width: -moz-min-content;
+    width: min-content;
+    min-width: 90%;
+    max-width: 100%;
   }
-  .realizationModal .realizationTab, .realizationModal .fullImageContainer, .realizationModal .realizationInfo {
-    flex-basis: 100%;
-  }
-  .realizationModal .realizationTab {
+  .realizationModal .realizationInfo {
     padding: 0;
     margin: 0;
   }
+  .realizationModal .realizationTab {
+    text-align: center;
+    max-width: 100%;
+  }
   .realizationModal .galleryContainer {
-    max-width: 40%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .realizationModal .galleryContainer .imgGallery {
+    min-width: 70%;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  .realizationModal .galleryContainer .imgGallery img {
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 
 .galleryContainer {
-  display: grid;
-  overflow: hidden scroll;
-  grid-template-columns: repeat(auto-fill, minmax(75px, 150px));
-  gap: 0.7em;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1em;
   padding-bottom: 2em;
 }
 .galleryContainer h3 {
   grid-column: 1/-1;
 }
 .galleryContainer .imgGallery {
-  border: 0.3em solid var(--primColor);
-  background-color: var(--darkOpacity);
+  flex-basis: 27%;
+  border: 0.4em solid var(--primColor);
   border-radius: 25px;
+  min-height: 150px;
+  max-height: 300px;
 }
 .galleryContainer .imgGallery img {
-  aspect-ratio: 1/1;
   -o-object-fit: contain;
      object-fit: contain;
-}
-
-.visitSiteBtn {
-  background-color: var(--primOpacity);
-  border-color: var(--primColor);
-  padding: 0.5em 1em;
-  font-size: 1.1em;
-  margin-top: 3em;
 }
 
 .moreBtn {
@@ -963,12 +983,14 @@ footer p {
   font-size: 1em;
 }
 
-.skillFilter, .skillList {
+.skillFilter,
+.skillList {
   display: flex;
   flex-flow: row wrap;
   min-width: 100%;
 }
-.skillFilter .skill, .skillList .skill {
+.skillFilter .skill,
+.skillList .skill {
   padding: 0.4em 0.8em;
   color: inherit;
   min-width: 5em;
@@ -986,17 +1008,22 @@ footer p {
   background-color: var(--secOpacity);
 }
 
-.illustrator, .afterEffect {
+.illustrator,
+.afterEffect {
   border-color: var(--primColor);
   background-color: var(--primOpacity);
 }
 
-.scss, .css, .bootStrap {
+.scss,
+.css,
+.bootStrap {
   border-color: var(--secColor);
   background-color: var(--secOpacity);
 }
 
-.vue, .alpine, .unity {
+.vue,
+.alpine,
+.unity {
   border-color: var(--darkcolor);
   color: var(--lightColor);
   background-color: var(--darkOpacity);

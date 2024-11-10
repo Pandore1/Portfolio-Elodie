@@ -50,3 +50,15 @@ button:hover {
 svg{
   position: absolute;
 }
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  max-width: 100%;
+
+	vertical-align: baseline;
+
+}
+ul{
+  list-style: none;
+}
