@@ -4,14 +4,14 @@ import OpenMoreBtn from "./moreBtn";
 export default function RealizationModal({ isOpen, onClose, realization }) {
   if (!isOpen || !realization) return null;
 
-  const { title, desc, webLink, videoYt, gallery, fullImage, skills, year } = realization;
+  const { title, desc, webLink, videoYt, gallery, fullImage, skills, year,task } = realization;
 
   const renderMedia = () => {
     if (videoYt && videoYt.includes("youtube")) {
       const embedUrl = videoYt.replace("watch?v=", "embed/");
       return (
         <iframe
-          className="ytVideo fullImageModal"
+          className="ytVideo"
           src={embedUrl}
           title={title}
           frameBorder="0"
@@ -23,7 +23,7 @@ export default function RealizationModal({ isOpen, onClose, realization }) {
     }
 
     if (fullImage) {
-      return <img src={fullImage} className="fullImageModal" alt="Realization Media" style={{ width: "100%", height: "auto" }} />;
+      return <img src={fullImage} alt="Realization Media"/>;
     }
 
     return <p>Unsupported file type</p>;
@@ -45,7 +45,16 @@ export default function RealizationModal({ isOpen, onClose, realization }) {
           <h3 className="col-12">Description</h3>
           <p>{desc}</p>
           <p>{year}</p>
-        </div>
+
+
+          {task && (
+            <>
+            <h3>Mon rôle dans le projet</h3>
+            <p>{task}</p>
+            </>
+          )}
+      </div>
+        
 
         <div className="skillList">
           <h3 className="col-12">Compétences nécessaires</h3>

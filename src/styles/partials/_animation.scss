@@ -12,16 +12,14 @@
     0%{
       top:100vh;
       opacity: 0;
-      transform:translate(-50%,0);
       transition: all 0.5s cubic-bezier(0.72, 0.28, 0.37, 0.89);
+
     }
     100%{
-      top: 0vh;
+      top: 5vh;
       opacity: 1;
-      transform: translate(-50%,0vh);
       transition: all 0.5s cubic-bezier(0.72, 0.28, 0.37, 0.89);
    
-
     }
     
   }
