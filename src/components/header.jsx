@@ -8,7 +8,7 @@ export default function Header() {
         <header className="backgroundHeader" >
       
            
-            <div className="imgBox logoBox">
+            <div className="logoBox">
             <img className="logo" src={Logo} alt="" />
 
             </div>

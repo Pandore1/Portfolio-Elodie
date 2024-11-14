@@ -17,7 +17,7 @@ export default function RealizationModal({ isOpen, onClose, realization }) {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-          style={{ width: "100%", height: "auto" }}
+          style={{ maxWidth: "100%",minWidth:"90%", minHeight: "70%",maxHeight:"fit-content"}}
         />
       );
     }
@@ -30,19 +30,19 @@ export default function RealizationModal({ isOpen, onClose, realization }) {
   };
 
   return (
-    <div className="realizationModal open col-12">
-      <div className="realizationTab">
-        <h2 className="realizationTitle col-12">{title}</h2>
+    <article className="realizationModal open">
+      <span className="realizationTab">
+        <h2 className="realizationTitle">{title}</h2>
         <OpenMoreBtn isOpen={false} clicked={onClose} />
-      </div>
-
-      <div className="imgBox fullImageContainer col-6">
+      </span>
+    <div className="realizationContent">
+    <div className="fullImageContainer">
         {renderMedia()}
       </div>
 
-      <div className="realizationInfo col-5">
-        <div className="descriptionBox">
-          <h3 className="col-12">Description</h3>
+      <div className="realizationInfo">
+        <div>
+          <h3>Description</h3>
           <p>{desc}</p>
           <p>{year}</p>
 
@@ -57,7 +57,7 @@ export default function RealizationModal({ isOpen, onClose, realization }) {
         
 
         <div className="skillList">
-          <h3 className="col-12">Compétences nécessaires</h3>
+          <h3>Compétences nécessaires</h3>
           {skills.map((skill, index) => (
             <button
               key={index}
@@ -71,9 +71,9 @@ export default function RealizationModal({ isOpen, onClose, realization }) {
 
         {gallery && (
           <div className="galleryContainer">
-            <h3 className="col-12">Galerie d'image</h3>
+            <h3>Galerie d'image</h3>
             {gallery.map((image, index) => (
-              <div className="imgGallery imgBox col-6" key={index}>
+              <div className="imgGallery imgBox col-3" key={index}>
                 <img src={image} alt={`Gallery image ${index + 1}`} />
               </div>
             ))}
@@ -89,5 +89,7 @@ export default function RealizationModal({ isOpen, onClose, realization }) {
         )}
       </div>
     </div>
+  
+    </article>
   );
 }

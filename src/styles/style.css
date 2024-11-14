@@ -11,12 +11,10 @@
 @keyframes openRealization {
   0% {
     top: 100vh;
-    opacity: 0;
     transition: all 0.5s cubic-bezier(0.72, 0.28, 0.37, 0.89);
   }
   100% {
     top: 5vh;
-    opacity: 1;
     transition: all 0.5s cubic-bezier(0.72, 0.28, 0.37, 0.89);
   }
 }
@@ -332,38 +330,44 @@ footer p {
 }
 
 .curveBox {
-  position: relative;
+  position: absolute;
   min-width: 100vw;
-  min-height: 2.5em;
-  max-height: 3em;
+  min-height: 3em;
+}
+.curveBox.whitePurple, .curveBox.whiteDark {
+  top: -3em;
+  filter: drop-shadow(0px -1.1em 1em var(--lightOpacity));
+}
+.curveBox.purpleWhite, .curveBox.darkWhite {
+  bottom: -3em;
+}
+.curveBox.purpleWhite .curve, .curveBox.darkWhite .curve {
+  filter: drop-shadow(0px 1em 0.1em var(--lightColor));
+}
+.curveBox.purpleWhite {
+  filter: drop-shadow(0px 1em 0.1em var(--primOpacity));
+}
+.curveBox.purpleWhite .curve {
+  filter: drop-shadow(0px 1em 0.1em var(--primOpacity));
+}
+.curveBox.darkWhite .curve {
+  filter: drop-shadow(0px 1em 0.1em var(--lightOpacity));
 }
 @media screen and (max-width: 768px) {
   .curveBox {
-    min-height: 0.1em;
-    max-height: 1em;
-    min-width: 100%;
+    min-height: 0;
+    z-index: 0;
   }
-  .curveBox .curve.whitePurple, .curveBox .curve.whiteDark, .curveBox .curve.purpleWhite, .curveBox .curve.darkWhite {
+  .curveBox img {
+    min-height: 2em;
     filter: drop-shadow(0em 0em 0em rgba(255, 255, 255, 0)) !important;
   }
-}
-.curveBox .curve {
-  position: absolute;
-  min-width: 100vw;
-}
-.curveBox .curve.whitePurple, .curveBox .curve.whiteDark {
-  top: -3.5em;
-  filter: drop-shadow(0px -1.1em 1em var(--lightOpacity));
-}
-.curveBox .curve.purpleWhite, .curveBox .curve.darkWhite {
-  bottom: -3.5em;
-  filter: drop-shadow(0px 1em 0.1em var(--lightColor));
-}
-.curveBox .curve.purpleWhite {
-  filter: drop-shadow(0px 1em 0.1em var(--primOpacity));
-}
-.curveBox .curve.darkWhite {
-  filter: drop-shadow(0px 1em 0.1em var(--lightOpacity));
+  .curveBox.whitePurple, .curveBox.whiteDark {
+    top: -1em;
+  }
+  .curveBox.darkPurple, .curveBox.darkWhite {
+    bottom: -1.3em;
+  }
 }
 
 .menuBox {
@@ -451,18 +455,18 @@ footer p {
 .menuBox .burgerIcon .burgerLine::after,
 .menuBox .burgerIcon .burgerLine::before {
   transition: top 0.2s 0.2s, transform 0.2s, background-color 0.4s 0.2s;
-  display: block;
   content: "";
-  width: 95%;
+  width: 100%;
+  border-radius: 25px;
   left: 0;
-  border-radius: 1em;
+  transform-origin: 50% 50%;
   height: 0.5em;
   position: absolute;
   transform: rotate(0);
   background-color: var(--lightColor);
 }
 .menuBox .burgerIcon .burgerLine {
-  transition: background-color 0.2s, top 0.2s, left 0.2s, transform 0.2s 0.15s;
+  transition: background-color 0.2s ease, top 0.1s, transform 0.6s 2s;
   top: 50%;
   transform: translateY(-90%);
   margin: 0.5em 0;
@@ -492,15 +496,17 @@ footer p {
   height: 100%;
 }
 .menuBox.open .burgerLine {
-  transition: background-color 0.2s, top 0.1s, left 0.2s, transform 1s 0.25s;
+  transition: background-color 0.2s ease, top 0.1s, transform 0.6s 2s;
   background-color: initial;
 }
 .menuBox.open .burgerLine::before {
   top: 0;
+  transition: top 0.1s, transform 0.4s 0.2s;
   transform: rotate(-45deg);
 }
 .menuBox.open .burgerLine::after {
   top: 0;
+  transition: top 0.1s, transform 0.4s 0.2s;
   transform: rotate(45deg);
 }
 @media screen and (max-width: 768px) {
@@ -508,7 +514,7 @@ footer p {
     background-color: var(--primColor);
     width: 3em;
     height: 2em;
-    z-index: 999;
+    z-index: 200;
     display: flex;
     place-content: center center;
     padding: 0;
@@ -520,8 +526,6 @@ footer p {
 }
 
 .realizationNav {
-  padding-top: 20em;
-  margin-top: 20em;
   color: var(--lightColor);
   position: relative;
   background: var(--darkColor);
@@ -529,26 +533,32 @@ footer p {
   text-transform: capitalize;
   flex-flow: row wrap;
   justify-content: space-between;
-  padding: 0;
-  margin: 0;
+  padding: 2em 0;
 }
 .realizationNav h1 {
   font-size: 2.3em;
   margin: 0 auto;
   text-align: center;
-  width: 50%;
+  min-width: 50%;
+  width: -moz-min-content;
+  width: min-content;
   padding-bottom: 0.4em;
   display: block;
   position: relative;
+  position: relative;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.2em;
 }
 .realizationNav h1::after {
-  content: "";
+  content: " ";
   position: absolute;
   bottom: 0;
+  border-radius: 25px;
   left: 0;
-  background-color: var(--lightColor);
   width: 100%;
   height: 0.2em;
+  transition: width 0.5s ease-in-out;
+  background-color: var(--lightColor);
 }
 
 .specialityBox {
@@ -574,7 +584,7 @@ footer p {
   position: relative;
   display: flex;
   flex-flow: row wrap;
-  gap: 1em 1.5em;
+  gap: 1.5em;
 }
 .realizationSection h3 {
   font-size: 1.5em;
@@ -635,7 +645,7 @@ footer p {
 
 .realizationTab {
   background-color: var(--darkColor);
-  width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -653,15 +663,14 @@ footer p {
   background-color: var(--lightColor);
   border-radius: 25px;
   font-size: 1.1em;
-  min-height: 80vh;
-  max-height: 90vh;
-  min-width: 90%;
-  overflow: hidden;
+  height: 90vh;
+  min-width: 90vw;
   box-shadow: 20em 5px 20em var(--darkColor), -20em 5px 20em var(--darkColor);
   display: none;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: hidden;
   position: fixed;
+  justify-content: space-between;
   left: 50%;
   transform: translateX(-50%);
   z-index: 250;
@@ -673,31 +682,43 @@ footer p {
   display: flex;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, display 1s ease-in-out;
 }
-.realizationModal .fullImageContainer .ytVideo {
-  min-height: 100%;
-  width: auto;
-}
-.realizationModal .fullImageContainer img {
-  min-height: 70%;
-  min-width: 70%;
-  max-width: 100%;
-}
 .realizationModal .realizationTab {
-  max-height: 7vh;
-}
-.realizationModal .realizationInfo {
-  overflow-y: scroll;
   height: -moz-fit-content;
   height: fit-content;
-  margin-top: 2em;
+  width: 100%;
 }
-.realizationModal .realizationInfo h3 {
+.realizationModal .realizationContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 100%;
+  min-width: 100%;
+}
+.realizationModal .realizationContent .fullImageContainer {
+  flex-basis: 47%;
+  padding: 0;
+  align-items: flex-start;
+}
+.realizationModal .realizationContent .fullImageContainer .ytVideo {
+  padding: 0;
+  margin: 0;
+  min-height: 65vh;
+  width: auto;
+}
+.realizationModal .realizationContent .realizationInfo {
+  flex-basis: 47%;
+  overflow-y: scroll;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+.realizationModal .realizationContent .realizationInfo h3 {
+  flex-basis: 100%;
   color: var(--darkColor);
   position: relative;
   padding-bottom: 0.3em;
   margin-bottom: 0.2em;
 }
-.realizationModal .realizationInfo h3::after {
+.realizationModal .realizationContent .realizationInfo h3::after {
   content: " ";
   position: absolute;
   bottom: 0;
@@ -708,73 +729,53 @@ footer p {
   transition: width 0.5s ease-in-out;
   background-color: var(--primColor);
 }
-.realizationModal .moreBtn {
-  width: 3em;
-  height: 3em;
+.realizationModal .realizationContent .realizationInfo .galleryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.realizationModal .realizationContent .realizationInfo .galleryContainer .imgGallery {
+  flex-basis: 25%;
+  border: 0.4em solid var(--secColor);
+  border-radius: 25px;
+  max-height: 250px;
+}
+.realizationModal .realizationContent .realizationInfo .galleryContainer .imgGallery img {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .realizationModal .visitSiteBtn {
   background-color: var(--primOpacity);
   border-color: var(--primColor);
   padding: 0.5em 1em;
   font-size: 1.1em;
-  margin-top: 3em;
 }
 @media screen and (max-width: 768px) {
   .realizationModal {
-    text-align: center;
-    right: 0;
-    transform: translate(0);
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+    min-width: 90vw;
     width: -moz-min-content;
     width: min-content;
-    min-width: 90%;
-    max-width: 100%;
   }
-  .realizationModal .realizationInfo {
-    padding: 0;
-    margin: 0;
+  .realizationModal .realizationContent {
+    flex-flow: column nowrap;
+    overflow: scroll;
   }
-  .realizationModal .realizationTab {
-    text-align: center;
-    max-width: 100%;
+  .realizationModal .realizationContent .realizationInfo {
+    overflow: hidden;
+    padding: 1em;
+    height: -moz-min-content;
+    height: min-content;
   }
-  .realizationModal .galleryContainer {
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+  .realizationModal .realizationContent .galleryContainer .imgGallery {
+    min-width: 60%;
+    align-items: center;
   }
-  .realizationModal .galleryContainer .imgGallery {
-    min-width: 70%;
-    min-height: -moz-fit-content;
-    min-height: fit-content;
+  .realizationModal .realizationContent .galleryContainer .imgGallery img {
+    -o-object-fit: contain;
+       object-fit: contain;
   }
-  .realizationModal .galleryContainer .imgGallery img {
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-}
-
-.galleryContainer {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 1em;
-  padding-bottom: 2em;
-}
-.galleryContainer .imgGallery {
-  flex-basis: 25%;
-  border: 0.4em solid var(--primColor);
-  border-radius: 25px;
-  display: flex;
-  max-height: 300px;
-}
-.galleryContainer .imgGallery img {
-  aspect-ratio: 1/1;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .moreBtn {

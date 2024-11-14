@@ -44,8 +44,8 @@ export default function Realization() {
   return (
     <>
       <nav className="realizationNav">
-        <div className="curveBox">
-          <img className="curve whiteDark" src={CurveWhiteDark} alt="" />
+        <div className="curveBox  whiteDark">
+          <img className="curve" src={CurveWhiteDark} alt="" />
         </div>
         <div className="col-12">
           <h1>Choisir la spécialisation</h1>
@@ -61,8 +61,8 @@ export default function Realization() {
             <h2>Développement</h2>
           </a>
         </div>
-        <div className="curveBox">
-          <img className="curve darkWhite" src={CurveDarkWhite} alt="" />
+        <div className="curveBox  darkWhite">
+          <img className="curve" src={CurveDarkWhite} alt="" />
         </div>
       </nav>
 

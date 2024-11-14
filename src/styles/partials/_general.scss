@@ -244,44 +244,66 @@ footer {
 }
 
 .curveBox {
-  @include responsive(768px) {
-    min-height: 0.1em;
-    max-height: 1em;
-    min-width: 100%;
-    .curve {
-      &.whitePurple,
-      &.whiteDark,
-      &.purpleWhite,
-      &.darkWhite {
-        filter: drop-shadow(0em 0em 0em #ffffff00) !important;
-      }
-    }
-  }
-  position: relative;
+
+  position: absolute;
 
   min-width: 100vw;
-  min-height: 2.5em;
-  max-height: 3em;
-  .curve {
-    position: absolute;
-    min-width: 100vw;
-    &.whitePurple,
-    &.whiteDark {
-      top: -3.5em;
-      filter: drop-shadow(0px -1.1em 1em var(--lightOpacity));
+  min-height: 3em;
+  &.whitePurple,
+  &.whiteDark {
+    top: -3em;
+    filter: drop-shadow(0px -1.1em 1em var(--lightOpacity));
 
-    }
+  }
+  &.purpleWhite,
+  &.darkWhite {
+    bottom: -3em;
+    .curve{
 
-    &.purpleWhite,
-    &.darkWhite {
-      bottom: -3.5em;
       filter: drop-shadow(0px 1em 0.1em var(--lightColor));
-    }
-    &.purpleWhite {
-      filter: drop-shadow(0px 1em 0.1em var(--primOpacity));
-    }
-    &.darkWhite {
-      filter: drop-shadow(0px 1em 0.1em var(--lightOpacity));
+
     }
   }
+  &.purpleWhite {
+    .curve {
+
+      filter: drop-shadow(0px 1em 0.1em var(--primOpacity));
+      
+  
+    
+    }
+    filter: drop-shadow(0px 1em 0.1em var(--primOpacity));
+  }
+  &.darkWhite {
+    .curve {
+
+      filter: drop-shadow(0px 1em 0.1em var(--lightOpacity));
+      
+  
+    
+    }
+  }
+  
+  @include responsive(768px) {
+    
+   
+      min-height: 0;
+      z-index: 0;
+      img{
+        min-height: 2em;
+        filter: drop-shadow(0em 0em 0em #ffffff00) !important;
+
+      }
+      
+      &.whitePurple,&.whiteDark{
+       top: -1em;
+      }
+      &.darkPurple,&.darkWhite{
+        bottom: -1.3em;
+      }
+
+
+    
+    }
+  
 }

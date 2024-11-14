@@ -6,10 +6,10 @@ export default function RealizationTemplate({ realization, onOpenModal }) {
 
   return (
     <article className="realization col-3">
-      <div className="realizationTab">
+      <span className="realizationTab">
         <h3 className="realizationTitle">{title}</h3>
         <OpenMoreBtn isOpen={true} clicked={onOpenModal} />
-      </div>
+      </span>
       <div className="imgBox">
         <img src={previewImage} alt={title} />
         <div className="resumeRealization">

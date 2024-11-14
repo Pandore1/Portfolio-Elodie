@@ -1,25 +1,16 @@
 .realizationNav {
-  padding-top: 20em;
-  margin-top: 20em;
   color: var(--lightColor);
   h1 {
     font-size: 2.3em;
     margin: 0 auto;
     text-align: center;
-    width: 50%;
+    min-width: 50%;
+    width: min-content;
     padding-bottom: 0.4em;
     display: block;
     position: relative;
 
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background-color: var(--lightColor);
-      width: 100%;
-      height: 0.2em;
-    }
+    @include afterLine(var(--lightColor), 0.2em, 100%);
   }
   position: relative;
   background: var(--darkColor);
@@ -28,8 +19,7 @@
   flex-flow: row wrap;
 
   justify-content: space-between;
-  padding: 0;
-  margin: 0;
+  padding: 2em 0;
 }
 
 .specialityBox {
@@ -55,14 +45,14 @@
   position: relative;
   display: flex;
   flex-flow: row wrap;
-  gap: 1em 1.5em;
+  gap: 1.5em;
 
   h3 {
     font-size: 1.5em;
     color: var(--primColor);
   }
   .realization {
-    // animation: floatingRealization 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s infinite alternate;
+    //animation: floatingRealization 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s infinite alternate;
     max-height: 300px;
     overflow: hidden;
     border-radius: 0 0 25px 25px;
@@ -120,7 +110,7 @@
 }
 .realizationTab {
   background-color: var(--darkColor);
-  width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -139,16 +129,14 @@
   background-color: var(--lightColor);
   border-radius: 25px;
   font-size: 1.1em;
-  min-height: 80vh;
-  max-height: 90vh;
-  min-width: 90%;
-
-  overflow: hidden;
+  height: 90vh;
+  min-width: 90vw;
   box-shadow: 20em 5px 20em var(--darkColor), -20em 5px 20em var(--darkColor);
   display: none;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: hidden;
   position: fixed;
+  justify-content: space-between;
   left: 50%;
   transform: translateX(-50%);
   z-index: 250;
@@ -162,97 +150,88 @@
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out,
       display 1s ease-in-out;
   }
-  .fullImageContainer {
-    .ytVideo {
-      min-height: 100%;
-      width: auto;
-    }
-    img {
-      min-height: 70%;
-      min-width: 70%;
-      max-width: 100%;
-    }
-  }
-
   .realizationTab {
-    max-height: 7vh;
-  }
-
-  .realizationInfo {
-    overflow-y: scroll;
     height: fit-content;
-    margin-top: 2em;
-    h3 {
-      color: var(--darkColor);
-      @include afterLine(var(--primColor), 0.2em, 50%);
+    width: 100%;
+  }
+  .realizationContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    height: 100%;
+    min-width: 100%;
+    .fullImageContainer {
+      flex-basis: 47%;
+      padding: 0;
+      align-items: flex-start;
+      .ytVideo {
+        padding: 0;
+        margin: 0;
+        min-height: 65vh;
+        width: auto;
+      }
+    }
+
+    .realizationInfo {
+      flex-basis: 47%;
+      overflow-y: scroll;
+      min-height: fit-content;
+
+      h3 {
+        flex-basis: 100%;
+        color: var(--darkColor);
+        @include afterLine(var(--primColor), 0.2em, 50%);
+      }
+
+      .galleryContainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+
+        .imgGallery {
+          flex-basis: 25%;
+          border: 0.4em solid var(--secColor);
+          border-radius: 25px;
+
+          max-height: 250px;
+          img {
+            width: fit-content;
+            height: fit-content;
+          }
+        }
+      }
     }
   }
 
-  .moreBtn {
-    width: 3em;
-    height: 3em;
-  }
   .visitSiteBtn {
     background-color: var(--primOpacity);
     border-color: var(--primColor);
     padding: 0.5em 1em;
     font-size: 1.1em;
-    margin-top: 3em;
   }
   @include responsive(768px) {
-    text-align: center;
-
-    right: 0;
-
-    transform: translate(0);
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+    min-width: 90vw;
 
     width: min-content;
-    min-width: 90%;
-    max-width: 100%;
-    .realizationInfo {
-      padding: 0;
-      margin: 0;
-    }
-    .realizationTab {
-      text-align: center;
-      max-width: 100%;
-    }
-    .galleryContainer {
-      max-width: 100%;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      .imgGallery {
-        min-width: 70%;
-        min-height: fit-content;
-        img {
-          object-fit: cover;
+
+    .realizationContent {
+      flex-flow: column nowrap;
+      overflow: scroll;
+      .realizationInfo {
+        overflow: hidden;
+        padding: 1em;
+        height: min-content;
+      }
+      .galleryContainer {
+        .imgGallery {
+          min-width: 60%;
+          align-items: center;
+          img {
+            object-fit: contain;
+          }
         }
       }
-    }
-  }
-}
-.galleryContainer {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 1em;
-
-  padding-bottom: 2em;
-
-  .imgGallery {
-    flex-basis: 25%;
-    border: 0.4em solid var(--primColor);
-    border-radius: 25px;
-    display: flex;
-
-    max-height: 300px;
-    img {
-      aspect-ratio: 1/1;
-      object-fit: cover;
     }
   }
 }

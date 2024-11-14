@@ -22,7 +22,7 @@ const realizationData = [
       videoYt:"https://www.youtube.com/watch?v=h5Tka_dxWw8",
       gallery:[
         "redPandaHead.png",
-        "dog.jpg"
+    
         
       ]
     },
@@ -68,15 +68,15 @@ const realizationData = [
           skillClass:"unity"
         }
       ],
-      previewImage: "../Pandascule/pandasculeCover.png",
-      fullImage: "../Pandascule/logo-panda.png",
+      previewImage: "Pandascule/pandasculeCover.png",
+      fullImage: "Pandascule/logo-panda.png",
       year: "2024",
       webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/Pandascule/",
       videoYt:null,
       gallery:[
-        "../Pandascule/panda.png",
-        "../Pandascule/bonbon.png",
-        "../Pandascule/panda-hurt.png",
+        "Pandascule/panda.png",
+        "Pandascule/bonbon.png",
+        "Pandascule/panda-hurt.png",
         
       ],
 
@@ -96,16 +96,12 @@ const realizationData = [
             skillClass:"illustrator",
           }
         ],
-        previewImage: "../Wellerman/wellermanPreview.png",
+        previewImage: "Wellerman/wellermanPreview.png",
         fullImage: null,
         year: "2023",
         webLink:null,
         videoYt:"https://www.youtube.com/watch?v=J0yam9FtWs8",
-        gallery:[
-         
-          "./dog.jpg"
-          
-        ]
+        gallery:null
 
       },
       {
@@ -122,7 +118,7 @@ const realizationData = [
             skillClass:"illustrator",
           }
         ],
-        previewImage: "../Wellerman/wellermanPreview.png",
+        previewImage: "Wellerman/wellermanPreview.png",
         fullImage: null,
         year: "2023",
         webLink:null,
@@ -164,13 +160,7 @@ const realizationData = [
           "ChroniqueFoster/scene_foret.png",
           "ChroniqueFoster/scene_glacier.png",
           "ChroniqueFoster/scene_plage.png",
-          "../ChroniqueFoster/scene_volcan.png",
-          "../ChroniqueFoster/scene_foret.png",
-          "../ChroniqueFoster/scene_glacier.png",
-          "../ChroniqueFoster/scene_plage.png",
-          "../ChroniqueFoster/scene_volcan.png",
-          
-
+          "ChroniqueFoster/scene_volcan.png",
 
         ],
 
