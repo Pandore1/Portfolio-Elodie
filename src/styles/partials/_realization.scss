@@ -163,9 +163,9 @@
       display 1s ease-in-out;
   }
   .fullImageContainer {
-    min-height: 100%;
     .ytVideo {
-      min-height: 70%;
+      min-height: 100%;
+      width: auto;
     }
     img {
       min-height: 70%;
@@ -180,6 +180,7 @@
 
   .realizationInfo {
     overflow-y: scroll;
+    height: fit-content;
     margin-top: 2em;
     h3 {
       color: var(--darkColor);

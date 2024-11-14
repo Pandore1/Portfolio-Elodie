@@ -8,6 +8,7 @@ export default defineConfig({
     modules:{
       localsConvention:"camelCase",
     }
-  }
+  },
+  base:"/etudiants/2022/picarde/Portfolio-Elodie/"
 
 })

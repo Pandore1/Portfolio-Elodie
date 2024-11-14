@@ -15,14 +15,14 @@ const realizationData = [
           skillClass:"illustrator",
         }
       ],
-      previewImage:"../redPandaHead.png",
+      previewImage:"redPandaHead.png",
       fullImage: null,
       year: "2023",
       webLink:null,
       videoYt:"https://www.youtube.com/watch?v=h5Tka_dxWw8",
       gallery:[
-        "../redPandaHead.png",
-        "../dog.jpg"
+        "redPandaHead.png",
+        "dog.jpg"
         
       ]
     },
@@ -43,8 +43,8 @@ const realizationData = [
           skillClass:"wordpress"
         }
       ],
-      previewImage: "../lanaudiereCover.png",
-      fullImage: "../lanaudiereCover.png",
+      previewImage: "lanaudiereCover.png",
+      fullImage: "lanaudiereCover.png",
       year: "2024",
       webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/wd-efc/",
       videoYt:null,
@@ -150,17 +150,21 @@ const realizationData = [
             skillClass:"alpine"
           }
         ],
-        previewImage: "../ChroniqueFoster/chroniquePreview.png",
-        fullImage: "../ChroniqueFoster/chroniqueCover.png",
+        previewImage: "ChroniqueFoster/chroniquePreview.png",
+        fullImage: "ChroniqueFoster/chroniqueCover.png",
         year: "2023",
         webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/ChroniqueFoster/",
         videoYt:null,
         gallery:[
-          "../ChroniqueFoster/castor.png",
-          "../ChroniqueFoster/oiseau.png",
-          "../ChroniqueFoster/pinguoin.png",
-          "../ChroniqueFoster/tortue.png",
-          "../ChroniqueFoster/scene_bidonville.png",
+          "ChroniqueFoster/castor.png",
+          "ChroniqueFoster/oiseau.png",
+          "ChroniqueFoster/pinguoin.png",
+          "ChroniqueFoster/tortue.png",
+          "ChroniqueFoster/scene_bidonville.png",
+          "ChroniqueFoster/scene_foret.png",
+          "ChroniqueFoster/scene_glacier.png",
+          "ChroniqueFoster/scene_plage.png",
+          "../ChroniqueFoster/scene_volcan.png",
           "../ChroniqueFoster/scene_foret.png",
           "../ChroniqueFoster/scene_glacier.png",
           "../ChroniqueFoster/scene_plage.png",
@@ -187,14 +191,14 @@ const realizationData = [
             skillClass:"figma"
           }
         ],
-        previewImage: "../TeaPop/teapopCover.png",
-        fullImage: "../TeaPop/teapopAccueil.png",
+        previewImage: "TeaPop/teapopCover.png",
+        fullImage: "TeaPop/teapopAccueil.png",
         year: "2024",
         webLink:"https://www.figma.com/design/5la12S3nuJc8qHZsqIYByy/Borne-Interractive?node-id=0-1&t=ZTJz84oIFNXgmbz3-1",
         videoYt:null,
         gallery:[
-          "../TeaPop/bubble-kitty.png",
-          "../TeaPop/bobbacino.png",
+          "TeaPop/bubble-kitty.png",
+          "TeaPop/bobbacino.png",
           
         ],
 
@@ -216,8 +220,8 @@ const realizationData = [
             skillClass:"css"
           }
         ],
-        previewImage: "../collectionPreview.png",
-        fullImage: "../collectionCover.png",
+        previewImage: "collectionPreview.png",
+        fullImage: "collectionCover.png",
         year: "2023",
         webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/dw-tp2/",
         videoYt:null,
@@ -237,13 +241,13 @@ const realizationData = [
           }
           
         ],
-        previewImage: "../trumplotPreview.png",
-        fullImage: "../trumplotPreview.png",
+        previewImage: "trumplotPreview.png",
+        fullImage: "trumplotPreview.png",
         year: "2024",
         webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/Trumplot/",
         videoYt:null,
         gallery:[
-          "../logoTrumplot.png",
+          "logoTrumplot.png",
         ],
 
       },
