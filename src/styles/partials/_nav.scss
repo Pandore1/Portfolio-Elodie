@@ -16,6 +16,7 @@
 
   border-radius:50%;
   min-width: 4em;
+  padding: 0.4em;
   min-height: 4em;
   color: var(--lightColor);
   transition: all 0.5s ease-in-out;
@@ -82,8 +83,8 @@
   }
   .burgerIcon {
     
-    width: 5em;
-    height: 5em;
+    width: 4.5em;
+    height: 4.5em;
     display: flex;
     align-items: center;
     justify-content: center;
