@@ -675,9 +675,7 @@ footer .curve {
   box-shadow: 20em 5px 20em var(--darkColor), -20em 5px 20em var(--darkColor);
   display: none;
   flex-wrap: wrap;
-  overflow: hidden;
   position: fixed;
-  justify-content: space-between;
   left: 50%;
   transform: translateX(-50%);
   z-index: 250;
@@ -696,27 +694,24 @@ footer .curve {
 }
 .realizationModal .realizationContent {
   display: flex;
+  overflow-y: auto;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 1em;
   height: 100%;
-  min-width: 100%;
 }
 .realizationModal .realizationContent .fullImageContainer {
-  flex-basis: 47%;
   padding: 0;
-  align-items: flex-start;
+  flex: 1;
 }
 .realizationModal .realizationContent .fullImageContainer .ytVideo {
   padding: 0;
   margin: 0;
-  min-height: 65vh;
+  min-height: 60vh;
   width: auto;
 }
 .realizationModal .realizationContent .realizationInfo {
-  flex-basis: 47%;
-  overflow-y: scroll;
-  min-height: -moz-fit-content;
-  min-height: fit-content;
+  flex: 1;
+  margin-top: 1em;
 }
 .realizationModal .realizationContent .realizationInfo h3 {
   flex-basis: 100%;
@@ -742,10 +737,9 @@ footer .curve {
   gap: 1em;
 }
 .realizationModal .realizationContent .realizationInfo .galleryContainer .imgGallery {
-  flex-basis: 25%;
   border: 0.4em solid var(--secColor);
   border-radius: 25px;
-  max-height: 250px;
+  max-height: 200px;
 }
 .realizationModal .realizationContent .realizationInfo .galleryContainer .imgGallery img {
   width: -moz-fit-content;
@@ -762,13 +756,18 @@ footer .curve {
 }
 @media screen and (max-width: 768px) {
   .realizationModal {
-    min-width: 90vw;
+    min-width: 100vw;
+    min-height: 90vh;
     width: -moz-min-content;
     width: min-content;
+  }
+  .realizationModal .open {
+    top: 0vh;
   }
   .realizationModal .realizationContent {
     flex-flow: column nowrap;
     overflow: scroll;
+    align-items: center;
   }
   .realizationModal .realizationContent .realizationInfo {
     overflow: hidden;

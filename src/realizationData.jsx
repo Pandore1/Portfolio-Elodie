@@ -15,13 +15,16 @@ const realizationData = [
           skillClass:"illustrator",
         }
       ],
-      previewImage:"redPandaHead.png",
+      previewImage:"Pandaroux/pandaPreview.png",
       fullImage: null,
       year: "2023",
       webLink:null,
       videoYt:"https://www.youtube.com/watch?v=h5Tka_dxWw8",
       gallery:[
-        "redPandaHead.png",
+        "Pandaroux/pandaRouxTete.png",
+        "Pandaroux/pandaTete.png",
+        "Pandaroux/countryPandas.png"
+
     
         
       ]
@@ -43,8 +46,8 @@ const realizationData = [
           skillClass:"wordpress"
         }
       ],
-      previewImage: "lanaudiereCover.png",
-      fullImage: "lanaudiereCover.png",
+      previewImage: "lanaudierePreview.png",
+      fullImage: "lanaudiereFullImg.png",
       year: "2024",
       webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/wd-efc/",
       videoYt:null,
@@ -68,8 +71,8 @@ const realizationData = [
           skillClass:"unity"
         }
       ],
-      previewImage: "Pandascule/pandasculeCover.png",
-      fullImage: "Pandascule/logo-panda.png",
+      previewImage: "Pandascule/pandasculePreview.png",
+      fullImage: "Pandascule/pandasculeFullImg.png",
       year: "2024",
       webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/Pandascule/",
       videoYt:null,
@@ -147,7 +150,7 @@ const realizationData = [
           }
         ],
         previewImage: "ChroniqueFoster/chroniquePreview.png",
-        fullImage: "ChroniqueFoster/chroniqueCover.png",
+        fullImage: "ChroniqueFoster/chroniqueFullImg.png",
         year: "2023",
         webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/ChroniqueFoster/",
         videoYt:null,
@@ -182,7 +185,7 @@ const realizationData = [
           }
         ],
         previewImage: "TeaPop/teapopCover.png",
-        fullImage: "TeaPop/teapopAccueil.png",
+        fullImage: "TeaPop/teapopFullImg.png",
         year: "2024",
         webLink:"https://www.figma.com/design/5la12S3nuJc8qHZsqIYByy/Borne-Interractive?node-id=0-1&t=ZTJz84oIFNXgmbz3-1",
         videoYt:null,
@@ -211,7 +214,7 @@ const realizationData = [
           }
         ],
         previewImage: "collectionPreview.png",
-        fullImage: "collectionCover.png",
+        fullImage: "collectionFullImg.png",
         year: "2023",
         webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/dw-tp2/",
         videoYt:null,
@@ -232,7 +235,7 @@ const realizationData = [
           
         ],
         previewImage: "trumplotPreview.png",
-        fullImage: "trumplotPreview.png",
+        fullImage: "trumplotFullImg.png",
         year: "2024",
         webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/Trumplot/",
         videoYt:null,
