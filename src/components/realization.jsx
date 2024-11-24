@@ -42,8 +42,8 @@ export default function Realization() {
   };
 
   return (
-    <>
-      <nav className="realizationNav">
+    <> 
+      {/* <nav className="realizationNav">
         <div className="curveBox  whiteDark">
           <img className="curve" src={CurveWhiteDark} alt="" />
         </div>
@@ -64,7 +64,7 @@ export default function Realization() {
         <div className="curveBox  darkWhite">
           <img className="curve" src={CurveDarkWhite} alt="" />
         </div>
-      </nav>
+      </nav> */}
 
       <section id="realization" className="realizationSection">
         <h2>Mes Réalisations:</h2>

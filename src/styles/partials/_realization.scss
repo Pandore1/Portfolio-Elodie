@@ -133,8 +133,9 @@
   background-color: var(--lightColor);
   border-radius: 25px;
   font-size: 1.1em;
-  height: 90vh;
   min-width: 90vw;
+  height: 90vh;
+  overflow: hidden;
   box-shadow: 20em 5px 20em var(--darkColor), -20em 5px 20em var(--darkColor);
   display: none;
   flex-wrap: wrap;
@@ -150,6 +151,7 @@
   &.open {
     animation: openRealization 0.6s ease-in-out 0s 1 normal forwards;
     display: flex;
+    justify-content: space-between;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out,
       display 1s ease-in-out;
   }
@@ -157,62 +159,60 @@
     height: fit-content;
     width: 100%;
   }
-  .realizationContent {
-    display: flex;
-    overflow-y: auto;
-    flex-wrap: wrap;
-    gap: 1em;
-    height: 100%;
+ 
+  .fullImageContainer {
+    padding: 0;
+    flex-basis: 45%;
 
-
-    .fullImageContainer {
+    .ytVideo {
       padding: 0;
-      flex:1;
+      margin: 0;
+      min-height: 60vh;
+      width: auto;
+    }
+  }
 
-      .ytVideo {
-        padding: 0;
-        margin: 0;
-        min-height: 60vh;
-        width: auto;
-      }
+  .realizationInfo {
+    flex:1;
+    display: block;
+    overflow-y: auto;
+    margin: 2em 0;
+    gap: 1em;
+    max-height: 100%;
+
+
+    h3 {
+      flex-basis: 100%;
+      color: var(--darkColor);
+      @include afterLine(var(--primColor), 0.2em, 50%);
     }
 
-    .realizationInfo {
-      flex:1;
-      margin-top: 1em;
+    .galleryContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
 
-      h3 {
-        flex-basis: 100%;
-        color: var(--darkColor);
-        @include afterLine(var(--primColor), 0.2em, 50%);
-      }
+      .imgGallery {
+ 
+        flex-grow:45%;
+        border: 0.4em solid var(--secColor);
+        border-radius: 25px;
 
-      .galleryContainer {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
+        img {
 
-        .imgGallery {
-       
-          border: 0.4em solid var(--secColor);
-          border-radius: 25px;
-          max-height: 200px;
-
-          img {
-            width: fit-content;
-            height: fit-content;
-          }
+          border-radius: 0;
+          width: fit-content;
+          height: fit-content;
         }
       }
     }
   }
-
   .visitSiteBtn {
     background-color: var(--primOpacity);
     border-color: var(--primColor);
     padding: 0.5em 1em;
     font-size: 1.1em;
-    margin: 2em 0;
+    margin:2em 0 5em 0;
   }
   @include responsive(768px) {
     min-width: 100vw;

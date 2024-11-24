@@ -30,6 +30,7 @@
   display: flex;
   scroll-behavior: smooth;
   flex-direction: column;
+
   box-sizing: border-box;
 }
 
@@ -59,6 +60,7 @@ main > section {
   background: linear-gradient(0deg, var(--lightColor) 10%, #43224e 80%);
   text-align: center;
   padding: 3% auto;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,6 +102,9 @@ main > section {
   .arrowScrollBtn {
     filter: drop-shadow(0em 0.3em 0.2em var(--primDark));
     animation: ArrowScroll 2s ease-in-out 1s infinite both;
+  }
+  .whitePurple{
+    top: 0;
   }
   @include responsive(768px) {
     min-height: 70vh;

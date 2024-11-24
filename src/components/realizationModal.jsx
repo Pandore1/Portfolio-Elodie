@@ -35,7 +35,7 @@ export default function RealizationModal({ isOpen, onClose, realization }) {
         <h2 className="realizationTitle">{title}</h2>
         <OpenMoreBtn isOpen={false} clicked={onClose} />
       </span>
-    <div className="realizationContent">
+
     <div className="fullImageContainer">
         {renderMedia()}
       </div>
@@ -88,7 +88,7 @@ export default function RealizationModal({ isOpen, onClose, realization }) {
           </button>
         )}
       </div>
-    </div>
+  
   
     </article>
   );

@@ -1,44 +1,47 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-require 'vendor/autoload.php';
+    // CAPTCHA
+    $captcha = $_POST['g-recaptcha-response'];
 
-$mail = new PHPMailer(true);
-$name = htmlspecialchars($_POST['nameInput']);  // Récupère le champ "Nom et prénom"
-$email = filter_var($_POST['emailInput'], FILTER_SANITIZE_EMAIL); // Récupère le champ "Email"
-$object = htmlspecialchars($_POST['objectInput']);  // Récupère le champ "Téléphone"
-$message = htmlspecialchars($_POST['messageInput']);  // Récupère le champ "Message"
-try {
-    $mail->SMTPDebug = 2;                                // Activer le débogage (désactivez en production)
-    $mail->isSMTP();                                     // Utiliser SMTP
-    $mail->Host       = 'smtp.gmail.com';                // Serveur SMTP de Gmail
-    $mail->SMTPAuth   = true;                            // Activer l'authentification
-    $mail->Username   = 'votre_adresse@gmail.com';       // Votre adresse Gmail
-    $mail->Password   = 'votre_mot_de_passe_app';        // Mot de passe d'application
-    $mail->SMTPSecure = 'tls';                           // Sécurisation TLS
-    $mail->Port       = 587;                             // Port TLS
+    if (!$captcha) {
+        echo "Veuillez réaliser le captcha.";
+        exit;
+    }
 
-    // Destinataires
-    $mail->setFrom('$email', '$name');
-    $mail->addAddress('elodiepicard4@gmail.com');        // Email du destinataire
+    $secretKey = "";
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
+    $responseKeys = json_decode($response, true);
 
-    // Contenu
-    $mail->isHTML(true);                                 // Format HTML
-    $mail->Subject = '$object';
-    $mail->Body    = 
-    '        <h1>Nouveau message de contact</h1>
-            <p><strong>Nom :</strong> $name</p>
-            <p><strong>Email :</strong> $email</p>
-            <p><strong>Objet :</strong> $object</p>
-            <p><strong>Message :</strong><br>$message</p> ';
-    $mail->AltBody = "Nom : $name\nEmail : $email\nTéléphone : $object\nMessage : $message";
+    if (intval($responseKeys["success"]) !== 1) {
+        echo "Échec de la vérification du captcha.";
+        exit;
+    }
 
-    $mail->send();
-    echo "L'email a été envoyé avec succès!";
-} catch (Exception $e) {
-    echo "L'email n'a pas pu être envoyé. Erreur : {$mail->ErrorInfo}";
+    // Envoi MAIL
+    $mail = new PHPMailer(true);
+    $name = htmlspecialchars($_POST['nameInput']);  // Récupère le champ "Nom et prénom"
+    $email = filter_var($_POST['emailInput'], FILTER_SANITIZE_EMAIL); // Récupère le champ "Email"
+    $object = htmlspecialchars($_POST['objectInput']);  // Récupère le champ "Téléphone"
+    $message = htmlspecialchars($_POST['messageInput']);  // Récupère le champ "Message"
+
+    $to = 'elodiepicard4@gmail.com';
+    $subject = 'Nouveau message de ' . $name;
+    $body = "Nom: $name\n";
+    $body .= "Email: $email\n";
+    $body .= "Sujet: $object\n";
+    $body .= "Demande:\n$message";
+
+    $headers = "From: $email" . "\r\n" .
+               "Reply-To: $email" . "\r\n" .
+               'X-Mailer: PHP/' . phpversion();
+
+    if (mail($to, $object, $body, $headers)) {
+        echo "Youppi";
+    } else {
+        echo "Fuck you";
+    }
 }
 
 ?>
