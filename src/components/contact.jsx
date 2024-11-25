@@ -1,11 +1,11 @@
-import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+
 
 export default function Contact() {
   const [state, handleSubmit] = useForm("xeoqllzp");
   if (state.succeeded) {
-    return <p>Thanks for joining!</p>;
-}
+      return <p>Thanks for joining!</p>;
+  }
   return (
     <section id="contact" className="contactSection col-5">
        <div className="col-5 contactMessage">
@@ -26,11 +26,11 @@ export default function Contact() {
               </a>
             </button>
           </div>
-      <form id="contactForm" className="contactForm col-5" action="https://formspree.io/f/xeoqllzp" method="POST">
+      <form id="contactForm" className="contactForm col-5" onSubmit={handleSubmit}>
         <h2 className="col-12">Contact</h2>
 
         <div className="contactInput col-6 ">
-          <label htmlFor="name">Nom et prénom</label>
+          <label htmlFor="nameInput">Nom et prénom</label>
           <input
             type="text"
             placeholder="Nom et Prénom"
@@ -45,7 +45,7 @@ export default function Contact() {
       />
         </div>
         <div className="contactInput col-12">
-          <label htmlFor="email">Adresse Courriel</label>
+          <label htmlFor="emailInput">Adresse Courriel</label>
           <input
             type="email"
             placeholder="Adresse courriel"
@@ -60,7 +60,7 @@ export default function Contact() {
       />
         </div>
         <div className="contactInput col-12">
-          <label htmlFor="object">Sujet</label>
+          <label htmlFor="subjectInput">Sujet</label>
           <input
             type="text"
             placeholder="Objet du message"

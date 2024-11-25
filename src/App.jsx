@@ -4,10 +4,9 @@ import "./styles/style.css";
 import Header from "./components/header";
 import Realization from "./components/realization";
 import Contact from "./components/contact";
-import Splash from "./assets/splash.svg";
+
 import CurveWhitePurple from "./assets/curveWhitePurple.png";
-import CurvePurpleWhite from "./assets/curvePurpleWhite.png";
-import CurveWhiteDark from "./assets/curveWhiteDark.png";
+
 function App() {
  
   return (
