@@ -9,16 +9,24 @@ const realizationData = [
       {
         skillName:"Unity",
         skillClass:"unity",
+      },
+      {
+        skillName:"Illustrator",
+        skillClass:"illustrator",
       }
       
     ],
-    previewImage: "trumplotPreview.png",
-    fullImage: "trumplotFullImg.png",
+    previewImage: "Trumplot/trumplotPreview.png",
+    fullImage: "Trumplot/trumplotFullImg.png",
     year: "2024",
     webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/Trumplot/",
     videoYt:null,
     gallery:[
-      "logoTrumplot.png",
+      "Trumplot/logoTrumplot.png",
+      "Trumplot/KarenRoom.png",
+      "Trumplot/KayRoom.png",
+      "Trumplot/KevinRoom.png",
+      "Trumplot/teddyBear.png",
     ],
 
   },
@@ -29,21 +37,21 @@ const realizationData = [
   {
     title: "Cuisine Macabre",
     desc: "Nous devions créer un projet interactif utilisant le thème de la synchronicité. Nous avons choisis de",
-    task:"J'étais chargé du développement complet du projet dans unity, ainsi que de la gestion des différentes tâches",
+    task:"J'étais chargé du développement complet du projet dans Unity, ainsi que de la gestion des différentes tâches",
 
     type: "Design",
     skills: [
       {
-        skillName:"After Effect",
-        skillClass:"afterEffect"
+        skillName:"Unity",
+        skillClass:"unity"
       },
       {
         skillName:"Gestion de projet",
         skillClass:"gestion"
       }
     ],
-    previewImage:"cuisineMacabrePreview.png",
-    fullImage: null,
+    previewImage:"cuisinePreview.png",
+    fullImage: "cuisineFullImg.png",
     year: "2023",
     webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/CuisineMacabre/",
     videoYt:null,
@@ -122,7 +130,7 @@ const realizationData = [
         },
        
       ],
-      previewImage: "logoPhos.png",
+      previewImage: "phosPreview.png",
       fullImage: "phosFullImg.png",
       year: "2024",
       webLink:"https://www.figma.com/proto/PxeqKJYVk0C8GVoyIKsxOM/Phos-EFC-Design?node-id=100-424&node-type=frame&t=xctVanWEVo8No5Zs-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=100%3A424",
@@ -252,7 +260,11 @@ const realizationData = [
         year: "2023",
         webLink:null,
         videoYt:"https://www.youtube.com/watch?v=J0yam9FtWs8",
-        gallery:null
+        gallery:[
+          "Wellerman/baleine.png",
+          "Wellerman/bouteille.png",
+          "Wellerman/bateau-voile.png"
+        ]
 
       },
       {

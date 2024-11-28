@@ -601,13 +601,14 @@ footer .curve {
   color: var(--primColor);
 }
 .realizationSection .realization {
-  height: 30vh;
+  height: 300px;
   overflow: hidden;
   border-radius: 0 0 25px 25px;
 }
 .realizationSection .realization .imgBox {
   background-color: var(--darkOpacity);
   max-height: 100%;
+  min-height: 100%;
   position: relative;
   align-items: start;
   border-radius: inherit;
@@ -645,6 +646,7 @@ footer .curve {
   top: 0;
 }
 .realizationSection .realization .imgBox img {
+  min-height: 100%;
   min-width: 100%;
 }
 @media screen and (max-width: 768px) {
@@ -712,7 +714,7 @@ footer .curve {
   flex: 1;
   display: block;
   overflow-y: auto;
-  margin: 2em 0;
+  margin: 2em 1.2em;
   gap: 1em;
   max-height: 100%;
 }
@@ -741,15 +743,10 @@ footer .curve {
 }
 .realizationModal .realizationInfo .galleryContainer .imgGallery {
   flex-grow: 45%;
+  max-height: 200px;
   border: 0.4em solid var(--secColor);
   border-radius: 25px;
-}
-.realizationModal .realizationInfo .galleryContainer .imgGallery img {
-  border-radius: 0;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  align-items: center;
 }
 .realizationModal .visitSiteBtn {
   background-color: var(--primOpacity);
@@ -843,6 +840,7 @@ footer .curve {
 .illustrator,
 .afterEffect {
   border-color: var(--primColor);
+  color: var(--lightColor);
   background-color: var(--primOpacity);
 }
 
@@ -856,7 +854,6 @@ footer .curve {
 .vue,
 .alpine,
 .unity {
-  border-color: var(--darkcolor);
-  color: var(--lightColor);
-  background-color: var(--darkOpacity);
+  border-color: #FFC09F;
+  background-color: rgba(255, 192, 159, 0.4);
 }
