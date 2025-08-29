@@ -90,7 +90,7 @@ export default function Contact() {
         <button className="col-6 contactBtn" type="submit" disabled={state.submitting}>
           Envoyer
         </button>
-        <div class="g-recaptcha" data-sitekey=""></div>
+        <div className="g-recaptcha" data-sitekey=""></div>
 
       </form>
     </section>

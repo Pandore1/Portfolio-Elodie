@@ -1,8 +1,10 @@
-@import "grille.css";
-@import "partials/animation";
-@import "partials/variable";
-@import "partials/general";
-@import "partials/nav";
 
-@import "partials/realization";
-@import "partials/shapes"
+@use "grille.css";
+@use "partials/animation";
+@use "partials/variable";
+@use "partials/general";
+@use "partials/nav";
+@use "partials/realization";
+//npm run dev && npm run dev:scss
+
+

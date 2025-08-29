@@ -1,56 +1,19 @@
-.realizationNav {
-  color: var(--lightColor);
-  h1 {
-    font-size: 2.3em;
-    margin: 0 auto;
-    text-align: center;
-    min-width: 50%;
-    width: min-content;
-    padding-bottom: 0.4em;
-    display: block;
-    position: relative;
-
-    @include afterLine(var(--lightColor), 0.2em, 100%);
-  }
-  position: relative;
-  background: var(--darkColor);
-  display: flex;
-  text-transform: capitalize;
-  flex-flow: row wrap;
-
-  justify-content: space-between;
-  padding: 2em 0;
-}
-
-.specialityBox {
-  display: flex;
-  flex-direction: column;
-  font-size: 2em;
-  .specialityChoice {
-    border-bottom: 5px solid var(--secColor);
-    margin: auto 0;
-    display: flex;
-    align-items: center;
-    flex-basis: 45%;
-    height: 100%;
-    transition: all 0.5s ease-in-out;
-    &:hover {
-      transform: scaleX(1.05) translateX(-1.4em);
-      text-shadow: 0.1em 0.1em 0 var(--secColor);
-    }
-  }
-}
+@use "variable";
 
 .realizationSection {
-  position: relative;
+  /*position: relative;
   display: flex;
   flex-flow: row wrap;
+  
   gap: 1.5em;
-
+*/
+  display: grid;
+  grid-template: repeat(4, 1fr) / auto;
+  gap: 1em;
   h3 {
     font-size: 1.5em;
     color: var(--primColor);
-  }
+  } /*
   .realization {
     //animation: floatingRealization 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s infinite alternate;
     height: 300px;
@@ -106,12 +69,65 @@
         min-width: 100%;
       }
     }
+  }*/
+  .realization {
+    //animation: floatingRealization 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s infinite alternate;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    background-color: var(--darkOpacity);
+
+    border-radius: 25px;
+    overflow: hidden;
+    .imgBox {
+      width: 100%;
+
+      position: relative;
+      align-items: start;
+      .resumeRealization {
+        position: absolute;
+        height: inherit;
+        text-align: center;
+        top: -100%;
+        height: 100%;
+        font-size: 1.1em;
+        z-index: 0;
+
+        backdrop-filter: blur(5px);
+        background-color: var(--primOpacity);
+        color: var(--lightColor);
+
+        padding: 0.5em 0.4em;
+        transition: top 0.5s ease-in-out;
+
+        button {
+          margin: 1em auto;
+          border-color: var(--secColorHover);
+
+          min-width: 40%;
+          font-size: 1em;
+          background-color: var(--secColor);
+          &:hover {
+            background-color: var(--secColorHover);
+          }
+        }
+      }
+      &:hover {
+        .realizationTab {
+          filter: drop-shadow(0px 5px 5px var(--darkColor));
+        }
+        .resumeRealization {
+          top: 0;
+        }
+      }
+    }
   }
-  @include responsive(768px) {
+  @include variable.responsive(768px) {
     flex-direction: column;
     gap: 1em 0;
   }
 }
+/*
 .realizationTab {
   background-color: var(--darkColor);
   max-width: 100%;
@@ -121,6 +137,19 @@
   border-radius: 25px 25px 0 0;
   padding: 0.4em 1em;
 
+  .realizationTitle {
+    color: var(--lightColor);
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+}*/
+.realizationTab {
+  background-color: var(--darkColor);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4em 1em;
   .realizationTitle {
     color: var(--lightColor);
   }
@@ -159,7 +188,7 @@
     height: fit-content;
     width: 100%;
   }
- 
+
   .fullImageContainer {
     padding: 0;
     flex-basis: 45%;
@@ -173,18 +202,17 @@
   }
 
   .realizationInfo {
-    flex:1;
+    flex: 1;
     display: block;
     overflow-y: auto;
     margin: 2em 1.2em;
     gap: 1em;
     max-height: 100%;
 
-
     h3 {
       flex-basis: 100%;
       color: var(--darkColor);
-      @include afterLine(var(--primColor), 0.2em, 50%);
+      @include variable.afterLine(var(--primColor), 0.2em, 50%);
     }
 
     .galleryContainer {
@@ -193,14 +221,11 @@
       gap: 1em;
 
       .imgGallery {
- 
-        flex-grow:45%;
+        flex-grow: 45%;
         max-height: 200px;
         border: 0.4em solid var(--secColor);
         border-radius: 25px;
         align-items: center;
-
-      
       }
     }
   }
@@ -209,22 +234,22 @@
     border-color: var(--primColor);
     padding: 0.5em 1em;
     font-size: 1.1em;
-    margin:2em 0 5em 0;
+    margin: 2em 0 5em 0;
   }
-  @include responsive(768px) {
+  @include variable.responsive(768px) {
     min-width: 100vw;
 
     min-height: 90vh;
     width: min-content;
 
-    .open{
-      top:0vh;
+    .open {
+      top: 0vh;
     }
     .realizationContent {
       flex-flow: column nowrap;
       overflow: scroll;
       align-items: center;
-  
+
       .realizationInfo {
         overflow: hidden;
         padding: 1em;
@@ -244,15 +269,21 @@
 }
 
 .moreBtn {
-  border: 0.25em solid var(--primColorHover);
+  /*border: 0.25em solid var(--primColorHover);
   width: 2.5em;
   height: 2.5em;
   border-radius: 50%;
 
   background-color: var(--primColor);
-  padding: 0.2em;
+  padding: 0.2em;*/
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--primColor);
   .moreIcon {
     max-width: 90%;
+    transform-origin: 50% 50%;
   }
   &:hover,
   &:active {
@@ -266,6 +297,7 @@
 //Skill Style
 .skillFilter {
   gap: 0.5em;
+  grid-column: span 4;
   margin-bottom: 2em;
   .skill {
     font-size: 1em;
@@ -278,7 +310,6 @@
   min-width: 100%;
   .skill {
     padding: 0.4em 0.8em;
-    color: inherit;
     min-width: 5em;
   }
 }
@@ -286,27 +317,22 @@
   gap: 0.5em;
   .skill {
     font-size: 0.9em;
+    color: var(--darkColor);
   }
 }
-.figma {
-  border-color: var(--secColor);
-  background-color: var(--secOpacity);
-}
+
 .illustrator,
-.afterEffect {
+.afterEffect,
+.figma {
   border-color: var(--primColor);
-  color: var(--lightColor);
   background-color: var(--primOpacity);
 }
 .scss,
 .css,
-.bootStrap {
-  border-color: var(--secColor);
-  background-color: var(--secOpacity);
-}
+.bootStrap,
 .vue,
 .alpine,
 .unity {
-  border-color: #FFC09F;
-  background-color: rgba(#FFC09F, 0.4);
+  border-color: var(--secColor);
+  background-color: var(--secOpacity);
 }
