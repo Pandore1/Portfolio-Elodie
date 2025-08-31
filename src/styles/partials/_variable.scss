@@ -13,8 +13,7 @@ $secColor: #8ECD91;
 $secOpacity:rgba($secColor,0.4);
 $secHover:color.adjust($secColor,$lightness: -20%);
 $primHover:color.adjust($primColor,$lightness: 5%);
-$primDark:color.adjust($primColor,$lightness: -20%);
-
+$primDark:color.adjust($primColor,$lightness: -15%);
 $darkOpacity:rgba($darkColor,0.3);
 
 :root{

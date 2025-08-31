@@ -32,7 +32,7 @@ export default function RealizationModal({ isOpen, onClose, realization }) {
   return (
     <article className="realizationModal open">
       <span className="realizationTab">
-        <h2 className="realizationTitle">{title}</h2>
+        <h3 className="realizationTitle">{title}</h3>
         <OpenMoreBtn isOpen={false} clicked={onClose} />
       </span>
 

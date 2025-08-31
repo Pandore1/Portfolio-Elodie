@@ -27,9 +27,9 @@ Je m’appelle Élodie Picard. Je suis passionnée par la nature, la science et 
 
       </main>
       <footer>
-        <div className="curveBox whitePurple">
+        {/* <div className="curveBox whitePurple">
           <img className="curve" src={CurveWhitePurple} alt="" />
-        </div>
+        </div> */}
 
         <p>Élodie Picard 2024</p>
       </footer>

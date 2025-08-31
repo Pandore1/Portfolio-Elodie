@@ -54,12 +54,11 @@ main > section {
   img {
     max-width: 100%;
     height: fit-content;
-    border-radius: inherit;
   }
 }
 
 .backgroundHeader {
-  background: linear-gradient(0deg, var(--lightColor) 10%, #43224e 80%);
+  background: linear-gradient(0deg, var(--lightColor) 5%, #43224e 100%);
   text-align: center;
   padding: 3% auto;
   position: relative;
@@ -71,7 +70,7 @@ main > section {
   color: var(--lightColor);
   font-size: 2em;
   min-width: 100%;
-  min-height: 90vh;
+  min-height: 95vh;
   .logoBox {
     position: fixed;
     top: 1em;
@@ -102,12 +101,10 @@ main > section {
   }
 
   .arrowScrollBtn {
-    filter: drop-shadow(0em 0.3em 0.2em var(--primDark));
+    //filter: drop-shadow(0em 0.3em 0.2em var(--primDark));
     animation: ArrowScroll 2s ease-in-out 1s infinite both;
   }
-  .whitePurple {
-    top: 0;
-  }
+ 
   @include variable.responsive(768px) {
     min-height: 70vh;
     justify-content: start;
@@ -141,7 +138,7 @@ main > section {
   min-height: 250px;
   padding: 2em 3em;
   h2 {
-    @include variable.afterLine(var(--lightColor), 0.2em, 30%);
+   @include variable.afterLine(var(--darkColor), 0.2em, 30%);
   }
   p {
     text-align: justify;
@@ -151,24 +148,7 @@ main > section {
     max-width: 80%;
   }
 }
-footer {
-  background-color: var(--primColor);
-  min-height: 12vh;
-  position: relative;
 
-  color: var(--lightColor);
-  p {
-    margin: 1em 2em;
-    text-align: center;
-    font-size: 1.3em;
-
-    position: relative;
-    z-index: 1;
-  }
-  .curve {
-    z-index: 0;
-  }
-}
 .contactSection {
   display: flex;
   justify-content: space-between;
@@ -296,5 +276,26 @@ footer {
       display: none;
     }
     
+  }
+}
+
+footer {
+    background: linear-gradient(0deg, var(--primColor) 10%, var(--lightColor) 80%);
+
+  //background-color: var(--primColor);
+  min-height: 30vh;
+  position: relative;
+
+  color: var(--darkColor);
+  p {
+    margin: 1em 2em;
+    text-align: center;
+    font-size: 1.3em;
+
+    position: relative;
+    z-index: 1;
+  }
+  .curve {
+    z-index: 0;
   }
 }

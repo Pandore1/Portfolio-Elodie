@@ -16,7 +16,7 @@ const realizationData = [
       }
       
     ],
-    previewImage: "Trumplot/trumplotPreview.png",
+    previewImage: "Trumplot/preview_Trumplot.png",
     fullImage: "Trumplot/trumplotFullImg.png",
     year: "2024",
     webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/Trumplot/",
@@ -50,7 +50,7 @@ const realizationData = [
         skillClass:"gestion"
       }
     ],
-    previewImage:"cuisinePreview.png",
+    previewImage:"preview_CuisineMacabre.png",
     fullImage: "cuisineFullImg.png",
     year: "2023",
     webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/CuisineMacabre/",
@@ -74,7 +74,7 @@ const realizationData = [
           skillClass:"wordpress"
         }
       ],
-      previewImage: "lanaudierePreview.png",
+      previewImage: "preview_Lanaudiere.png",
       fullImage: "lanaudiereFullImg.png",
       year: "2024",
       webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/wd-efc/",
@@ -130,7 +130,7 @@ const realizationData = [
         },
        
       ],
-      previewImage: "phosPreview.png",
+      previewImage: "preview_Phos.png",
       fullImage: "phosFullImg.png",
       year: "2024",
       webLink:"https://www.figma.com/proto/PxeqKJYVk0C8GVoyIKsxOM/Phos-EFC-Design?node-id=100-424&node-type=frame&t=xctVanWEVo8No5Zs-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=100%3A424",
@@ -158,7 +158,7 @@ const realizationData = [
           skillClass:"figma"
         }
       ],
-      previewImage: "TeaPop/teapopCover.png",
+      previewImage: "TeaPop/preview_TeaPop.png",
       fullImage: "TeaPop/teapopFullImg.png",
       year: "2024",
       webLink:"https://www.figma.com/design/5la12S3nuJc8qHZsqIYByy/Borne-Interractive?node-id=0-1&t=ZTJz84oIFNXgmbz3-1",
@@ -227,7 +227,7 @@ const realizationData = [
           skillClass:"illustrator",
         }
       ],
-      previewImage:"Pandaroux/pandaPreview.png",
+      previewImage:"Pandaroux/preview_PandaRoux.png",
       fullImage: null,
       year: "2023",
       webLink:null,
@@ -283,7 +283,7 @@ const realizationData = [
             skillClass:"css"
           }
         ],
-        previewImage: "collectionPreview.png",
+        previewImage: "preview_Collection.png",
         fullImage: "collectionFullImg.png",
         year: "2023",
         webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/dw-tp2/",
@@ -305,7 +305,7 @@ const realizationData = [
             skillClass:"illustrator",
           }
         ],
-        previewImage: "Wellerman/wellermanPreview.png",
+        previewImage: "preview_Viking.png",
         fullImage: null,
         year: "2023",
         webLink:null,
@@ -333,7 +333,7 @@ const realizationData = [
             skillClass:"alpine"
           }
         ],
-        previewImage: "ChroniqueFoster/chroniquePreview.png",
+        previewImage: "ChroniqueFoster/preview_ChroniquesFoster.png",
         fullImage: "ChroniqueFoster/chroniqueFullImg.png",
         year: "2023",
         webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/ChroniqueFoster/",

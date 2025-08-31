@@ -1,14 +1,9 @@
 @use "variable";
 
 .realizationSection {
-  /*position: relative;
+  position: relative;
   display: flex;
-  flex-flow: row wrap;
-  
-  gap: 1.5em;
-*/
-  display: grid;
-  grid-template: repeat(4, 1fr) / auto;
+  flex-wrap: wrap;
   gap: 1em;
   h3 {
     font-size: 1.5em;
@@ -71,16 +66,16 @@
     }
   }*/
   .realization {
-    //animation: floatingRealization 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s infinite alternate;
-    width: 100%;
-    height: 100%;
-    min-height: 250px;
+    flex-basis: 24%;
+   //aspect-ratio:1.5/1;
     background-color: var(--darkOpacity);
 
     border-radius: 25px;
     overflow: hidden;
     .imgBox {
-      width: 100%;
+      aspect-ratio:1.5/1;
+      align-items: center;
+      justify-content: center;
 
       position: relative;
       align-items: start;
@@ -88,7 +83,7 @@
         position: absolute;
         height: inherit;
         text-align: center;
-        top: -100%;
+        top: -130%;
         height: 100%;
         font-size: 1.1em;
         z-index: 0;
@@ -127,37 +122,17 @@
     gap: 1em 0;
   }
 }
-/*
-.realizationTab {
-  background-color: var(--darkColor);
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 25px 25px 0 0;
-  padding: 0.4em 1em;
-
-  .realizationTitle {
-    color: var(--lightColor);
-  }
-
-  h2 {
-    font-size: 1.8em;
-  }
-}*/
 .realizationTab {
   background-color: var(--darkColor);
   display: flex;
   justify-content: space-between;
-  padding: 0.4em 1em;
+  padding: 0.35em 1em;
   .realizationTitle {
     color: var(--lightColor);
+     font-size: 1.4em;
   }
 
-  h2 {
-    font-size: 1.8em;
-  }
-}
+}/*
 .realizationModal {
   background-color: var(--lightColor);
   border-radius: 25px;
@@ -266,8 +241,118 @@
       }
     }
   }
-}
+}*/
+.realizationModal {
+  background-color: var(--lightColor);
+  border-radius: 25px;
+  font-size: 1.1em;
+  min-width: 90vw;
+  height: 90vh;
+  overflow: hidden;
+  box-shadow: 20em 5px 20em var(--darkColor), -20em 5px 20em var(--darkColor);
+  display: none;
+  flex-wrap: wrap;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 250;
 
+  transition: transform 0.5s ease-in-out;
+  animation: openRealization 0.6s ease-in-out 0s 1 reverse forwards;
+
+  &.open {
+    animation: openRealization 0.6s ease-in-out 0s 1 normal forwards;
+    display: flex;
+    justify-content: space-between;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out,
+      display 1s ease-in-out;
+  }
+  .realizationTab {
+    height: fit-content;
+    width: 100%;
+  }
+
+  .fullImageContainer {
+    padding: 0;
+    flex-basis: 45%;
+
+    .ytVideo {
+      padding: 0;
+      margin: 0;
+      min-height: 60vh;
+      width: auto;
+    }
+  }
+
+  .realizationInfo {
+    flex: 1;
+    display: block;
+    overflow-y: auto;
+    margin: 2em 1.2em;
+    gap: 1em;
+    max-height: 100%;
+
+    h3 {
+      flex-basis: 100%;
+      color: var(--darkColor);
+      @include variable.afterLine(var(--primColor), 0.2em, 50%);
+    }
+
+    .galleryContainer {
+      display: grid;
+      grid-template: auto/repeat(4,1fr);
+      gap: 1em;
+      h3{
+        grid-column:span 4;
+      }
+      .imgGallery {
+        border: 0.3em solid var(--primDark);
+        max-height: 30vh;
+        border-radius: 25px;
+        align-items: center;
+      }
+    }
+  }
+  .visitSiteBtn {
+    background-color: var(--primOpacity);
+    border-color: var(--primColor);
+    padding: 0.5em 1em;
+    font-size: 1.1em;
+    margin: 2em 0 5em 0;
+  }
+  @include variable.responsive(768px) {
+    min-width: 100vw;
+
+    min-height: 90vh;
+    width: min-content;
+
+    .open {
+      top: 0vh;
+    }
+    .realizationContent {
+      flex-flow: column nowrap;
+      overflow: scroll;
+      align-items: center;
+
+      .realizationInfo {
+        overflow: hidden;
+        padding: 1em;
+        height: min-content;
+      }
+      .galleryContainer {
+        grid-template: auto/1fr;
+        .imgGallery {
+          //min-width: 60%;
+          align-items: center;
+          //aspect-ratio: 1/1;
+          img {
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}
 .moreBtn {
   /*border: 0.25em solid var(--primColorHover);
   width: 2.5em;
@@ -301,6 +386,7 @@
   margin-bottom: 2em;
   .skill {
     font-size: 1em;
+    
   }
 }
 .skillFilter,

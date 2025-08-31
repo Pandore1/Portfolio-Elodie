@@ -4,18 +4,18 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+     "dev": "concurrently \"vite\" \"npm run dev:scss\"",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "dev:scss": "sass ./src/styles/style.scss  ./src/styles/style.css --watch"
-
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@formspree/react": "^2.5.1",
     "@mui/material": "^6.5.0",
+    "concurrently": "^9.2.1",
     "react": "^18.3.1",
     "react-animate-on-scroll": "^2.1.9",
     "react-dom": "^18.3.1",

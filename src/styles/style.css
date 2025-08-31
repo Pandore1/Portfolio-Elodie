@@ -178,8 +178,8 @@ body {
 :root {
   /*Couleur*/
   --primColor:#623271;
-  --primColorHover:rgb(113.3312883436, 57.8220858896, 130.6779141104);
-  --primDark:rgb(36.6748466258, 18.7116564417, 42.2883435583);
+  --primColorHover:#713a83;
+  --primDark:#341b3c;
   --primOpacity:rgba(98, 50, 113, 0.4);
   --lightColor:#F6FAF0;
   --lightOpacity:rgba(246, 250, 240, 0.4);
@@ -187,7 +187,7 @@ body {
   --darkOpacity:rgba(54, 54, 54, 0.3);
   --secColor:#8ECD91;
   --secOpacity:rgba(142, 205, 145, 0.4);
-  --secColorHover:rgb(75.1533742331, 169.8466257669, 79.6625766871);
+  --secColorHover:#4baa50;
   --titleFont:"Kodchasan";
   --textFont:"Open Sans","Arial","Helvetica",sans-serif;
 }
@@ -248,11 +248,10 @@ main > section {
 .imgBox img {
   max-width: 100%;
   height: fit-content;
-  border-radius: inherit;
 }
 
 .backgroundHeader {
-  background: linear-gradient(0deg, var(--lightColor) 10%, #43224e 80%);
+  background: linear-gradient(0deg, var(--lightColor) 5%, #43224e 100%);
   text-align: center;
   padding: 3% auto;
   position: relative;
@@ -264,7 +263,7 @@ main > section {
   color: var(--lightColor);
   font-size: 2em;
   min-width: 100%;
-  min-height: 90vh;
+  min-height: 95vh;
 }
 .backgroundHeader .logoBox {
   position: fixed;
@@ -295,11 +294,7 @@ main > section {
   -webkit-text-stroke: 0.02em var(--secColor);
 }
 .backgroundHeader .arrowScrollBtn {
-  filter: drop-shadow(0em 0.3em 0.2em var(--primDark));
   animation: ArrowScroll 2s ease-in-out 1s infinite both;
-}
-.backgroundHeader .whitePurple {
-  top: 0;
 }
 @media screen and (max-width: 768px) {
   .backgroundHeader {
@@ -349,7 +344,7 @@ main > section {
   width: 30%;
   height: 0.2em;
   transition: width 0.5s ease-in-out;
-  background-color: var(--lightColor);
+  background-color: var(--darkColor);
 }
 .aboutSection p {
   text-align: justify;
@@ -359,23 +354,6 @@ main > section {
   .aboutSection {
     max-width: 80%;
   }
-}
-
-footer {
-  background-color: var(--primColor);
-  min-height: 12vh;
-  position: relative;
-  color: var(--lightColor);
-}
-footer p {
-  margin: 1em 2em;
-  text-align: center;
-  font-size: 1.3em;
-  position: relative;
-  z-index: 1;
-}
-footer .curve {
-  z-index: 0;
 }
 
 .contactSection {
@@ -502,196 +480,38 @@ footer .curve {
   }
 }
 
-/*.menuBox {
-
-  position: fixed;
-  top: 20px;
-  font-size: 0.6em;
-  right: 20px;
-  z-index: 100;
-  transform-origin: 100% 0;
-
-  background-color: var(--primColor);
-
-  filter: drop-shadow(5px 5px 10px var(--darkColor));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  border-radius:50%;
-  min-width: 4em;
-  padding: 0.4em;
-  min-height: 4em;
-  color: var(--lightColor);
-  transition: all 0.5s ease-in-out;
-  animation: openBurger 0.6s ease 0s 1 backwards forwards;
-
-  .menu {
-    display: none;
-    width: 0;
-    height: 0;
-    list-style: none;
-    text-align: end;
-    font-size: 2.4em;
-    .tab {
-      .tabLink {
-        position: relative;
-        color: var(--lightColor);
-        border-radius: 10px;
-
-        font-size: 1.2em;
-        transition: all 0.5s ease-in-out;
-        margin: 0;
-
-        width: 100%;
-        &:hover {
-          transition: all 0.5s ease-in-out;
-
-          &::before {
-            width: 100%;
-          }
-          &::after {
-            width: 60%;
-          }
-        }
-        &::before {
-          content: attr(link-name);
-
-          color: var(--secColor);
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          width: 0;
-          overflow: hidden;
-          transition: all 0.5s ease-in-out;
-        }
-        &::after {
-          position: absolute;
-          content: "";
-          background-color: var(--secColor);
-          width: 0;
-          height: 5px;
-          bottom: -5px;
-          right: 0;
-          border-radius: 10px;
-          transition: all 0.5s ease-in-out;
-        }
-      }
-    }
-  }
-  &:hover {
-    transform: scale(1.1);
-    background-color: var(--primColorHover);
-  }
-  .burgerIcon {
-
-    width: 4.5em;
-    height: 4.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: all 0.5s ease-in-out;
-    .burgerLine,
-  .burgerLine::after,
-  .burgerLine::before {
-    transition: top 0.2s 0.2s, transform 0.2s, background-color 0.4s 0.2s;
-    content: "";
-    width: 100%;
-    border-radius:25px;
-    left: 0;
-    transform-origin: 50% 50%;
-    height: 0.5em;
-    position: absolute;
-    transform: rotate(0);
-    background-color: var(--lightColor);
-  }
-    .burgerLine {
-      transition: background-color 0.2s ease, top 0.1s, transform 0.6s 2s;
-
-      top: 50%;
-      transform: translateY(-90%);
-
-      margin: 0.5em 0;
-      &::before {
-        top: 1em;
-        transform: translateY(0.2em);
-
-      }
-      &::after {
-        top: -1em;
-        transform: translateY(-0.2em);
-
-      }
-    }
-
-
-  }
-  &.open {
-    padding: 1em;
-    right: 0;
-    border-radius: 0 0 0 100%;
-    top: 0;
-    align-items: end;
-
-    min-height: 25em;
-    min-width: 25em;
-    filter: drop-shadow(20px 20px 10px var(--darkColor)) drop-shadow(-20px 0px 10px var(--darkColor));
-    .menu {
-      margin-right: 0.4em;
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    .burgerLine {
-      transition: background-color 0.2s ease, top 0.1s, transform 0.6s 2s;
-      background-color: initial;
-      &::before {
-        top: 0;
-        transition: top 0.1s, transform 0.4s 0.2s;
-        transform: rotate(-45deg);
-      }
-      &::after {
-        top: 0;
-        transition: top 0.1s, transform 0.4s 0.2s;
-        transform: rotate(45deg);
-      }
-    }
-  }
-  @include responsive(768px){
-
-    background-color: var(--primColor);
-    width: 3em;  height: 2em;
-    z-index:200;
-    display: flex;
-    place-content: center center;
-    padding: 0;
-    &.open{
-      right: 0;
-      border-radius: 0 0 0 100%;
-
-    }
-  }
+footer {
+  background: linear-gradient(0deg, var(--primColor) 10%, var(--lightColor) 80%);
+  min-height: 30vh;
+  position: relative;
+  color: var(--darkColor);
 }
-*/
+footer p {
+  margin: 1em 2em;
+  text-align: center;
+  font-size: 1.3em;
+  position: relative;
+  z-index: 1;
+}
+footer .curve {
+  z-index: 0;
+}
+
 .menuBox {
   position: fixed;
   top: 20px;
   font-size: 0.6em;
   right: 20px;
-  z-index: 100;
   transform-origin: 100% 0;
   background-color: var(--primColor);
   filter: drop-shadow(5px 5px 10px var(--darkOpacity));
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 50%;
-  min-width: 5em;
-  min-height: 5em;
+  justify-content: center;
+  border-radius: 50px;
+  width: 4.5em;
+  height: 4.5em;
   transition: all 0.5s ease-in-out;
   animation: openBurger 0.6s ease 0s 1 backwards forwards;
 }
@@ -786,9 +606,10 @@ footer .curve {
   border-radius: 0 0 0 100%;
   top: 0;
   align-items: end;
+  justify-content: start;
   min-height: 25em;
   min-width: 25em;
-  filter: drop-shadow(20px 20px 10px var(--darkColor)) drop-shadow(-20px 0px 10px var(--darkColor));
+  filter: drop-shadow(20px 20px 10px var(--darkColor)) drop-shadow(-20px 0px 10px var(--darkOpacity));
 }
 .menuBox.open .menu {
   margin-right: 0.4em;
@@ -810,6 +631,10 @@ footer .curve {
   transition: top 0.1s, transform 0.4s 0.2s;
   transform: rotate(45deg);
 }
+.menuBox.open:hover {
+  transform: scale(1);
+  background-color: var(--primColor);
+}
 @media screen and (max-width: 768px) {
   .menuBox {
     background-color: var(--primColor);
@@ -827,14 +652,9 @@ footer .curve {
 }
 
 .realizationSection {
-  /*position: relative;
-    display: flex;
-    flex-flow: row wrap;
-
-    gap: 1.5em;
-  */
-  display: grid;
-  grid-template: repeat(4, 1fr)/auto;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1em;
   /*
   .realization {
@@ -899,15 +719,15 @@ footer .curve {
   color: var(--primColor);
 }
 .realizationSection .realization {
-  width: 100%;
-  height: 100%;
-  min-height: 250px;
+  flex-basis: 24%;
   background-color: var(--darkOpacity);
   border-radius: 25px;
   overflow: hidden;
 }
 .realizationSection .realization .imgBox {
-  width: 100%;
+  aspect-ratio: 1.5/1;
+  align-items: center;
+  justify-content: center;
   position: relative;
   align-items: start;
 }
@@ -915,7 +735,7 @@ footer .curve {
   position: absolute;
   height: inherit;
   text-align: center;
-  top: -100%;
+  top: -130%;
   height: 100%;
   font-size: 1.1em;
   z-index: 0;
@@ -948,37 +768,127 @@ footer .curve {
   }
 }
 
-/*
-.realizationTab {
-  background-color: var(--darkColor);
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 25px 25px 0 0;
-  padding: 0.4em 1em;
-
-  .realizationTitle {
-    color: var(--lightColor);
-  }
-
-  h2 {
-    font-size: 1.8em;
-  }
-}*/
 .realizationTab {
   background-color: var(--darkColor);
   display: flex;
   justify-content: space-between;
-  padding: 0.4em 1em;
+  padding: 0.35em 1em;
 }
 .realizationTab .realizationTitle {
   color: var(--lightColor);
-}
-.realizationTab h2 {
-  font-size: 1.8em;
+  font-size: 1.4em;
 }
 
+/*
+.realizationModal {
+  background-color: var(--lightColor);
+  border-radius: 25px;
+  font-size: 1.1em;
+  min-width: 90vw;
+  height: 90vh;
+  overflow: hidden;
+  box-shadow: 20em 5px 20em var(--darkColor), -20em 5px 20em var(--darkColor);
+  display: none;
+  flex-wrap: wrap;
+
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 250;
+
+  transition: transform 0.5s ease-in-out;
+  animation: openRealization 0.6s ease-in-out 0s 1 reverse forwards;
+
+  &.open {
+    animation: openRealization 0.6s ease-in-out 0s 1 normal forwards;
+    display: flex;
+    justify-content: space-between;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out,
+      display 1s ease-in-out;
+  }
+  .realizationTab {
+    height: fit-content;
+    width: 100%;
+  }
+
+  .fullImageContainer {
+    padding: 0;
+    flex-basis: 45%;
+
+    .ytVideo {
+      padding: 0;
+      margin: 0;
+      min-height: 60vh;
+      width: auto;
+    }
+  }
+
+  .realizationInfo {
+    flex: 1;
+    display: block;
+    overflow-y: auto;
+    margin: 2em 1.2em;
+    gap: 1em;
+    max-height: 100%;
+
+    h3 {
+      flex-basis: 100%;
+      color: var(--darkColor);
+      @include variable.afterLine(var(--primColor), 0.2em, 50%);
+    }
+
+    .galleryContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+
+      .imgGallery {
+        flex-grow: 45%;
+        max-height: 200px;
+        border: 0.4em solid var(--secColor);
+        border-radius: 25px;
+        align-items: center;
+      }
+    }
+  }
+  .visitSiteBtn {
+    background-color: var(--primOpacity);
+    border-color: var(--primColor);
+    padding: 0.5em 1em;
+    font-size: 1.1em;
+    margin: 2em 0 5em 0;
+  }
+  @include variable.responsive(768px) {
+    min-width: 100vw;
+
+    min-height: 90vh;
+    width: min-content;
+
+    .open {
+      top: 0vh;
+    }
+    .realizationContent {
+      flex-flow: column nowrap;
+      overflow: scroll;
+      align-items: center;
+
+      .realizationInfo {
+        overflow: hidden;
+        padding: 1em;
+        height: min-content;
+      }
+      .galleryContainer {
+        .imgGallery {
+          min-width: 60%;
+          align-items: center;
+          img {
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}*/
 .realizationModal {
   background-color: var(--lightColor);
   border-radius: 25px;
@@ -1043,14 +953,16 @@ footer .curve {
   background-color: var(--primColor);
 }
 .realizationModal .realizationInfo .galleryContainer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template: auto/repeat(4, 1fr);
   gap: 1em;
 }
+.realizationModal .realizationInfo .galleryContainer h3 {
+  grid-column: span 4;
+}
 .realizationModal .realizationInfo .galleryContainer .imgGallery {
-  flex-grow: 45%;
-  max-height: 200px;
-  border: 0.4em solid var(--secColor);
+  border: 0.3em solid var(--primDark);
+  max-height: 30vh;
   border-radius: 25px;
   align-items: center;
 }
@@ -1080,8 +992,10 @@ footer .curve {
     padding: 1em;
     height: min-content;
   }
+  .realizationModal .realizationContent .galleryContainer {
+    grid-template: auto/1fr;
+  }
   .realizationModal .realizationContent .galleryContainer .imgGallery {
-    min-width: 60%;
     align-items: center;
   }
   .realizationModal .realizationContent .galleryContainer .imgGallery img {
