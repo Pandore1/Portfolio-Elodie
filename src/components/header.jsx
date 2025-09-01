@@ -17,7 +17,7 @@ export default function Header() {
             <Navbar></Navbar>
 
                 <h1>
-                    Élodie
+                    ÉLODIE
                 </h1>
                 <h3>Développeuse Front-end, Designeuse</h3>
                     
@@ -25,9 +25,9 @@ export default function Header() {
                <a href="#about" className="arrowScrollBtn"><img src={ArrowScroll} alt="" /></a>
        
          
-               <div className="curveBox whitePurple">
+               {/* <div className="curveBox whitePurple">
           <img className="curve" src={CurveWhitePurple} alt="" />
-        </div>
+        </div> */}
         </header>
     )
 }

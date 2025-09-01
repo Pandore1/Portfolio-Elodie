@@ -194,7 +194,7 @@ const realizationData = [
           skillClass:"gestion"
         }
       ],
-      previewImage: "MaxEvasion/maxPreview.png",
+      previewImage: "MaxEvasion/preview_MaxEvasion.png",
       fullImage: "MaxEvasion/maxFullImg.png",
       year: "2024",
       webLink:"https://dev.timmatane.ca/etudiants/2022/picarde/MaxEvasion/",
@@ -255,7 +255,7 @@ const realizationData = [
             skillClass:"illustrator",
           }
         ],
-        previewImage: "Wellerman/wellermanPreview.png",
+        previewImage: "Wellerman/preview_Wellerman.png",
         fullImage: null,
         year: "2023",
         webLink:null,
@@ -268,7 +268,7 @@ const realizationData = [
 
       },
       {
-        title: "Tp2 développement web",
+        title: "Collection Librairie",
         desc: "Nous devions concevoir une application web utilisant le frameword réactif VueJs ayant pour objectif de gérer une collection personnelle.",
         task:null,
         type: "Développement",

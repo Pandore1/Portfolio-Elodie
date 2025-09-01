@@ -1,6 +1,6 @@
 import { useState } from "react";
-import RealizationTemplate from "./RealizationTemplate";
-import RealizationModal from "./RealizationModal";
+import RealizationTemplate from "./realizationTemplate";
+import RealizationModal from "./realizationModal";
 import realizationData from "../realizationData";
 import SkillBtn from "./SkillBtn";
 import meHeader from "../assets/personne.png";

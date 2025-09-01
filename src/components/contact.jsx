@@ -7,7 +7,7 @@ export default function Contact() {
       return <p>Thanks for joining!</p>;
   }
   return (
-    <section id="contact" className="contactSection col-5">
+    <section id="contact" className="contactSection">
        <div className="col-5 contactMessage">
             {/* <div className="imgBox">
               <img id="star" className="iconSvg" src={Star} alt="" />

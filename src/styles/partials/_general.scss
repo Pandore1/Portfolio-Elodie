@@ -1,4 +1,17 @@
 @use "variable";
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+	vertical-align: baseline;
+    box-sizing: border-box;
+
+
+}
+html {
+  scroll-behavior: smooth;
+}
 
 *::-webkit-scrollbar {
   height: 10px;
@@ -7,11 +20,9 @@
 *::-webkit-scrollbar-track {
   border-radius: 5px;
   background-color: #dfe9eb;
-}
-
-*::-webkit-scrollbar-track:hover,
-*::-webkit-scrollbar-track:active {
-  background-color: #b8c0c2;
+  &:hover,&:active{
+ background-color: #b8c0c2;
+  }
 }
 
 *::-webkit-scrollbar-thumb {
@@ -23,7 +34,11 @@
 *::-webkit-scrollbar-thumb:active {
   background-color: var(--secColorHover);
 }
+//Classe classique et balise
+body{
+  box-sizing: border-box;
 
+}
 .App {
   background-color: var(--lightColor);
   color: var(--darkColor);
@@ -32,19 +47,22 @@
   display: flex;
   scroll-behavior: smooth;
   flex-direction: column;
+  font-size: 100%;
 
-  box-sizing: border-box;
 }
 
 main {
   flex-grow: 1;
+  max-width: 80%;
   display: flex;
-  flex-direction: column;
-}
-main > section {
-  max-width: 85%;
-  min-width: 80%;
-  margin: 3em auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  section{
+
+ margin: 1em 0;
+ width: 100%;
+  }
 }
 .imgBox {
   overflow: hidden;
@@ -57,9 +75,60 @@ main > section {
   }
 }
 
+
+ul{
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button {
+  font-family: var(--titleFont);
+}
+
+p,input,textarea,body{
+  font-family: var(--textFont);
+}
+a,
+button {
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  &:hover{
+    transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+  }
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3em 0.4em;
+  text-align: center;
+  border-color:none;
+  border-bottom-style: solid;
+  border-bottom-width: 0.3em;
+  border-radius: 50px;
+  transform: scale(1);
+  &:hover{
+  transform: scale(1.09);
+
+  }
+}
+
+
 .backgroundHeader {
   background: linear-gradient(0deg, var(--lightColor) 5%, #43224e 100%);
-  text-align: center;
   padding: 3% auto;
   position: relative;
   display: flex;
@@ -69,25 +138,23 @@ main > section {
   gap: 1.5em;
   color: var(--lightColor);
   font-size: 2em;
-  min-width: 100%;
+  flex-basis: 100%;
   min-height: 95vh;
   .logoBox {
     position: fixed;
     top: 1em;
     padding: 0.5em;
-    width: 3em;
-    height: 3em;
-    border-radius: 50%;
+
     left: 2em;
     z-index: 150;
   }
   h1 {
-    font-size: 5.5em;
+    font-size: 5em;
     z-index: 10;
     position: relative;
-    text-transform: uppercase;
+
     &::after {
-      content: "Picard";
+      content: "PICARD";
       position: absolute;
       left: 50%;
       top: 50%;
@@ -96,21 +163,26 @@ main > section {
       mix-blend-mode: overlay;
       color: transparent;
       letter-spacing: 0.2em;
-      -webkit-text-stroke: 0.02em var(--secColor);
+      -webkit-text-stroke: 0.03em var(--secColor);
     }
   }
 
   .arrowScrollBtn {
     //filter: drop-shadow(0em 0.3em 0.2em var(--primDark));
+
     animation: ArrowScroll 2s ease-in-out 1s infinite both;
+    @include variable.responsive(768px){
+      display: none;
+    }
   }
  
   @include variable.responsive(768px) {
     min-height: 70vh;
     justify-content: start;
     align-items: center;
+    font-size: 2em;
     h1 {
-      font-size: 2.5em;
+      font-size: 2em;
       &::after {
         top: 50%;
         font-size: 1em;
@@ -121,31 +193,28 @@ main > section {
       background-color: transparent;
       box-shadow: none;
       width: 5em;
-      top: 0;
-      left: 0;
+     
       height: 5em;
     }
   }
 }
 
 .aboutSection {
-  margin: 2em auto;
   color: var(--lightColor);
   background-color: var(--primColor);
-  min-width: 30%;
-  max-width: 40%;
   border-radius: 25px;
-  min-height: 250px;
-  padding: 2em 3em;
+  flex-basis: 60%;
+  padding: 1.5em 3em;
+   font-size: 1.2em;
   h2 {
-   @include variable.afterLine(var(--darkColor), 0.2em, 30%);
+   @include variable.afterLine(var(--lightColor), 0.2em, 30%);
   }
-  p {
-    text-align: justify;
-    font-size: 1.2em;
-  }
+ 
   @include variable.responsive(768px) {
-    max-width: 80%;
+    flex-basis: 100%;
+    border-radius: 0;
+    padding: 1.5em 2em;
+    font-size: 1em;
   }
 }
 
@@ -154,7 +223,6 @@ main > section {
   justify-content: space-between;
   flex-flow: row wrap;
   align-items: center;
-  margin-bottom: 4em;
 
   .contactForm {
     display: flex;
@@ -166,7 +234,6 @@ main > section {
 
     .contactInput {
       label {
-        font-size: 1.2em;
         font-weight: 500;
         margin-bottom: 1em;
       }
@@ -180,16 +247,12 @@ main > section {
         color: var(--darkColor);
         border: 0.2em solid var(--darkOpacity);
         border-radius: 10px;
-        box-shadow: 0.1em 0.1em 0.1em 0 var(--darkOpacity);
         transition: 0.3s ease;
         &:focus {
-          background-color: var(--lightColor);
-          border: 0.2em solid var(--primColor);
-          border-radius: 10px;
+          border: 0.2em solid var(--darkColor);
         }
         &::placeholder {
           color: var(--darkColor);
-          font-family: var(--textFont);
         }
       }
       textarea {
@@ -199,7 +262,6 @@ main > section {
     .contactBtn {
       margin-top: 2em;
       font-size: 1.2em;
-      padding: 0.2em auto;
       background-color: var(--primOpacity);
       border-color: var(--primColor);
     }
@@ -211,21 +273,7 @@ main > section {
   flex-direction: column;
   align-items: flex-start;
   gap: 2em;
-  /*
-  .imgBox{
-      overflow:visible;
-      position: relative;
-      max-width: 60%;
-      #star{
-          top: -5em;
-          max-width: 50%;
-          left: 0;
-          backdrop-filter: dropshadow(20px 20px 20px red);
 
-          stroke-linecap: round;
-          stroke-linejoin: round;
-      }
-  }*/
   .downloadCv {
     background-color: var(--primOpacity);
 
